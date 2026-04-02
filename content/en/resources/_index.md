@@ -12,7 +12,7 @@ title: Resources
   
   
 
-{{< image src="images/resources/r2.jpg" style=""  >}}
+{{< image src="images/resources/static/images/resources/微信图片_20260402162230_970.jpg" style=""  >}}
 
  
   
