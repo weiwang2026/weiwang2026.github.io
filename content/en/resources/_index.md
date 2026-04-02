@@ -1,7 +1,59 @@
 ---
 title: Resources
 
+
+
+# 顶部轮播图
+top_slides:
+  block: slider
+  design:
+    # Slide height is automatic unless you force a specific height (e.g. '400px')
+    slide_height: '50vh'
+    is_fullscreen: false
+    # Automatically transition through slides?
+    loop: false
+    # Duration of transition between slides (in ms)
+    interval: 2000
+
+  content:
+    slides:
+      - title: ""
+        content: ""
+        align: center
+        background:
+          image:
+            filename: resources_slides/r2.jpg
+            filters:
+              brightness: 1
+          position: right
+          color: '#666'
+
+      - title: ""
+        content: ""
+        align: center
+        background:
+          image:
+            filename: resources_slides/r3.jpg
+            filters:
+              brightness: 1
+          position: right
+          color: '#666'
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 
@@ -11,8 +63,6 @@ title: Resources
 
   
   
-
-{{< image src="images/resources/static/images/resources/微信图片_20260402162230_970.jpg" style=""  >}}
 
  
   

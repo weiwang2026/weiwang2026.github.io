@@ -196,8 +196,6 @@ body {
 
 
 
-
-
 .page-research {
 
   .research-item {
@@ -678,7 +676,14 @@ body {
 }
 
 
-
+.page-resources {
+  #section-resource-slide {
+    margin-right: 1rem;
+  }
+  .carousel-control-next, .carousel-control-prev {
+    display: none;
+  }
+}
 
 
 
