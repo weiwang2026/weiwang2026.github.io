@@ -1,0 +1,27 @@
+<!-- get value from params -->
+{{ $scope := . }}
+
+
+{{ $img_item := $scope.img_item }}
+
+{{ $class:= index $img_item "class" }}
+{{ $src:= index $img_item  "src" }}
+{{ $style:= index $img_item  "style" }}
+
+
+<div class="short-code-image {{$class}} " >
+  <a      href="{{ $src | relURL }}"
+          style="display: block;"
+          class="glightbox">
+    <img  src="{{ relURL $src }}"  style="{{ $style | safeCSS }}" />
+  </a>
+</div>
+<script type="text/javascript">
+
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   // DOM 已加载，可以安全操作
+  //   // console.log('DOM 已完全加载');
+  //   const options = {};
+  //   const lightbox = GLightbox({ ...options });
+  // });
+</script>

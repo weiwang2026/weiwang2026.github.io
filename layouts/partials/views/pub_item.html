@@ -1,0 +1,30 @@
+{{ $item := .item }}
+{{ $item_index := add .index 1 }}
+
+<div class="paper-item row view-citation" style="">
+
+
+  <div class="col-12 col-md-3">
+    <div class="pub-journal">
+      <a href="{{$item.link}}" target="_blank" >
+      <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+      {{ $item.journal | markdownify | safeHTML}} ({{$item.year}})
+      </a>
+    </div>
+  </div>
+  <div class="col-12 col-md-9">
+    <div class="pub-title">{{/* $item_index */}} {{ $item.title | markdownify | safeHTML}}</div>
+    <div class="pub-author">{{ $item.authors_text | markdownify | safeHTML}}</div>
+    <div class="pub-pages">
+      <span class="j-name"> {{ $item.journal | markdownify | safeHTML}}</span>
+      <span class="j-year"> {{ $item.year | markdownify | safeHTML}}</span>,
+      <span class="j-page"> {{ $item.pages_info | markdownify | safeHTML}}</span>.
+    </div>
+    {{if $item.notes}}
+    <div class="pub-notes">{{ $item.notes | markdownify | safeHTML}}</div>
+    {{end}}
+
+  </div>
+
+
+</div>

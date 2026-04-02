@@ -1,0 +1,121 @@
+
+{{/*
+jQuery轮播效果（Carousell）, 首页 顶部轮播图
+注意 prev nextl 两个button的href id 和 setction id要一致
+https://blog.csdn.net/chenmo2001/article/details/117674446
+*/}}
+{{ $slider_hash_id_top := "hero_sliders" }}
+{{ $slider_args_top := dict "wcPage" $ "wcBlock" .Params.top_slides "wcIdentifier" $slider_hash_id_top }}
+<section  id="section-home-slide" class="home-section wg-home-slide" style="">
+  <div class="  hero-media carousel slide " data-ride="carousel"  id="{{ $slider_hash_id_top }}">
+    {{ partial "blocks/slider.html" $slider_args_top }}
+  </div>
+</section>
+{{/*
+<section id="section-banner-video" class="home-video-section">
+  <div class="home-video-wrapper">
+      <!--<video muted="" id="videoSource" src=""  class="banner-video1" autoplay="" loop=""></video>-->
+      <img  id="videoSource" alt="" src="" />
+  </div>
+</section>
+*/}}
+
+<script type="text/javascript">
+  function randomPlay() {
+    {{/*const videos = [
+      '{{ "video/BlackHornbill.mp4" | relLangURL }}',
+      '{{ "video/Flylizard.mp4" | relLangURL }}',
+      '{{ "video/Pitta.mp4" | relLangURL }}',
+      // 添加更多视频文件路径
+    ];*/}}
+
+    const videos = [
+      '{{ "images/design/h1.png" | relURL }}',
+      '{{ "images/design/h2.png" | relURL }}',
+      '{{ "images/design/h3.png" | relURL }}',
+      '{{ "images/design/h4.png" | relURL }}',
+      // 添加更多视频文件路径
+    ];
+
+    const randomIndex = Math.floor(Math.random() * videos.length);
+    const videoElement = document.getElementById('videoSource');
+    videoElement.src = videos[randomIndex]
+    videoElement.load(); // 重新加载视频以应用新的源
+
+
+    // videoElement.play(); // 自动播放视频
+    // console.log(videoElement.src, '=====')
+  }
+
+  // setTimeout(randomPlay)
+  // randomPlay();
+</script>
+
+
+{{/*
+jQuery轮播效果（Carousell）
+注意 prev nextl 两个button的href id 和 setction id要一致
+https://blog.csdn.net/chenmo2001/article/details/117674446
+*/}}
+{{ $heroBlock := .Params.heroBlock }}
+{{ $slider_hash_id := "hero_sliders" }}
+{{ $slider_args := dict "wcPage" $ "wcBlock" .Params.heroSlideBlock "wcIdentifier" $slider_hash_id }}
+<section id="section-hero" class="home-section wg-hero">
+  <div class="container home-team-intro">
+    <h1 class="hero-title" >{{ $heroBlock.content.title | markdownify}}</h1>
+    <div class="hero-subtitle" >{{ $heroBlock.content.subtitle | markdownify }}</div>
+    <div class="hero-lead" >
+      {{ $heroBlock.content.text | markdownify }}
+    </div>
+    <div class="  hero-media carousel slide "
+         id="{{ $slider_hash_id }}">
+      {{ partial "blocks/slider.html" $slider_args }}
+    </div>
+
+    {{/*<div class="row">
+      <div class="col-12 col-md-6 text-center text-md-left">
+        <h1 class="hero-title" >{{ $heroBlock.content.title }}</h1>
+        <div class="hero-lead" >
+            {{ $heroBlock.content.text | markdownify }}
+        </div>
+      </div>
+      <div class="col-12 col-md-6 hero-media carousel slide "
+           id="{{ $slider_hash_id }}">
+          {{ partial "blocks/slider.html" $slider_args }}
+      </div>
+    </div>*/}}
+
+  </div>
+</section>
+
+{{/*
+{{ $newsBlock := .Params.newsBlock }}
+{{ $pubsBlock := .Params.publicationsBlock }}
+{{ $news_args := dict "wcPage" $ "wcBlock" $newsBlock "wcIdentifier" "latest_news" }}
+{{ $pubs_args := dict "wcPage" $ "wcBlock" $pubsBlock "wcIdentifier" "latest_pubs" }}
+<section id="section-news" class="home-section wg-news">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-7 text-center text-md-left">
+          <div><h1>{{ $newsBlock.content.title }}</h1></div>
+          {{ partial "blocks/collection.html" $news_args }}
+      </div>
+
+      <div class="col-12 col-md-5  text-center text-md-left ">
+        <div><h1>{{ $pubsBlock.content.title }}</h1></div>
+          {{ partial "blocks/collection.html" $pubs_args }}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{ $team_args := dict "wcPage" $ "wcBlock" .Params.teamsBlock "wcIdentifier" "meet_the_team" }}
+<section id="section-meet-team" class="home-section wg-team">
+  <div class="container">
+    <div class="row">
+          {{ partial "blocks/markdown.html" $team_args }}
+    </div>
+  </div>
+</section>
+*/}}

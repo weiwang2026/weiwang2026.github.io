@@ -1,0 +1,44 @@
+{{- define "main" -}}
+
+
+{{/* Query */}}
+{{- $query := site.Data.publications -}}
+{{- $query = sort $query "year" "desc" -}}
+
+{{ partial "page_header.html" . }}
+
+<div class="universal-wrapper pt-3 page-publication-list">
+  <div class="row">
+    <div class="col-12">
+
+      {{ with .Content }}
+      <div class="article-style">{{ . }}</div>
+      {{ end }}
+
+
+      <div style="padding: 2rem 0; ">
+        Full list in
+        <a target="_blank" href="https://scholar.google.com/citations?user=5YvuMwQAAAAJ">
+          Google Scholar
+        </a>.
+      </div>
+      <div id="container-publications">
+        {{ range $index, $item := $query }}
+
+
+        <div class="grid-sizer col-lg-12 isotope-item pubtype-pub year-{{ $item.year | time.Format "2006" }}">
+          {{ partial "views/pub_item.html" (dict
+              "page" .
+              "index" $index
+              "item" $item
+          )}}
+        </div>
+
+        {{ end }}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{{- end -}}

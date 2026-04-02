@@ -1,0 +1,38 @@
+{{- define "main" -}}
+
+{{ partial "page_header.html" . }}
+
+<div class="universal-wrapper  page-research ">
+  {{ with .Content }}
+    <div class="article-style">{{ . }}</div>
+  {{ end }}
+
+
+
+  <div class="research-list-wrap">
+    {{ range $index, $item := .Params.research_areas }}
+
+      <div class="research-item r-index{{$index}} row  ">
+
+        <div class="col-12 col-md-6 r-img">
+          <div class=" r-img-wrap ">
+            <img alt="" src="{{ $item.image | relURL }}" />
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6   rc-wrap">
+          <div class="r-title">{{$item.title | markdownify}}</div>
+          <div class="r-content">{{$item.desc | markdownify}}</div>
+        </div>
+
+
+      </div>
+
+    {{ end }}
+  </div>
+
+
+
+</div>
+
+{{- end -}}

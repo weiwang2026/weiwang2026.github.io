@@ -1,0 +1,14 @@
+# The Native Font Theme provides optimum text rendering on every device and OS.
+# Note that the native font families are automatically populated by Academic.
+
+# Font style metadata
+name = "Apec"
+
+# Optional Google font URL
+google_fonts = ""
+
+# Font families
+heading_font = "Georgia"
+body_font = "Georgia"
+nav_font = "Georgia"
+mono_font = "Georgia"

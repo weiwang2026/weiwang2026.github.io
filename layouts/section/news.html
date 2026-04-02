@@ -1,0 +1,65 @@
+{{- define "main" -}}
+
+  {{ partial "page_header.html" . }}
+
+  <div class="universal-wrapper  page-news ">
+    {{ with .Content }}
+      <div class="article-style">{{ . }}</div>
+    {{ end }}
+
+
+
+    <div class="news-list-wrap mt-5">
+      {{ range $index, $item := .Params.news_list }}
+
+         {{$img_item := dict
+              "src"  $item.lead_image
+              "class"  "news-lead-img"
+              "style"  ""
+         }}
+
+          <div class="news-item   n-index{{$index}}  row">
+            <div class="col-12 col-md-3 ">
+              <div class="lead-content">
+
+                <div class="news-date">{{$item.date | markdownify | emojify }}</div>
+                {{if $item.lead_image}}
+                  {{ partial "components/image_click.html" (dict
+                  "page" .
+                  "index" $index
+                  "img_item" $img_item
+                  )}}
+                {{end}}
+              </div>
+            </div>
+            <div class="col-12 col-md-9 news-content">
+              {{$item.content | markdownify | emojify }}
+            </div>
+          </div>
+
+      {{ end }}
+    </div>
+
+    <script type="text/javascript">
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // DOM 已加载，可以安全操作
+        // console.log('DOM 已完全加载');
+        // 要实现 GLightbox 点击放大图片时不显示"上一张/下一张"的切换功能，你需要通过配置选项禁用导航和循环播放。
+        const options = {
+          loop: false,           // 禁用循环播放，到达最后一张后不再继续
+          draggable: false,      // 禁用鼠标拖拽切换图片
+          touchNavigation: false,  // 禁用触摸滑动切换（移动端）
+          closeButton: true,        // 保留关闭按钮
+          zoomable: true,           // 保留缩放功能（可选）
+          keyboardNavigation: false // 也可禁用键盘左右键切换
+        };
+        const lightbox = GLightbox({ ...options });
+      });
+    </script>
+
+
+
+  </div>
+
+{{- end -}}

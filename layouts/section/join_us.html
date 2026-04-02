@@ -1,0 +1,64 @@
+{{- define "main" -}}
+
+  {{ partial "page_header.html" . }}
+
+  <div class="universal-wrapper  page-join-us ">
+    {{ with .Content }}
+      <div class="article-style mt-3">{{ . }}</div>
+    {{ end }}
+
+
+
+    <div class="join-us-wrap mt-5 row">
+      {{ range $index, $item := .Params.job_positions }}
+
+        <div class=" n-index{{$index}}  col-12 col-md-6  mb-3 ">
+
+
+          <div class="position-card">
+            <div class="card-header">
+              <div class="position-title">
+                {{$item.title | markdownify}}
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="info-section">
+                {{if $item.desc_part1.title}}
+                <div class="section-label">
+                  <i class="{{$item.desc_part1.icon}}"></i> {{$item.desc_part1.title | markdownify}}
+                </div>
+                {{end}}
+                <div class="section-content">
+                  {{$item.desc_part1.desc | markdownify}}
+                </div>
+              </div>
+              <div class="info-section">
+
+                {{if $item.desc_part2.title}}
+                  <div class="section-label">
+                    <i class="{{$item.desc_part2.icon}}"></i> {{$item.desc_part2.title | markdownify}}
+                  </div>
+                {{end}}
+
+                <div class="section-content">
+                  {{$item.desc_part2.desc | markdownify}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      {{ end }}
+    </div>
+
+
+    <div class="apply-wrap">
+        {{.Params.apply_desc | markdownify}}
+    </div>
+
+
+
+  </div>
+
+{{- end -}}

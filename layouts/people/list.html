@@ -1,0 +1,139 @@
+{{- define "main" -}}
+
+
+    {{/* Initialise */}}
+    {{ $members_key_titles := .Params.members_key_titles }}
+    {{ $block := index .Params.sections 0 }}
+    {{ $show_social := $block.design.show_social | default false }}
+    {{ $show_interests := $block.design.show_interests | default true }}
+    {{ $show_organizations := $block.design.show_organizations | default false }}
+    {{ $show_role := $block.design.show_role | default true }}
+
+<div class="universal-wrapper people-list-wrap pt-3">
+  <div class="row ">
+      {{ with $block.content.title }}
+        <div class="section-heading  mb-5   ">
+          <h1 class="mb-0 list-page-h1-heading ">{{ . | markdownify | emojify }}</h1>
+            {{ with $block.content.subtitle }}<p class="mt-1">{{ . | markdownify | emojify }}</p>{{ end }}
+        </div>
+      {{ end }}
+
+      {{ with $block.content.text }}
+        <div class="col-12">
+            {{ . | safeHTML }}
+        </div>
+      {{ end }}
+
+
+    {{ range  $index1, $member := .Params.members }}
+      <div class="people-persons-list-row people-person  ">
+        {{ $src := "images/design/p-user.jpg" | relURL }}
+        {{if .avatar }} {{ $src = $member.avatar | relURL }} {{end}}
+
+
+          {{ $avatar_shape := site.Params.features.avatar.shape | default "circle" }}
+          <div class="person-img ">
+            <img width="270" height="270" loading="lazy" class="avatar avatar-square " src="{{ $src }}" alt="Avatar" />
+            {{ if $show_social }}
+              <div class="p-social-links">
+                {{ partial "people_social_links" . }}
+              </div>
+            {{ end }}
+          </div>
+
+
+        <div class="portrait-title person-desc">
+
+
+
+          <div class="row name-row">
+            <div class="col-6 p-name">{{ index $member "name" | markdownify }}</div>
+            <div class="col-6 p-position">
+              <span class=" wrap-bg">{{ index $member "position" | markdownify }}</span>
+            </div>
+          </div>
+
+          <div class="info-wrap1">
+            <div class="research-row">
+              <div class="p-research">
+                <i class="fas fa-microscope"></i>
+                <span>{{ index $members_key_titles "research" | markdownify }}: {{ index $member "research" | markdownify }}</span>
+              </div>
+            </div>
+
+            <div class="join-at-row">
+              <div class="p-join_date">
+                <i class="fas fa-calendar-alt"></i>
+                <span>{{ index $members_key_titles "join_date" | markdownify }}: {{ index $member "join_date" | markdownify }}</span>
+              </div>
+            </div>
+
+            <div class="email-row">
+              <div class="p-email">
+                <i class="fas fa-envelope"></i> {{ index $member "email" | markdownify }}
+              </div>
+            </div>
+          </div>
+
+
+          {{ if $member.education }}
+            <div class="education-row">
+              <div class="p-work">
+                <i class="fas fa-graduation-cap"></i> {{ index $members_key_titles "education" | markdownify }}
+              </div>
+              <div class="work-list">
+                {{ range $index4, $education := $member.education }}
+                  <div class="wp-item">
+                    <span class="wp-period">{{ $education.period | markdownify }}</span>
+                    <span class="wp-position">{{ $education.degree | markdownify }}  · </span>
+                    <span class="wp-institution">{{ $education.institution | markdownify }}</span>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+
+
+          {{ if $member.work_experience }}
+          <div class="work-row">
+            <div class="p-work">
+              <i class="fas fa-briefcase"></i> {{ index $members_key_titles "work_experience" | markdownify }}
+            </div>
+            <div class="work-list">
+              {{ range $index3, $work_experience := $member.work_experience }}
+                <div class="wp-item">
+                  <span class="wp-period">{{ $work_experience.period | markdownify }}</span>
+                  <span class="wp-position">{{ $work_experience.position | markdownify }}  · </span>
+                  <span class="wp-institution">{{ $work_experience.institution | markdownify }}</span>
+                </div>
+              {{ end }}
+            </div>
+          </div>
+          {{ end }}
+
+
+
+
+
+
+          {{/*{{ range $index2, $key := slice "name" "position" "join_date" "research" "email" }}
+            <div class="person-attr attr-{{$key}}">
+              <div  class="attr-key-name">{{ index $members_key_titles $key | markdownify }}:</div>
+              <div class="attr-value1">{{ index $member $key | markdownify }}</div>
+            </div>
+          {{ end }}*/}}
+
+
+
+
+        </div>
+      </div>
+    {{ end }}
+
+  </div>
+</div>
+
+
+
+
+{{- end -}}
