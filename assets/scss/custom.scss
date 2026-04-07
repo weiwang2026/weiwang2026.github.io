@@ -310,7 +310,8 @@ body {
 
     i {
       color: #5d646d;
-      margin: 0.5rem 0.5rem 0.5rem 0;
+      margin: 0.5rem 0.3rem 0.5rem 0;
+      width: 1.2rem;
     }
 
     .p-name {
@@ -329,6 +330,8 @@ body {
     .wp-period {
       font-weight: bold;
       margin-right: 1rem;
+      min-width: 10rem;
+      display: inline-block;
     }
 
   }
@@ -458,7 +461,7 @@ body {
     .lead-content {
 
       width: 80%;
-      margin: auto;
+      margin: 0;
       text-align: center;
       .news-date {
         font-weight: bold;
@@ -757,6 +760,12 @@ body {
     }
   }
 
-
+  .page-news {
+    .news-item{
+      .lead-content {
+        text-align: left;
+      }
+    }
+  }
 
 }

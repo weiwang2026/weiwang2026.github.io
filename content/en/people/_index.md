@@ -136,10 +136,10 @@ members:
     research: Medicinal Chemistry
     work_experience: null
     education:
-      - degree: M.S.
+      - degree: Master
         institution: Shanghai Institute of Materia Medica, Chinese Academy of Sciences
         period: Sep 2022 – Jun 2025
-      - degree: B.S.
+      - degree: Bachelor
         institution: Hainan University
         period: Sep 2018 – Jun 2022
     email: hyli@eitech.edu.cn

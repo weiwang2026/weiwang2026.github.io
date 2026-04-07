@@ -19,7 +19,7 @@
          }}
 
           <div class="news-item   n-index{{$index}}  row">
-            <div class="col-12 col-md-3 ">
+            <div class="col-12 col-md-2 ">
               <div class="lead-content">
 
                 <div class="news-date">{{$item.date | markdownify | emojify }}</div>
@@ -32,7 +32,7 @@
                 {{end}}
               </div>
             </div>
-            <div class="col-12 col-md-9 news-content">
+            <div class="col-12 col-md-10 news-content">
               {{$item.content | markdownify | emojify }}
             </div>
           </div>

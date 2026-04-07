@@ -9,14 +9,22 @@
     {{ $show_organizations := $block.design.show_organizations | default false }}
     {{ $show_role := $block.design.show_role | default true }}
 
+
+    {{/* partial "page_header.html" . */}}
+
+
+    <div class="universal-wrapper pt-3" style="padding-left: 0;">
+      <h1 class="list-page-h1-heading">{{.Title}}</h1>
+    </div>
+
 <div class="universal-wrapper people-list-wrap pt-3">
   <div class="row ">
-      {{ with $block.content.title }}
+      {{/* with $block.content.title }}
         <div class="section-heading  mb-5   ">
           <h1 class="mb-0 list-page-h1-heading ">{{ . | markdownify | emojify }}</h1>
             {{ with $block.content.subtitle }}<p class="mt-1">{{ . | markdownify | emojify }}</p>{{ end }}
         </div>
-      {{ end }}
+      {{ end */}}
 
       {{ with $block.content.text }}
         <div class="col-12">
@@ -83,10 +91,14 @@
               </div>
               <div class="work-list">
                 {{ range $index4, $education := $member.education }}
-                  <div class="wp-item">
-                    <span class="wp-period">{{ $education.period | markdownify }}</span>
-                    <span class="wp-position">{{ $education.degree | markdownify }}  · </span>
-                    <span class="wp-institution">{{ $education.institution | markdownify }}</span>
+                  <div class="wp-item row">
+                    <div class="col-12 col-md-4">
+                      <span class="wp-period">{{ $education.period | markdownify }}</span>
+                    </div>
+                    <div class="col-12 col-md-8">
+                      <span class="wp-position">{{ $education.degree | markdownify }}  · </span>
+                      <span class="wp-institution">{{ $education.institution | markdownify }}</span>
+                    </div>
                   </div>
                 {{ end }}
               </div>
@@ -101,10 +113,15 @@
             </div>
             <div class="work-list">
               {{ range $index3, $work_experience := $member.work_experience }}
-                <div class="wp-item">
-                  <span class="wp-period">{{ $work_experience.period | markdownify }}</span>
-                  <span class="wp-position">{{ $work_experience.position | markdownify }}  · </span>
-                  <span class="wp-institution">{{ $work_experience.institution | markdownify }}</span>
+                <div class="wp-item row">
+
+                  <div class="col-12 col-md-4">
+                    <span class="wp-period">{{ $work_experience.period | markdownify }}</span>
+                  </div>
+                  <div class="col-12 col-md-8">
+                    <span class="wp-position">{{ $work_experience.position | markdownify }}  · </span>
+                    <span class="wp-institution">{{ $work_experience.institution | markdownify }}</span>
+                  </div>
                 </div>
               {{ end }}
             </div>

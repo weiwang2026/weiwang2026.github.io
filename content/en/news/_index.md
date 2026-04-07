@@ -14,7 +14,7 @@ news_list:
   - date: 2025
     lead_image: ""
     content: |
-      AIMBE Fellow: Professor Wang Wang has been selected as a Fellow of the American Institute for Medical and Biological Engineering (AIMBE).
+      AIMBE Fellow: Professor Wang has been selected as a Fellow of the American Institute for Medical and Biological Engineering (AIMBE).
       
       
 
