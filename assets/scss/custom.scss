@@ -17,6 +17,7 @@ body {
   //background-color: #def2f1;
   //background-color: $option-bg1;
   font-family: Georgia,"Times new roman",Times,serif;
+  // color: #333333;
 }
 
 @media (min-width: 1200px) {
@@ -73,12 +74,12 @@ body {
 
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   //border-bottom: 4px solid #2b7a78;
   border-bottom: 4px solid $navbar-theme-bg-primary;
   display: inline-block;
-  padding: 1rem 1rem 1rem 0;
+  // padding: 1rem 1rem 1rem 0;
 }
 
 #section-hero {
@@ -174,7 +175,14 @@ body {
 .navbar-light .navbar-brand {
   color: $navbar-theme-text-primary;
 }
-
+.navbar-nav {
+  .dropdown-item {
+    color: $navbar-theme-bg-primary !important;
+  }
+  .dropdown-item-active {
+    color: #333333 !important;
+  }
+}
 
 @media only screen and (min-width: 1001px) {
   .universal-wrapper {

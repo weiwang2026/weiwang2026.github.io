@@ -40,7 +40,7 @@ header:
     show_language: false
     show_day_night: false
     show_search: false
-    show_translations: false
+    show_translations: true
     highlight_active_link: false
 
 # Site footer
