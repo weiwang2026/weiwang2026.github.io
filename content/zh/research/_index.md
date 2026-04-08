@@ -5,7 +5,7 @@ research_areas:
   - title: "精准合成方法学"
     image: "images/research/r-1.jpg"
     desc: |
-      发展不对称催化、光催化等策略，高效构筑复杂药物分子骨架
+      发展不对称催化、光催化等策略，高效构筑复杂药物分子骨架。
       
   - title: "化学生物学前沿"
     image: "images/research/r2.png"
