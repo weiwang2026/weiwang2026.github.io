@@ -41,7 +41,7 @@ job_positions:
 
   - title: 科研助理
     desc_part1: 
-      title: Qualifications
+      title: 岗位要求
       icon:  fas fa-handshake
       desc:  药物化学、化学生物学或相关领域背景。
     desc_part2: 
@@ -55,4 +55,4 @@ job_positions:
 
 ---
 
-我们目前正在招聘以下职位的有才之士：
+诚邀有志之士加盟，拟招聘岗位如下：

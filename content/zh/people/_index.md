@@ -74,7 +74,7 @@ members:
         institution: 宁波东方理工大学
         period: 2026年1月 — 至今
       - position: 博士后
-        institution: University of Arizona
+        institution: 亚利桑那大学
         period: 2025年7月 — 2026年1月
     education:
       - degree: 博士
@@ -98,7 +98,7 @@ members:
         institution: 宁波东方理工大学
         period: 2026年1月 — 至今
       - position: 博士后
-        institution: University of Arizona
+        institution: 亚利桑那大学
         period: 2025年7月 — 2026年1月
     education:
       - degree: 博士
@@ -114,7 +114,7 @@ members:
 
   - name: 戴望烜
     avatar: "images/members/dai-wang-heng.png"
-    position: 研究助理
+    position: 科研助理
     join_date: 2026年1月
     research: 干细胞衰老
     work_experience: null

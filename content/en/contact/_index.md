@@ -9,7 +9,7 @@ content_titles:
   contact_info: Contact Information
 
 content_values:
-  email: wei.wang@eitech.edu.cn
+  email: weiwang@eitech.edu.cn
   address: Ningbo Dongfang University of Technology, Ningbo, Zhejiang, China
   university_site: https://www.eitech.edu.cn
   site_info: For more information, please visit the university's website
