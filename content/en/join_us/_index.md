@@ -36,7 +36,8 @@ job_positions:
     desc_part2: 
       title: Structure
       icon: fas fa-calendar-alt 
-      desc:  4 years (2 years in Hong Kong/Shanghai/USTC and 2 years in Ningbo).
+      # desc:  4 years (2 years in Hong Kong/Shanghai/USTC and 2 years in Ningbo).
+      desc:  4 years (2 years in Hong Kong and 2 years in Ningbo, or 1 year in Shanghai/USTC and 3 years in Ningbo).
 
 
   - title: Research Assistant
