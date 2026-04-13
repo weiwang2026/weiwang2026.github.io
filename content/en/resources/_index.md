@@ -27,7 +27,7 @@ top_slides:
             filters:
               brightness: 1
           position: right
-          color: '#666'
+          color: '#ffffff'
 
       - title: ""
         content: ""
@@ -38,7 +38,7 @@ top_slides:
             filters:
               brightness: 1
           position: right
-          color: '#666'
+          color: '#ffffff'
 
  
       
@@ -51,7 +51,7 @@ top_slides:
             filters:
               brightness: 1
           position: right
-          color: '#666'
+          color: '#ffffff'
 
       - title: ""
         content: ""
@@ -62,7 +62,7 @@ top_slides:
             filters:
               brightness: 1
           position: right
-          color: '#666'
+          color: '#ffffff'
 
  
  
@@ -76,7 +76,7 @@ top_slides:
             filters:
               brightness: 1
           position: right
-          color: '#666'
+          color: '#ffffff'
 
       - title: ""
         content: ""
@@ -87,7 +87,7 @@ top_slides:
             filters:
               brightness: 1
           position: right
-          color: '#666'
+          color: '#ffffff'
 
  
 

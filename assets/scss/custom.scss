@@ -694,6 +694,15 @@ body {
   .carousel-control-next, .carousel-control-prev {
     display: none;
   }
+  .carousel-item {
+    background-size: contain !important;
+    height: 53rem !important;
+  }
+  .carousel-indicators {
+    li {
+      background-color: #ccc;
+    }
+  }
 }
 
 
@@ -764,6 +773,18 @@ body {
     .news-item{
       .lead-content {
         text-align: left;
+      }
+    }
+  }
+
+
+  .page-resources {
+    .carousel-item {
+      height: 17rem !important;
+    }
+    .carousel-indicators {
+      li {
+        background-color: #fff;
       }
     }
   }
