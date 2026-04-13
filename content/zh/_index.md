@@ -21,7 +21,7 @@ top_slides:
   content:
     slides:
       - title: "构建贯通精准有机合成、化学生物学与创新药物研发的闭环体系"
-        content: "面向化学与生命科学交叉前沿，聚焦原创化学工具开发"
+        content: "打造覆盖原创化学工具开发、机制研究与药物转化的全链条研究平台"
         align: center
         background:
           image:
@@ -31,8 +31,8 @@ top_slides:
           position: right
           color: '#666'
           
-      - title: "服务癌症、神经退行性疾病与抗衰老等重大健康需求"
-        content: "面向化学与生命科学交叉前沿，聚焦原创化学工具开发"
+      - title: "服务癌症、神经退行性疾病与抗衰老等重大疾病治疗需求"
+        content: "聚焦原创化学工具开发，推动复杂疾病精准干预与治疗创新"
         align: center
         background:
           image:
@@ -43,7 +43,7 @@ top_slides:
           color: '#666'
           
       - title: "构建贯通精准有机合成、化学生物学与创新药物研发的闭环体系"
-        content: "面向化学与生命科学交叉前沿，聚焦原创化学工具开发"
+        content: "打造覆盖原创化学工具开发、机制研究与药物转化的全链条研究平台"
         align: center
         background:
           image:
@@ -53,8 +53,8 @@ top_slides:
           position: right
           color: '#666'
           
-      - title: "服务癌症、神经退行性疾病与抗衰老等重大健康需求"
-        content: "面向化学与生命科学交叉前沿，聚焦原创化学工具开发"
+      - title: "服务癌症、神经退行性疾病与抗衰老等重大疾病治疗需求"
+        content: "聚焦原创化学工具开发，推动复杂疾病精准干预与治疗创新"
         align: center
         background:
           image:

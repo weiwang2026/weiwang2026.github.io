@@ -17,12 +17,13 @@ top_slides:
 
   content:
     slides:
+      
       - title: ""
         content: ""
         align: center
         background:
           image:
-            filename: resources_slides/r2.jpg
+            filename: resources_slides/re1.jpg
             filters:
               brightness: 1
           position: right
@@ -33,7 +34,56 @@ top_slides:
         align: center
         background:
           image:
-            filename: resources_slides/r3.jpg
+            filename: resources_slides/re2.jpg
+            filters:
+              brightness: 1
+          position: right
+          color: '#666'
+
+ 
+      
+      - title: ""
+        content: ""
+        align: center
+        background:
+          image:
+            filename: resources_slides/re3.jpg
+            filters:
+              brightness: 1
+          position: right
+          color: '#666'
+
+      - title: ""
+        content: ""
+        align: center
+        background:
+          image:
+            filename: resources_slides/re4.png
+            filters:
+              brightness: 1
+          position: right
+          color: '#666'
+
+ 
+ 
+      
+      - title: ""
+        content: ""
+        align: center
+        background:
+          image:
+            filename: resources_slides/re5.jpg
+            filters:
+              brightness: 1
+          position: right
+          color: '#666'
+
+      - title: ""
+        content: ""
+        align: center
+        background:
+          image:
+            filename: resources_slides/re6.jpg
             filters:
               brightness: 1
           position: right

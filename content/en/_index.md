@@ -20,8 +20,8 @@ top_slides:
 
   content:
     slides:
-      - title: "Decode and Modulate biological complexity"
-        content: "The Wang Group is dedicated to the orchestration of advanced chemical toolkits to decode and modulate biological complexity"
+      - title: "Integrating Precision Organic Synthesis, Chemical Biology, and Innovative Drug Discovery"
+        content: "Building a Closed-Loop Research Ecosystem for Next-Generation Therapeutic Innovation"
         align: center
         background:
           image:
@@ -31,8 +31,8 @@ top_slides:
           position: right
           color: '#666'
           
-      - title: "Decode and Modulate biological complexity"
-        content: "The Wang Group is dedicated to the orchestration of advanced chemical toolkits to decode and modulate biological complexity"
+      - title: "Addressing Major Therapeutic Needs in Cancer, Neurodegenerative Diseases, and Aging"
+        content: "Developing Original Chemical Tools to Tackle Complex Diseases"
         align: center
         background:
           image:
@@ -42,8 +42,8 @@ top_slides:
           position: right
           color: '#666'
           
-      - title: "Decode and Modulate biological complexity"
-        content: "The Wang Group is dedicated to the orchestration of advanced chemical toolkits to decode and modulate biological complexity"
+      - title: "Integrating Precision Organic Synthesis, Chemical Biology, and Innovative Drug Discovery"
+        content: "Building a Closed-Loop Research Ecosystem for Next-Generation Therapeutic Innovation"
         align: center
         background:
           image:
@@ -53,8 +53,8 @@ top_slides:
           position: right
           color: '#666'
           
-      - title: "Decode and Modulate biological complexity"
-        content: "The Wang Group is dedicated to the orchestration of advanced chemical toolkits to decode and modulate biological complexity"
+      - title: "Addressing Major Therapeutic Needs in Cancer, Neurodegenerative Diseases, and Aging"
+        content: "Developing Original Chemical Tools to Tackle Complex Diseases"
         align: center
         background:
           image:

@@ -28,15 +28,16 @@ job_positions:
       desc:  税前年薪32-55万元，五险一金，带薪年假，住房支持及科研经费资助。
 
 
-  - title: 联合培养博士生项目
+  - title: 联合博士培养项目
     desc_part1: 
       title: 
       icon:  fas fa-handshake
-      desc:  与香港理工大学、上海交通大学、中国科学技术大学联合培养博士生。
+      desc:  本项目合作院校包括香港理工大学、上海交通大学与中国科学技术大学。
     desc_part2: 
-      title: 学制
+      title: 培养结构
       icon: fas fa-calendar-alt 
-      desc: 4年（前2年在香港/上海/中科大，后2年在宁波）。
+      desc: | 
+        学制 4 年（两种培养路径可选： 2 年在香港 + 2 年在宁波； 1 年在上海 / 中国科学技术大学 + 3 年在宁波）。
 
 
   - title: 科研助理
