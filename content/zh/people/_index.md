@@ -157,7 +157,7 @@ members:
 
   - name: 李鸿渊
     avatar: "images/members/li-hong-yuan.jpg"
-    position: 科研助理
+    position: 博士生
     join_date: 2026年2月
     research: 药物化学
     work_experience: null
@@ -169,7 +169,17 @@ members:
         institution: 海南大学
         period: 2018年9月 — 2022年6月
     email: hyli@eitech.edu.cn
-
+  - name: 马利洁
+    avatar: "images/members/ma-li-jie.jpg"
+    position: 博士生
+    join_date: 2026年6月
+    research: 化学生物学
+    work_experience: null
+    education:
+      - degree: 学士
+        institution: 安徽大学
+        period: 2020年9月 — 2024年6月
+    email: mlj1101@ustc.mail.edu.cn
   - name: 任俊欣
     avatar: "images/members/ren-jun-xin.jpg"
     position: 博士生
@@ -201,7 +211,7 @@ members:
 
   - name: 王迎澳
     avatar: "images/members/wang-ying-ao.jpg"
-    position: 科研助理
+    position: 博士生
     join_date: 2026年1月
     research: 药物化学
     work_experience: null
