@@ -42,7 +42,35 @@ members_key_titles:
   work_experience: Work experience
 
 members:
-
+  - name: Jingjie Chang
+    avatar: "images/members/chang-jing-jie.jpg"
+    position: Postdoctoral Fellow
+    join_date: September 2026
+    research: Immunity
+    work_experience:
+      - position: Postdoctoral Fellow
+        institution: Eastern Institute of Technology, Ningbo
+        period: Sep 2026 – Present
+      - position: Postdoctoral Fellow
+        institution: Westlake University
+        period: Mar 2024 – Feb 2026
+      - position: Research Assistant
+        institution: Guangzhou Women and Children Medical Center
+        period: Jul 2019 – Sep 2020
+      - position: Research Assistant
+        institution: Guangzhou Medical University
+        period: Aug 2018 – Jun 2019
+    education:
+      - degree: PhD
+        institution: Tokyo Medical and Dental University
+        period: Oct 2020 – Sep 2023
+      - degree: Master
+        institution: Dalian Medical University
+        period: Sep 2015 – Jun 2018
+      - degree: Bachelor
+        institution: Henan Normal University
+        period: Sep 2011 – Jun 2015
+    email: jchang@eitech.edu.cn
 
   - name: Meiqin Xu
     avatar: "images/members/xu-mei-qin.jpg"
