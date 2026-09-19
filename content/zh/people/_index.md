@@ -170,6 +170,20 @@ members:
         period: 2018年9月 — 2022年6月
     email: hyli@eitech.edu.cn
 
+  - name: 任俊欣
+    avatar: "images/members/ren-jun-xin.jpg"
+    position: 博士生
+    join_date: 2026年7月
+    research: 药物化学
+    work_experience: null
+    education:
+      - degree: 硕士
+        institution: 中山大学
+        period: 2023年9月 — 2026年6月
+      - degree: 学士
+        institution: 沈阳药科大学
+        period: 2019年9月 — 2023年6月
+    email: jxren@eitech.edu.cn
   - name: 孙耀宗
     avatar: "images/members/sun-yao-zong.jpg"
     position: 科研助理
