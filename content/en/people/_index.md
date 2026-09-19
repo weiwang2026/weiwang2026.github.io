@@ -167,6 +167,20 @@ members:
         institution: Nanchang University
         period: Sep 2020 – Jun 2024
     email: huang_ying@mail.ustc.edu.cn
+  - name: Qixuan Jiang
+    avatar: "images/members/jiang-qi-xuan.png"
+    position: PhD Student
+    join_date: July 2026
+    research: Organic Chemistry, Medicinal Chemistry
+    work_experience: null
+    education:
+      - degree: Master
+        institution: Hangzhou Institute for Advanced Study, UCAS
+        period: Sep 2023 – Jun 2026
+      - degree: Bachelor
+        institution: Shihezi University
+        period: Sep 2019 – Jun 2023
+    email: qxjiang@eitech.edu.cn
 
   - name: Hongyuan Li
     avatar: "images/members/li-hong-yuan.jpg"
