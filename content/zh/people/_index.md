@@ -165,6 +165,20 @@ members:
         institution: 南昌大学
         period: 2020年9月 — 2024年6月
     email: huang_ying@mail.ustc.edu.cn
+  - name: 姜棋轩
+    avatar: "images/members/jiang-qi-xuan.png"
+    position: 博士生
+    join_date: 2026年7月
+    research: 有机化学、药物化学
+    work_experience: null
+    education:
+      - degree: 硕士
+        institution: 国科大杭州高等研究院
+        period: 2023年9月 — 2026年6月
+      - degree: 学士
+        institution: 石河子大学
+        period: 2019年9月 — 2023年6月
+    email: qxjiang@eitech.edu.cn
 
   - name: 李鸿渊
     avatar: "images/members/li-hong-yuan.jpg"
