@@ -154,6 +154,17 @@ members:
         institution: 温州医科大学
         period: 2017年9月 — 2021年6月
     email: wxdai@eitech.edu.cn
+  - name: 黄莹
+    avatar: "images/members/huang-ying.png"
+    position: 博士生
+    join_date: 2026年7月
+    research: 化学生物学
+    work_experience: null
+    education:
+      - degree: 学士
+        institution: 南昌大学
+        period: 2020年9月 — 2024年6月
+    email: huang_ying@mail.ustc.edu.cn
 
   - name: 李鸿渊
     avatar: "images/members/li-hong-yuan.jpg"
