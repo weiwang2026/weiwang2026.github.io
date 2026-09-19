@@ -171,7 +171,20 @@ members:
         institution: Hainan University
         period: Sep 2018 – Jun 2022
     email: hyli@eitech.edu.cn
-
+  - name: Junxin Ren
+    avatar: "images/members/ren-jun-xin.jpg"
+    position: PhD Student
+    join_date: July 2026
+    research: Medicinal Chemistry
+    work_experience: null
+    education:
+      - degree: Master
+        institution: Sun Yat-sen University
+        period: Sep 2023 – Jun 2026
+      - degree: Bachelor
+        institution: Shenyang Pharmaceutical University
+        period: Sep 2019 – Jun 2023
+    email: jxren@eitech.edu.cn
   - name: Yaozong Sun
     avatar: "images/members/sun-yao-zong.jpg"
     position: Research Assistant
