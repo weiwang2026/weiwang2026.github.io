@@ -159,7 +159,7 @@ members:
 
   - name: Hongyuan Li
     avatar: "images/members/li-hong-yuan.jpg"
-    position: Research Assistant
+    position: PhD Student
     join_date: February, 2026
     research: Medicinal Chemistry
     work_experience: null
@@ -202,7 +202,7 @@ members:
 
   - name: Yingao Wang
     avatar: "images/members/wang-ying-ao.jpg"
-    position: Research Assistant
+    position: PhD Student
     join_date: January 2026
     research: Medicinal Chemistry
     work_experience: null
