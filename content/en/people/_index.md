@@ -171,6 +171,17 @@ members:
         institution: Hainan University
         period: Sep 2018 – Jun 2022
     email: hyli@eitech.edu.cn
+  - name: Lijie Ma
+    avatar: "images/members/ma-li-jie.jpg"
+    position: PhD Student
+    join_date: June 2026
+    research: Chemical Biology
+    work_experience: null
+    education:
+      - degree: Bachelor
+        institution: Anhui University
+        period: Sep 2020 – Jun 2024
+    email: mlj1101@ustc.mail.edu.cn
   - name: Junxin Ren
     avatar: "images/members/ren-jun-xin.jpg"
     position: PhD Student
