@@ -42,7 +42,35 @@ members_key_titles:
   work_experience: 工作经历
 
 members:
-
+  - name: 常静洁
+    avatar: "images/members/chang-jing-jie.jpg"
+    position: 博士后
+    join_date: 2026年9月
+    research: 免疫学
+    work_experience:
+      - position: 博士后
+        institution: 宁波东方理工大学
+        period: 2026年9月 — 至今
+      - position: 博士后
+        institution: 西湖大学
+        period: 2024年3月 — 2026年2月
+      - position: 研究助理
+        institution: 广州妇女儿童医疗中心
+        period: 2019年7月 — 2020年9月
+      - position: 研究助理
+        institution: 广州医科大学
+        period: 2018年8月 — 2019年6月
+    education:
+      - degree: 博士
+        institution: 东京医科齿科大学
+        period: 2020年10月 — 2023年9月
+      - degree: 硕士
+        institution: 大连医科大学
+        period: 2015年9月 — 2018年6月
+      - degree: 学士
+        institution: 河南师范大学
+        period: 2011年9月 — 2015年6月
+    email: jchang@eitech.edu.cn
   - name: 徐梅芹
     avatar: "images/members/xu-mei-qin.jpg"
     position: 博士后
