@@ -156,6 +156,17 @@ members:
         institution: Wenzhou Medical University
         period: Sep 2017 – Jun 2021
     email: wxdai@eitech.edu.cn    
+  - name: Ying Huang
+    avatar: "images/members/huang-ying.png"
+    position: PhD Student
+    join_date: July 2026
+    research: Chemical Biology
+    work_experience: null
+    education:
+      - degree: Bachelor
+        institution: Nanchang University
+        period: Sep 2020 – Jun 2024
+    email: huang_ying@mail.ustc.edu.cn
 
   - name: Hongyuan Li
     avatar: "images/members/li-hong-yuan.jpg"
