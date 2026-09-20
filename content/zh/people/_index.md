@@ -42,6 +42,24 @@ members_key_titles:
   work_experience: 工作经历
 
 members:
+  - name: 常梦阳
+    avatar: "images/members/chang-meng-yang.jpg"
+    position: 副研究员
+    join_date: 2026年5月
+    research: 靶向蛋白降解
+    work_experience: null
+    education:
+      - degree: 博士
+        institution: 亚利桑那大学
+        period: 2020年8月 — 2024年12月
+      - degree: 硕士
+        institution: 乔治敦大学
+        period: 2019年8月 — 2020年6月
+      - degree: 学士
+        institution: 华南理工大学
+        period: 2015年9月 — 2019年6月
+    email: mchang1010@163.com
+
   - name: 常静洁
     avatar: "images/members/chang-jing-jie.jpg"
     position: 博士后
