@@ -42,6 +42,24 @@ members_key_titles:
   work_experience: Work experience
 
 members:
+  - name: Mengyang Chang
+    avatar: "images/members/chang-meng-yang.jpg"
+    position: Associate Researcher
+    join_date: May 2026
+    research: Targeted Protein Degradation
+    work_experience: null
+    education:
+      - degree: PhD
+        institution: University of Arizona
+        period: Aug 2020 – Dec 2024
+      - degree: Master
+        institution: Georgetown University
+        period: Aug 2019 – Jun 2020
+      - degree: Bachelor
+        institution: South China University of Technology
+        period: Sep 2015 – Jun 2019
+    email: mchang1010@163.com
+
   - name: Jingjie Chang
     avatar: "images/members/chang-jing-jie.jpg"
     position: Postdoctoral Fellow
