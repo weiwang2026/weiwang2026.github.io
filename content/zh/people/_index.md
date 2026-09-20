@@ -222,7 +222,7 @@ members:
       - degree: 学士
         institution: 安徽大学
         period: 2020年9月 — 2024年6月
-    email: mlj1101@ustc.mail.edu.cn
+    email: mlj1101@mail.ustc.edu.cn
   - name: 任俊欣
     avatar: "images/members/ren-jun-xin.jpg"
     position: 博士生
