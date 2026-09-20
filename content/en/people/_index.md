@@ -224,7 +224,7 @@ members:
       - degree: Bachelor
         institution: Anhui University
         period: Sep 2020 – Jun 2024
-    email: mlj1101@ustc.mail.edu.cn
+    email: mlj1101@mail.ustc.edu.cn
   - name: Junxin Ren
     avatar: "images/members/ren-jun-xin.jpg"
     position: PhD Student
