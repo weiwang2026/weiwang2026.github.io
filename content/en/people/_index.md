@@ -269,7 +269,7 @@ members:
         period: Sep 2017 – Jun 2021
     email: yawang@eitech.edu.cn
   
-  - name: Hao-Yun Wu
+  - name: Haoyun Wu
     avatar: "images/members/wu-hao-yun.jpg"
     position: Undergraduate Student
     join_date: July 2026
