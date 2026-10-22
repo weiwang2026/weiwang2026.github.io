@@ -10,7 +10,7 @@ content_titles:
 
 content_values:
   email: weiwang@eitech.edu.cn
-  address: Ningbo Dongfang University of Technology, Ningbo, Zhejiang, China
+  address: Eastern Institute of Technology, Ningbo, Zhejiang, China
   university_site: https://www.eitech.edu.cn
   site_info: For more information, please visit the university's website
 
