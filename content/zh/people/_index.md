@@ -267,7 +267,18 @@ members:
         period: 2017年9月 — 2021年6月
     email: yawang@eitech.edu.cn
     
-    
+      - name: 吴浩云
+    avatar: "images/members/wu-hao-yun.jpg"
+    position: 本科生
+    join_date: 2026年7月
+    research: 有机化学
+    work_experience: null
+    education:
+      - degree: 学士
+        institution: 中国科学技术大学
+        period: 2023年9月 — 2027年6月
+    email: wuhaoyun@mail.ustc.edu.cn
+
     
     
 
