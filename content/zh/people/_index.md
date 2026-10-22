@@ -267,7 +267,7 @@ members:
         period: 2017年9月 — 2021年6月
     email: yawang@eitech.edu.cn
     
-      - name: 吴浩云
+  - name: 吴浩云
     avatar: "images/members/wu-hao-yun.jpg"
     position: 本科生
     join_date: 2026年7月
