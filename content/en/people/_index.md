@@ -268,7 +268,18 @@ members:
         institution: East China University of Science and Technology
         period: Sep 2017 – Jun 2021
     email: yawang@eitech.edu.cn
-
+  
+  - name: Hao-Yun Wu
+    avatar: "images/members/wu-hao-yun.jpg"
+    position: Undergraduate Student
+    join_date: July 2026
+    research: Organic Chemistry
+    work_experience: null
+    education:
+      - degree: Bachelor
+        institution: University of Science and Technology of China
+        period: Sep 2023 – Jun 2027
+    email: wuhaoyun@mail.ustc.edu.cn
 
     
     
