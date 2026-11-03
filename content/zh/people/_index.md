@@ -292,6 +292,21 @@ members:
         period: 2023年9月 — 2027年6月
     email: cuiliwei@hust.edu.cn
 
-    
+
+  - name: 易海怡
+    avatar: "images/members/yi-hai-yi.jpg"
+    position: 科研助理
+    join_date: 2026年10月
+    research: 生物学
+    work_experience: null
+    education:
+      - degree: 硕士
+        institution: 马来西亚国立大学
+        period: 2024年10月 — 至今
+      - degree: 学士
+        institution: 武汉大学
+        period: 2018年9月 — 2023年6月
+    email: y318450089@outlook.com
+
 
 ---
