@@ -293,7 +293,22 @@ members:
         period: Sep 2023 – Jun 2027
     email: cuiliwei@hust.edu.cn
 
-    
+  
+  - name: Haiyi Yi
+    avatar: "images/members/yi-hai-yi.jpg"
+    position: Research Assistant
+    join_date: October 2026
+    research: Biology
+    work_experience: null
+    education:
+      - degree: Master's Degree
+        institution: Universiti Kebangsaan Malaysia
+        period: Oct 2024 – Present
+      - degree: Bachelor's Degree
+        institution: Wuhan University
+        period: Sep 2018 – Jun 2023
+    email: y318450089@outlook.com
+  
     
     
     
