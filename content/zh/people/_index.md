@@ -280,6 +280,18 @@ members:
     email: wuhaoyun@mail.ustc.edu.cn
 
     
+  - name: 崔立伟
+    avatar: "images/members/cui-li-wei.jpg"
+    position: 本科生
+    join_date: 2026年11月
+    research: 化学生物学
+    work_experience: null
+    education:
+      - degree: 本科
+        institution: 华中科技大学
+        period: 2023年9月 — 2027年6月
+    email: cuiliwei@hust.edu.cn
+
     
 
 ---
