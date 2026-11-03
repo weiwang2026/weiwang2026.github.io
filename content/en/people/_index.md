@@ -281,6 +281,18 @@ members:
         period: Sep 2023 – Jun 2027
     email: wuhaoyun@mail.ustc.edu.cn
 
+  - name: Liwei Cui
+    avatar: "images/members/cui-li-wei.jpg"
+    position: Undergraduate Student
+    join_date: November 2026
+    research: Chemical Biology
+    work_experience: null
+    education:
+      - degree: Bachelor's Degree
+        institution: Huazhong University of Science and Technology
+        period: Sep 2023 – Jun 2027
+    email: cuiliwei@hust.edu.cn
+
     
     
     
