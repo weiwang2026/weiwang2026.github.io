@@ -288,7 +288,7 @@ members:
     research: Chemical Biology
     work_experience: null
     education:
-      - degree: Bachelor's Degree
+      - degree: Bachelor
         institution: Huazhong University of Science and Technology
         period: Sep 2023 – Jun 2027
     email: cuiliwei@hust.edu.cn
