@@ -287,7 +287,7 @@ members:
     research: 化学生物学
     work_experience: null
     education:
-      - degree: 本科
+      - degree: 学士
         institution: 华中科技大学
         period: 2023年9月 — 2027年6月
     email: cuiliwei@hust.edu.cn
