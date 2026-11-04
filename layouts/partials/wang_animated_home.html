@@ -192,7 +192,11 @@ function drawTwist(p,now){
   // Subtle specular lighting confined to the non-transparent logo pixels
   ctx.restore();
  }
- tw.style.opacity='.48';img.style.opacity='.88';
+ 
+const visibility = Math.min(1, amp * 4);
+tw.style.opacity = visibility.toFixed(3);
+img.style.opacity = (1 - visibility).toFixed(3);
+
 }
 function drawParticles(now,p){
  if (document.hidden) return;
