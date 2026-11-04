@@ -21,8 +21,14 @@
 {{ else if eq .Type "landing" }}
   {{ partial "landing_page.html" . }}
 
+
 {{ else if eq .Type "home_index" }}
-  {{ partial "home_index.html" . }}
+  {{ if eq .Lang "en" }}
+    {{ partial "wang_animated_home.html" . }}
+  {{ else }}
+    {{ partial "home_index.html" . }}
+  {{ end }}
+
 
 
 {{ else }}
