@@ -28,7 +28,7 @@ body {
   #navbar-main {
     .container-xl {
       max-width: 100%;
-      padding: 0 5rem;
+      padding: 0 1.5rem;
 
     }
   }
@@ -848,4 +848,17 @@ body {
   #navbar-main .navbar-toggler i {
     color: #FFFFFF !important;
   }
+}
+
+
+/* Wang Group 文字向下微调 */
+#navbar-main .navbar-brand {
+  position: relative;
+  top: 3px;
+}
+
+/* 保持 Logo 原有的垂直位置 */
+#navbar-main .navbar-brand::before {
+  position: relative;
+  top: -3px;
 }
