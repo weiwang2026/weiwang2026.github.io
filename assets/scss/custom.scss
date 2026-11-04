@@ -862,3 +862,12 @@ body {
   position: relative;
   top: -2px;
 }
+
+
+/* 导航栏右侧项目垂直对齐 */
+@media (min-width: 992px) {
+  #navbar-main .main-menu-item ul li .nav-link {
+    position: relative;
+    top: 3px;
+  }
+}
