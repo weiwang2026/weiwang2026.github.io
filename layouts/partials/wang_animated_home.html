@@ -1,0 +1,261 @@
+<style>
+/* Wang Group home — isolated; the REAL Hugo navbar and menu remain untouched. */
+#wwl-home {--wwl-ink:#101c43;--wwl-purple:#6629f0;--wwl-blue:#086df5;position:relative;color:var(--wwl-ink);font-family:inherit;isolation:isolate;}
+#wwl-home *,#wwl-home *::before,#wwl-home *::after{box-sizing:border-box}
+#wwl-home .wwl-track{position:relative;height:175vh}
+#wwl-home .wwl-stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:#fbfbff}
+#wwl-home .wwl-scene{position:absolute;inset:0;background-position:center;background-repeat:no-repeat;background-size:100% 100%;}
+#wwl-home .wwl-logo-slot{position:absolute;top:9%;left:50%;width:min(55vw,790px);aspect-ratio:1800/606;transform:translateX(-50%);pointer-events:none}
+#wwl-home .wwl-scroll-note{position:absolute;left:50%;bottom:clamp(37px,7vh,80px);transform:translateX(-50%);white-space:nowrap;pointer-events:none;z-index:2;opacity:.7}
+#wwl-home .wwl-scroll-note span{display:inline-flex;gap:13px;align-items:center;font:600 13px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;letter-spacing:.19em;color:#5869a0;animation:wwl-breathe 4.2s ease-in-out infinite}
+#wwl-home .wwl-chevron{display:inline-block;height:8px;width:8px;border-right:1.8px solid #7474d9;border-bottom:1.8px solid #7474d9;transform:rotate(45deg) translateY(-1px)}
+@keyframes wwl-breathe{0%,100%{opacity:.32}50%{opacity:1}}
+#wwl-home .wwl-mobile-title,#wwl-home .wwl-mobile-school,#wwl-home .wwl-mobile-fields,#wwl-home .wwl-mobile-waves{display:none}
+#wwl-home .wwl-after{position:relative;min-height:95vh;margin-top:-55vh;z-index:4;padding:clamp(80px,9vw,140px) 6vw 100px;background:linear-gradient(175deg,#fbfcff 0%,#eef3ff 100%);}
+#wwl-home .wwl-inner{max-width:1130px;margin:auto}
+#wwl-home .wwl-after h2{margin:0 0 25px;font-family:inherit;font-size:clamp(39px,5.15vw,72px);font-weight:760;line-height:1.12;letter-spacing:-.047em;background:linear-gradient(95deg,#31268a 1%,#6e26e9 43%,#315df5 76%,#0899ed 100%);color:transparent;-webkit-background-clip:text;background-clip:text;display:inline-block}
+#wwl-home .wwl-introline{max-width:760px;color:#667491;font-size:clamp(16px,1.3vw,19px);font-weight:400;line-height:1.8;font-family:inherit;margin:0 0 46px}
+#wwl-home .wwl-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+#wwl-home .wwl-tile{display:block;background:#fff;border:1px solid #dfe7fb;border-radius:20px;padding:32px 30px;min-height:226px;color:#21305c;text-decoration:none;box-shadow:0 20px 46px #3652b80b;transition:transform .25s ease,box-shadow .25s ease}
+#wwl-home .wwl-tile:hover,#wwl-home .wwl-tile:focus-visible{transform:translateY(-5px);box-shadow:0 20px 42px #3652b822;text-decoration:none}
+#wwl-home .wwl-tile:before{display:block;content:"";width:36px;height:5px;border-radius:8px;background:linear-gradient(90deg,#9438ed,#078af5);margin-bottom:25px}
+#wwl-home .wwl-tile strong{display:block;font-size:23px;font-weight:750;margin-bottom:12px}
+#wwl-home .wwl-tile span{display:block;color:#647490;font-size:15px;line-height:1.7}
+/* Fixed art-layer. Transparent padding keeps every pixel of the official logo intact. */
+#wwl-floating-logo{position:fixed;left:0;top:0;z-index:1050;pointer-events:none;transform-origin:0 0;will-change:transform,opacity;contain:layout style;}
+#wwl-floating-logo canvas,#wwl-floating-logo img{position:absolute;inset:0;width:100%;height:100%;display:block;}
+#wwl-floating-logo img{object-fit:contain}
+#wwl-floating-logo canvas{pointer-events:none}
+#wwl-floating-logo .wwl-trace{opacity:1;}
+#wwl-floating-logo .wwl-original{opacity:0;}
+#wwl-floating-logo .wwl-twist{opacity:0;}
+#wwl-floating-logo .wwl-particles{opacity:0;}
+/* Native navbar receives only typography & visibility changes on the animated homepage. */
+body.wwl-has-home #navbar-main{position:fixed!important;top:0;left:0;right:0;z-index:1040!important;transition:opacity .28s ease!important;}
+body.wwl-has-home.wwl-nav-hidden #navbar-main{opacity:0!important;pointer-events:none!important;}
+body.wwl-has-home #navbar-main .navbar-nav .nav-link{font-family:inherit!important;font-size:clamp(14px,.98vw,15px)!important;font-weight:550!important;letter-spacing:-.012em!important;white-space:nowrap;}
+body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing{opacity:0!important}
+body.wwl-has-home.wwl-docked #navbar-main .navbar-brand img.wwl-brand-landing{opacity:1!important}
+body.wwl-has-home:not(.wwl-docked) #navbar-main .navbar-brand{color:transparent!important}
+body.wwl-has-home:not(.wwl-docked) #navbar-main .navbar-brand span{color:transparent!important}
+body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing{object-fit:contain!important;}
+@media(max-width:800px){
+ #wwl-home .wwl-track{height:165vh}
+ #wwl-home .wwl-scene{background-image:none!important;background:radial-gradient(ellipse at 3% 14%,#e9e2ff 0,transparent 30%),radial-gradient(ellipse at 100% 18%,#e6efff 0,transparent 36%),#fbfbff}
+ #wwl-home .wwl-logo-slot{top:14%;left:50%;width:95vw}
+ #wwl-home .wwl-mobile-title{display:block;position:absolute;left:4%;right:4%;top:45%;text-align:center;font-size:clamp(29px,7.9vw,45px);font-weight:780;line-height:1.2;letter-spacing:-.05em;color:#0c1b50}
+ #wwl-home .wwl-mobile-title b{background:linear-gradient(90deg,#7128dc,#0868e9,#13baf4);color:transparent;-webkit-background-clip:text;background-clip:text}
+ #wwl-home .wwl-mobile-school{display:block;position:absolute;left:5%;right:5%;top:58%;font-size:clamp(12px,3.1vw,16px);font-weight:600;text-align:center;color:#263668}
+ #wwl-home .wwl-mobile-fields{display:flex;position:absolute;left:3%;right:3%;top:66%;justify-content:center;gap:13px;font-size:clamp(11px,2.9vw,15px);color:#273b72}
+ #wwl-home .wwl-mobile-fields span+span{border-left:1px solid #b0aed7;padding-left:13px}
+ #wwl-home .wwl-mobile-waves{display:block;position:absolute;left:-15%;bottom:-15%;width:130%;height:34%;transform:rotate(-2deg);border-radius:50% 70% 0 0;background:linear-gradient(100deg,#c4a0f5,#ebdfff,#dce7ff,#9acbff);opacity:.7}
+ #wwl-home .wwl-scroll-note{bottom:8%}
+ #wwl-home .wwl-scroll-note span{font-size:11px;letter-spacing:.16em}
+ #wwl-home .wwl-after{margin-top:-45vh;padding:85px 20px 90px}
+ #wwl-home .wwl-fields{grid-template-columns:1fr}
+ #wwl-home .wwl-tile{min-height:180px}
+}
+@media(prefers-reduced-motion:reduce){#wwl-home .wwl-scroll-note span{animation:none!important}#wwl-home .wwl-tile{transition:none!important}}
+</style>
+<div id="wwl-home" aria-label="Wang Group homepage">
+  <div class="wwl-track" id="wwl-scroll-track">
+    <section class="wwl-stage" id="wwl-hero" aria-label="Welcome to Wang Group">
+      <div class="wwl-scene" id="wwl-scene" style="background-image:url('{{ "wang-home/hero-background.png" | relURL }}')"></div>
+      <div class="wwl-mobile-waves" aria-hidden="true"></div>
+      <div class="wwl-mobile-title">Welcome to <b>Wang Group</b></div>
+      <div class="wwl-mobile-school">Eastern Institute of Technology, Ningbo</div>
+      <div class="wwl-mobile-fields"><span>Chemistry</span><span>Biology</span><span>Intelligence</span></div>
+      <div class="wwl-logo-slot" id="wwl-logo-slot" aria-hidden="true"></div>
+      <div class="wwl-scroll-note" id="wwl-scroll-note"><span>SCROLL TO EXPLORE <i class="wwl-chevron"></i></span></div>
+      <h1 class="sr-only">Welcome to Wang Group — Eastern Institute of Technology, Ningbo</h1>
+    </section>
+  </div>
+  <section class="wwl-after" aria-label="Science without boundaries">
+    <div class="wwl-inner">
+      <h2>Science without boundaries.</h2>
+      <p class="wwl-introline">Bringing chemical innovation, biological discovery and intelligent technologies together to explore novel therapeutic possibilities.</p>
+      <div class="wwl-fields">
+        <a class="wwl-tile" href="{{ "research/" | relLangURL }}"><strong>Chemistry</strong><span>Precision synthetic methodology and molecular innovation.</span></a>
+        <a class="wwl-tile" href="{{ "research/" | relLangURL }}"><strong>Biology</strong><span>Chemical tools to interrogate and control biological functions.</span></a>
+        <a class="wwl-tile" href="{{ "projects/" | relLangURL }}"><strong>Intelligence</strong><span>AI-driven approaches to drug discovery and therapeutics.</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+<div id="wwl-floating-logo" role="img" aria-label="Full WWL Wang Group logo with three molecular nodes">
+ <canvas class="wwl-trace" id="wwl-intro-canvas" aria-hidden="true"></canvas>
+ <img class="wwl-original" id="wwl-logo-img" src="{{ "wang-home/wwl-logo-full.png" | relURL }}" alt="" draggable="false" />
+ <canvas class="wwl-twist" id="wwl-twist-canvas" aria-hidden="true"></canvas>
+ <canvas class="wwl-particles" id="wwl-particle-canvas" aria-hidden="true"></canvas>
+</div>
+<script>
+/* Wang Group homepage / browser-native Canvas 2D, no WebGL, no third-party scripts. */
+(function () {
+'use strict';
+const root=document.getElementById('wwl-home');if(!root)return;
+const doc=document.body, logo=document.getElementById('wwl-floating-logo');
+const img=document.getElementById('wwl-logo-img'), trace=document.getElementById('wwl-intro-canvas');
+const tw=document.getElementById('wwl-twist-canvas'), pts=document.getElementById('wwl-particle-canvas');
+const slot=document.getElementById('wwl-logo-slot'), track=document.getElementById('wwl-scroll-track');
+const scene=document.getElementById('wwl-scene'), mobile=document.querySelector('#wwl-hero .wwl-mobile-title');
+const note=document.getElementById('wwl-scroll-note');
+const nav=document.getElementById('navbar-main')||document.querySelector('nav.navbar');
+const brand=nav?.querySelector('.navbar-brand');
+const brandImg=brand?.querySelector('img');
+const cTrace=trace.getContext('2d',{alpha:true}),cTw=tw.getContext('2d',{alpha:true}),cPts=pts.getContext('2d',{alpha:true});
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const params=new URLSearchParams(location.search);
+const replay=params.get('replay')==='1';
+let seen=false;try{seen=sessionStorage.getItem('wwl_hugo_intro_done')==='1'}catch(e){}
+const firstVisit=!seen||replay;
+const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
+const sstep=(a,b,v)=>{const t=clamp((v-a)/(b-a));return t*t*(3-2*t)};
+const mix=(a,b,t)=>a+(b-a)*t;
+const rand=(i)=>{const x=Math.sin(i*127.1+42.3)*43758.5453;return x-Math.floor(x)};
+const easeOut=t=>1-Math.pow(1-clamp(t),3);
+let ready=false, base={x:0,y:0,w:0,h:0},dest={x:50,y:16,w:104,h:35};
+let scrollTarget=0,progress=0,latest=0,lastShape=-1,lastTime=0,frame=0;
+let start=performance.now(),duration=reduce||!firstVisit?0:3500,doneIntro=duration===0;
+let particlePoints=[],isDocked=false,paused=false;
+let sourceW=0,sourceH=0;
+
+doc.classList.add('wwl-has-home','wwl-nav-hidden');
+if(brandImg)brandImg.classList.add('wwl-brand-landing');
+function geometry(){
+  let r=slot.getBoundingClientRect();
+  base={x:r.x,y:r.y,w:r.width,h:r.height};
+  let br=brandImg?.getBoundingClientRect();
+  if(!br||br.width<5||br.height<5)br=brand?.getBoundingClientRect();
+  if(br&&br.width>5){
+    const h=Math.min(40,Math.max(29,br.height));
+    dest={x:br.x,y:br.y+(br.height-h)/2,w:h*(sourceW/sourceH),h};
+  }else{
+    dest={x:window.innerWidth<700?19:52,y:18,w:106,h:106*sourceH/sourceW};
+  }
+  // Never clip: the dimensions are the padded full-logo texture, not a tight crop.
+  logo.style.left=base.x+'px';logo.style.top=base.y+'px';
+  logo.style.width=base.w+'px';logo.style.height=base.h+'px';
+  const w=Math.max(10,Math.round(base.w)),h=Math.max(10,Math.round(base.h));
+  for(const c of [trace,tw,pts]){c.width=w;c.height=h}
+  lastShape=-1;
+}
+function findPixels(){
+ const a=document.createElement('canvas');a.width=240;a.height=Math.round(240*sourceH/sourceW);
+ const c=a.getContext('2d');c.drawImage(img,0,0,a.width,a.height);
+ const d=c.getImageData(0,0,a.width,a.height).data;
+ const arr=[];
+ for(let y=0;y<a.height;y+=2)for(let x=0;x<a.width;x+=2){
+   if(d[(y*a.width+x)*4+3]>180)arr.push([x/a.width,y/a.height]);
+ }
+ particlePoints=Array.from({length:32},(_,i)=>arr[Math.floor(rand(i+35)*arr.length)]).filter(Boolean);
+}
+function drawIntro(t){
+ if(!ready)return;
+ const ctx=cTrace,w=trace.width,h=trace.height;
+ ctx.clearRect(0,0,w,h);ctx.imageSmoothingEnabled=true;
+ const reveal=easeOut(t)*1.035;
+ const count=68,dx=w/count;
+ for(let i=0;i<count;i++){
+  const u=(i+.5)/count,behind=(reveal-u)*10;
+  if(behind<0)continue;
+  const full=sstep(0,1,behind),twist=(1-full)*(.7+.3*Math.sin(u*38-t*19));
+  const sz=.2+.8*full; const sway=twist*13*Math.sin(u*32-t*11)*Math.sin(Math.PI*u);
+  const sx=i*sourceW/count,sw=(sourceW/count)+2;
+  const x=i*dx-0.75;
+  ctx.save();ctx.translate(0,h/2+sway);
+  ctx.drawImage(img,sx,0,Math.min(sw,sourceW-sx),sourceH,
+    x,-h/2*sz,dx+1.6,h*sz);
+  ctx.restore();
+ }
+ // Crisp exact source replaces the stripes at completion.
+ if(t>=.998){ctx.clearRect(0,0,w,h);ctx.drawImage(img,0,0,w,h)}
+}
+function drawTwist(p,now){
+ if(!ready)return;
+ const amp=Math.pow(Math.sin(Math.PI*clamp((p-.055)/.83)),2)*.95;
+ if(amp<.007){tw.style.opacity='0';img.style.opacity=doneIntro?'1':'0';return;}
+ if(Math.abs(p-lastShape)<.004&&now-lastTime<100)return;
+ if(now-lastTime<32)return; // Cap CPU canvas at ~30fps
+ lastShape=p;lastTime=now;
+ const ctx=cTw,w=tw.width,h=tw.height,N=Math.max(55,Math.min(86,Math.round(w/9.5))),dx=w/N;
+ ctx.clearRect(0,0,w,h);
+ for(let i=0;i<N;i++){
+  const u=(i+.5)/N,phase=12.8*u-8.6*p;
+  const s=Math.sin(phase),co=Math.cos(phase);
+  // Soft roll: independent narrowing + horizontal wave + highlight vary over the ribbon.
+  const shrink=1-.28*amp*(.5+.5*s);
+  const yy=amp*14*s*Math.sin(Math.PI*u);
+  const shift=amp*5*co*Math.sin(Math.PI*u);
+  ctx.save();ctx.translate(0,h/2+yy);
+  ctx.drawImage(img,sourceW*i/N,0,Math.min(sourceW/N+3,sourceW-sourceW*i/N),sourceH,
+      i*dx-.8+shift,-h*shrink/2,dx+2,h*shrink);
+  // Subtle specular lighting confined to the non-transparent logo pixels
+  ctx.restore();
+ }
+ tw.style.opacity='.48';img.style.opacity='.88';
+}
+function drawParticles(now,p){
+ if (document.hidden) return;
+ const ctx=cPts,w=pts.width,h=pts.height;
+ if(p>.5 || !doneIntro){ctx.clearRect(0,0,w,h);return}
+ ctx.clearRect(0,0,w,h);
+ const clock=now/1000;
+ for(let i=0;i<particlePoints.length;i++){
+  const xy=particlePoints[i]; const visible=Math.pow((Math.sin(clock*1.25+i*2.34)+1)/2,4)*.43;
+  const r=1.1+1.2*rand(i);
+  ctx.beginPath();ctx.arc(xy[0]*w,xy[1]*h,r,0,Math.PI*2);
+  ctx.fillStyle=`rgba(${i%3===0?'114,53,244':i%3===1?'16,127,246':'34,203,246'},${visible})`;
+  ctx.fill();
+ }
+ pts.style.opacity='1';
+}
+function setProgress(p,now){
+ // Existing native header and its nine links are never rebuilt or replaced.
+ const navAppear=sstep(.22,.48,p);
+ const reveal=navAppear>.01;
+ if(nav){doc.classList.toggle('wwl-nav-hidden',!reveal);nav.style.opacity=reveal?String(navAppear):'';nav.style.pointerEvents=navAppear>.75?'auto':'none';}
+ const navDocked=p>=.97;
+ doc.classList.toggle('wwl-docked',navDocked);
+ // Restore source image EXACTLY when the logo settles.
+ const eased=sstep(0,1,p),scale=mix(1,dest.w/base.w,eased);
+ const tx=(dest.x-base.x)*eased,ty=(dest.y-base.y)*eased;
+ logo.style.transform=`translate3d(${tx.toFixed(2)}px,${ty.toFixed(2)}px,0) scale(${scale.toFixed(5)})`;
+ logo.style.opacity=String(1-sstep(.965,1,p));
+ const sceneO=1-sstep(.72,1,p);
+ scene.style.opacity=String(sceneO);
+ if(mobile)for(const e of [mobile,document.querySelector('#wwl-home .wwl-mobile-school'),document.querySelector('#wwl-home .wwl-mobile-fields'),document.querySelector('#wwl-home .wwl-mobile-waves')])if(e)e.style.opacity=String(sceneO);
+ note.style.opacity=String((1-sstep(.03,.22,p))*.77);
+ if(doneIntro)drawTwist(p,now);
+}
+function updateScroll(){latest=window.scrollY||document.documentElement.scrollTop||0;
+ const travel=Math.max(1,track.offsetHeight-innerHeight);
+ scrollTarget=clamp(latest/travel);
+}
+function tick(now){
+ const dt=Math.min(.06,Math.max(.005,(now-(lastTimeRAF||now))/1000));lastTimeRAF=now;
+ if(!ready){frame=requestAnimationFrame(tick);return}
+ if(!doneIntro){
+   let t=clamp((now-start)/duration);
+   drawIntro(t);
+   if(t>=1){doneIntro=true;trace.style.opacity='0';img.style.opacity='1';try{sessionStorage.setItem('wwl_hugo_intro_done','1')}catch(e){}}
+ }
+ progress=mix(progress,scrollTarget,1-Math.exp(-dt*10));
+ if(Math.abs(progress-scrollTarget)<.00018)progress=scrollTarget;
+ setProgress(progress,now);
+ if(doneIntro)drawParticles(now,progress);
+ frame=requestAnimationFrame(tick);
+}
+let lastTimeRAF=0;
+function init(){
+ if(ready)return;
+ sourceW=img.naturalWidth;sourceH=img.naturalHeight;
+ if(sourceW<1)return;
+ ready=true;geometry();findPixels();updateScroll();
+ if(doneIntro){img.style.opacity='1';trace.style.opacity='0';}
+ start=performance.now();frame=requestAnimationFrame(tick);
+}
+window.addEventListener('scroll',updateScroll,{passive:true});
+window.addEventListener('resize',()=>{if(!ready)return;geometry();updateScroll()},{passive:true});
+if(img.complete&&img.naturalWidth) init();else img.addEventListener('load',init,{once:true});
+})();
+</script>
