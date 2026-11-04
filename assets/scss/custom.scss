@@ -790,3 +790,62 @@ body {
   }
 
 }
+
+
+/* =====================================
+   Wang Group Navigation Bar
+   ===================================== */
+
+/* 导航栏深海军蓝背景 */
+#navbar-main {
+  background-color: #0B1530 !important;
+}
+
+/* Logo 与 Wang Group 水平排列、垂直居中 */
+#navbar-main .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF !important;
+  white-space: nowrap;
+}
+
+/* 在 Wang Group 文字前插入 Logo */
+#navbar-main .navbar-brand::before {
+  content: "";
+  display: block;
+  width: 128px;
+  height: 40px;
+  flex-shrink: 0;
+
+  background-image: url("/images/wang-group-logo.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 导航栏菜单文字 */
+#navbar-main .main-menu-item ul li .nav-link {
+  color: #FFFFFF !important;
+}
+
+/* 手机端适配 */
+@media (max-width: 600px) {
+  #navbar-main .navbar-brand {
+    gap: 8px;
+  }
+
+  #navbar-main .navbar-brand::before {
+    width: 90px;
+    height: 32px;
+  }
+
+  #navbar-main .navbar-toggler {
+    color: #FFFFFF !important;
+    border-color: rgba(255,255,255,0.35);
+  }
+
+  #navbar-main .navbar-toggler i {
+    color: #FFFFFF !important;
+  }
+}
