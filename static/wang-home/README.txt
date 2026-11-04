@@ -1,0 +1,1 @@
+Wang Group homepage images
