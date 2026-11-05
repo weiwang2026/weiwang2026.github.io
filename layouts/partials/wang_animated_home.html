@@ -96,26 +96,9 @@
   position: absolute; left: -6%; bottom: 0;
   width: 112%; height: 100%; display: block;
 }
-#wwl-home .wwl-wave-path { transform-box: fill-box; transform-origin: center; }
-#wwl-home .wwl-wave-path--purple-back {
-  animation: wwl-wave-drift-a var(--wwl-wave-speed) ease-in-out infinite alternate;
-}
-#wwl-home .wwl-wave-path--purple-front {
-  animation: wwl-wave-drift-b calc(var(--wwl-wave-speed) * 1.24) ease-in-out infinite alternate;
-}
-#wwl-home .wwl-wave-path--blue-back {
-  animation: wwl-wave-drift-b calc(var(--wwl-wave-speed) * 1.11) ease-in-out infinite alternate-reverse;
-}
-#wwl-home .wwl-wave-path--blue-front {
-  animation: wwl-wave-drift-a calc(var(--wwl-wave-speed) * 1.43) ease-in-out infinite alternate-reverse;
-}
-@keyframes wwl-wave-drift-a {
-  from { transform: translate3d(-1.9%, 7px, 0) scaleX(1.025); }
-  to   { transform: translate3d( 1.9%,-7px, 0) scaleX(.985); }
-}
-@keyframes wwl-wave-drift-b {
-  from { transform: translate3d( 2.2%,-6px, 0) scaleX(1.025); }
-  to   { transform: translate3d(-2.2%, 9px, 0) scaleX(.99); }
+/* Four-layer coordinated wave animation */
+#wwl-home .wwl-wave-path {
+  shape-rendering: geometricPrecision;
 }
 
 #wwl-home .wwl-scroll-note {
@@ -295,6 +278,148 @@ const sstep=(a,b,v)=>{const t=clamp((v-a)/(b-a));return t*t*(3-2*t)};
 const mix=(a,b,t)=>a+(b-a)*t;
 const rand=(i)=>{const x=Math.sin(i*127.1+42.3)*43758.5453;return x-Math.floor(x)};
 const easeOut=t=>1-Math.pow(1-clamp(t),3);
+  
+/* ===== Four-layer coordinated wave animation ===== */
+
+const wavePeriod = Math.max(
+  5,
+  parseFloat(
+    getComputedStyle(root)
+      .getPropertyValue('--wwl-wave-speed')
+  ) || 13
+);
+
+const waveSpecs = [
+  {
+    selector: '.wwl-wave-path--purple-back',
+    amp: 18, phase: 0.00, blue: false
+  },
+  {
+    selector: '.wwl-wave-path--purple-front',
+    amp: 12, phase: 0.38, blue: false
+  },
+  {
+    selector: '.wwl-wave-path--blue-back',
+    amp: 34, phase: 0.16, blue: true
+  },
+  {
+    selector: '.wwl-wave-path--blue-front',
+    amp: 23, phase: 0.51, blue: true
+  }
+];
+
+/* Extract points from original SVG curves */
+function sampleWaveEdge(d) {
+  const nums = (
+    d.match(/[-+]?\d*\.?\d+/g) || []
+  ).map(Number);
+
+  if (nums.length < 12) return [];
+
+  let x = nums[0], y = nums[1];
+  const points = [];
+
+  for (let k = 2; k + 5 < nums.length - 4; k += 6) {
+    const [x1,y1,x2,y2,x3,y3] =
+      nums.slice(k,k+6);
+
+    for (let j = 0; j < 14; j++) {
+      const t = j / 14, q = 1 - t;
+
+      points.push({
+        x: q*q*q*x + 3*q*q*t*x1 +
+           3*q*t*t*x2 + t*t*t*x3,
+        y: q*q*q*y + 3*q*q*t*y1 +
+           3*q*t*t*y2 + t*t*t*y3
+      });
+    }
+
+    x = x3;
+    y = y3;
+  }
+
+  points.push({x,y});
+  return points;
+}
+
+const waveLayers = waveSpecs.map(spec => {
+  const el = waves.querySelector(spec.selector);
+
+  return el ? {
+    ...spec,
+    el,
+    points: sampleWaveEdge(el.getAttribute('d'))
+  } : null;
+}).filter(Boolean);
+
+/* Rebuild smooth Bezier curves */
+function smoothWavePath(points) {
+  const fmt = n => n.toFixed(2);
+
+  let d = `M${fmt(points[0].x)} ${fmt(points[0].y)}`;
+
+  for (let i = 0; i < points.length - 1; i++) {
+    const a = points[Math.max(0,i-1)];
+    const b = points[i];
+    const c = points[i+1];
+    const e = points[Math.min(points.length-1,i+2)];
+
+    d += ` C${fmt(b.x+(c.x-a.x)/6)} ${fmt(b.y+(c.y-a.y)/6)}` +
+         ` ${fmt(c.x-(e.x-b.x)/6)} ${fmt(c.y-(e.y-b.y)/6)}` +
+         ` ${fmt(c.x)} ${fmt(c.y)}`;
+  }
+
+  return d + ' L1710 360 L-110 360 Z';
+}
+
+let lastWaveAt = -1000;
+
+function animateWaves(now,p) {
+  if (
+    reduce ||
+    document.hidden ||
+    p >= .54 ||
+    now - lastWaveAt < 33
+  ) return;
+
+  lastWaveAt = now;
+
+  const time = now / 1000;
+  const cycle = 2*Math.PI*time/wavePeriod;
+
+  for (const layer of waveLayers) {
+    if (layer.points.length < 3) continue;
+
+    const moved = layer.points.map(pt => {
+      const u = clamp((pt.x+110)/1820);
+
+      const focus = layer.blue
+        ? sstep(.13,.93,u)
+        : 1-sstep(.08,.84,u);
+
+      const envelope = .30+.70*focus;
+
+      const theta = cycle-u*3.5+layer.phase;
+
+      const offset =
+        layer.amp*envelope*(
+          .83*Math.sin(theta) +
+          .17*Math.sin(2*theta-.55)
+        );
+
+      return {
+        x: pt.x,
+        y: pt.y+offset
+      };
+    });
+
+    layer.el.setAttribute(
+      'd',
+      smoothWavePath(moved)
+    );
+  }
+}
+
 let ready=false, base={x:0,y:0,w:0,h:0},dest={x:50,y:16,w:104,h:35};
 let scrollTarget=0,progress=0,latest=0,lastShape=-1,lastTime=0,frame=0;
 let start=performance.now(),duration=reduce||!firstVisit?0:3500,doneIntro=duration===0;
@@ -523,6 +648,7 @@ function tick(now){
  progress=mix(progress,scrollTarget,1-Math.exp(-dt*10));
  if(Math.abs(progress-scrollTarget)<.00018)progress=scrollTarget;
  setProgress(progress,now);
+ animateWaves(now,progress);
  drawLogoFrame(progress,introProgress,!doneIntro);
  if(doneIntro)drawParticles(now,progress);
  frame=requestAnimationFrame(tick);
