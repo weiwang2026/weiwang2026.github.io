@@ -871,3 +871,30 @@ body {
     top: 4px;
   }
 }
+
+/* ==========================================
+   Wang Group - Unified Page Background
+   与 Science without boundaries 背景统一
+   ========================================== */
+
+/* 其他页面统一使用首页的浅蓝白渐变 */
+body:not(.wwl-has-home) {
+  background: linear-gradient(
+    175deg,
+    #fbfcff 0%,
+    #eef3ff 100%
+  ) fixed !important;
+  min-height: 100vh;
+}
+
+/* 移除内容容器的独立背景，
+   让全站渐变完整显示 */
+body:not(.wwl-has-home) #content,
+body:not(.wwl-has-home) main,
+body:not(.wwl-has-home) .page-body,
+body:not(.wwl-has-home) .universal-wrapper,
+body:not(.wwl-has-home) .article-container,
+body:not(.wwl-has-home) .page-header,
+body:not(.wwl-has-home) .home-section {
+  background: transparent !important;
+}
