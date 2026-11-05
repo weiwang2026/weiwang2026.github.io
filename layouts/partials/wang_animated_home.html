@@ -269,6 +269,178 @@ const cPts=pts.getContext('2d',{alpha:true});
 let cTrace=null, cTw=null, warpGPU=null;
 let logoDpr=1, lastRenderP=-1, lastRenderIntro=-1;
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  
+/* ===== Wang Group - Smooth Coordinated Waves ===== */
+{
+  const waveStyles = document.createElement('style');
+  waveStyles.textContent = `
+    #wwl-home #wwl-scene .wwl-waves-v2 {
+      position: absolute;
+      inset: auto 0 0;
+      height: 31%;
+      background: #fbfbff;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #wwl-home #wwl-scene .wwl-waves-v2 svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #wwl-home .wwl-mobile-waves {
+      display: none !important;
+    }
+
+    @media (max-width: 800px) {
+      #wwl-home #wwl-scene .wwl-waves-v2 {
+        height: 25%;
+      }
+      #wwl-home .wwl-mobile-title,
+      #wwl-home .wwl-mobile-school,
+      #wwl-home .wwl-mobile-fields {
+        z-index: 3;
+      }
+    }
+  `;
+  root.appendChild(waveStyles);
+
+  scene.insertAdjacentHTML('beforeend', `
+    <div class="wwl-waves-v2" aria-hidden="true">
+      <svg viewBox="0 0 1440 260"
+           preserveAspectRatio="none"
+           focusable="false">
+        <defs>
+          <linearGradient id="wwl-purple-back-v2">
+            <stop offset="0%" stop-color="#d3a4fa"
+                  stop-opacity=".56" />
+            <stop offset="38%" stop-color="#d1aafb"
+                  stop-opacity=".35" />
+            <stop offset="75%" stop-color="#d1aafb"
+                  stop-opacity="0" />
+          </linearGradient>
+
+          <linearGradient id="wwl-purple-front-v2">
+            <stop offset="0%" stop-color="#af6df0"
+                  stop-opacity=".50" />
+            <stop offset="34%" stop-color="#bd88f5"
+                  stop-opacity=".28" />
+            <stop offset="69%" stop-color="#bd88f5"
+                  stop-opacity="0" />
+          </linearGradient>
+
+          <linearGradient id="wwl-blue-back-v2">
+            <stop offset="23%" stop-color="#9dc5fc"
+                  stop-opacity="0" />
+            <stop offset="61%" stop-color="#9dc5fc"
+                  stop-opacity=".25" />
+            <stop offset="100%" stop-color="#93c6ff"
+                  stop-opacity=".48" />
+          </linearGradient>
+
+          <linearGradient id="wwl-blue-front-v2">
+            <stop offset="24%" stop-color="#75b4ff"
+                  stop-opacity="0" />
+            <stop offset="65%" stop-color="#75b4ff"
+                  stop-opacity=".21" />
+            <stop offset="100%" stop-color="#69aaff"
+                  stop-opacity=".40" />
+          </linearGradient>
+        </defs>
+
+        <path id="wwl-wave-purple-back-v2"
+              fill="url(#wwl-purple-back-v2)" />
+        <path id="wwl-wave-blue-back-v2"
+              fill="url(#wwl-blue-back-v2)" />
+        <path id="wwl-wave-purple-front-v2"
+              fill="url(#wwl-purple-front-v2)" />
+        <path id="wwl-wave-blue-front-v2"
+              fill="url(#wwl-blue-front-v2)" />
+      </svg>
+    </div>
+  `);
+
+  const WAVE_WIDTH = 1440;
+  const WAVE_HEIGHT = 260;
+  const WAVE_PERIOD = 13000;
+  const WAVE_SAMPLES = 64;
+
+  const waveSpecsV2 = [
+    {
+      id: 'wwl-wave-purple-back-v2',
+      left: 18, right: 220, amp: 9, phase: 0
+    },
+    {
+      id: 'wwl-wave-blue-back-v2',
+      left: 255, right: 58, amp: 10, phase: 0.5
+    },
+    {
+      id: 'wwl-wave-purple-front-v2',
+      left: 154, right: 278, amp: 6, phase: 0.32
+    },
+    {
+      id: 'wwl-wave-blue-front-v2',
+      left: 286, right: 156, amp: 7, phase: 0.82
+    }
+  ].map(spec => ({
+    ...spec,
+    el: scene.querySelector('#' + spec.id)
+  }));
+
+  function drawHomeWaves(timeMs) {
+    const travelPhase =
+      2 * Math.PI * (timeMs % WAVE_PERIOD) / WAVE_PERIOD;
+
+    for (const wave of waveSpecsV2) {
+      let d = '';
+
+      for (let i = 0; i <= WAVE_SAMPLES; i++) {
+        const u = i / WAVE_SAMPLES;
+        const x = WAVE_WIDTH * u;
+
+        const smooth = u * u * (3 - 2 * u);
+        const baseline =
+          wave.left + (wave.right - wave.left) * smooth;
+
+        const theta =
+          2 * Math.PI * 1.15 * u -
+          travelPhase + wave.phase;
+
+        const ripple = wave.amp * (
+          0.82 * Math.sin(theta) +
+          0.18 * Math.sin(2 * theta)
+        );
+
+        const y = baseline + ripple;
+
+        d += `${i === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)} `;
+      }
+
+      d += `L${WAVE_WIDTH} ${WAVE_HEIGHT} L0 ${WAVE_HEIGHT} Z`;
+      wave.el.setAttribute('d', d);
+    }
+  }
+
+  drawHomeWaves(0);
+
+  if (!reduce) {
+    let previousWaveFrame = -Infinity;
+
+    function animateHomeWaves(now) {
+      if (!document.hidden && now - previousWaveFrame >= 32) {
+        drawHomeWaves(now);
+        previousWaveFrame = now;
+      }
+
+      requestAnimationFrame(animateHomeWaves);
+    }
+
+    requestAnimationFrame(animateHomeWaves);
+  }
+}
+
 const params=new URLSearchParams(location.search);
 const replay=params.get('replay')==='1';
 let seen=false;try{seen=sessionStorage.getItem('wwl_hugo_intro_done')==='1'}catch(e){}
