@@ -279,7 +279,8 @@ const mix=(a,b,t)=>a+(b-a)*t;
 const rand=(i)=>{const x=Math.sin(i*127.1+42.3)*43758.5453;return x-Math.floor(x)};
 const easeOut=t=>1-Math.pow(1-clamp(t),3);
   
-/* ===== Four-layer coordinated wave animation ===== */
+
+/* ===== Smooth four-layer wave motion ===== */
 
 const wavePeriod = Math.max(
   5,
@@ -292,133 +293,92 @@ const wavePeriod = Math.max(
 const waveSpecs = [
   {
     selector: '.wwl-wave-path--purple-back',
-    amp: 18, phase: 0.00, blue: false
+    amp: 10, phase: 0.00, blue: false
   },
   {
     selector: '.wwl-wave-path--purple-front',
-    amp: 12, phase: 0.38, blue: false
+    amp: 7, phase: 0.45, blue: false
   },
   {
     selector: '.wwl-wave-path--blue-back',
-    amp: 34, phase: 0.16, blue: true
+    amp: 16, phase: 0.23, blue: true
   },
   {
     selector: '.wwl-wave-path--blue-front',
-    amp: 23, phase: 0.51, blue: true
+    amp: 12, phase: 0.70, blue: true
   }
 ];
 
-/* Extract points from original SVG curves */
-function sampleWaveEdge(d) {
-  const nums = (
-    d.match(/[-+]?\d*\.?\d+/g) || []
-  ).map(Number);
-
-  if (nums.length < 12) return [];
-
-  let x = nums[0], y = nums[1];
-  const points = [];
-
-  for (let k = 2; k + 5 < nums.length - 4; k += 6) {
-    const [x1,y1,x2,y2,x3,y3] =
-      nums.slice(k,k+6);
-
-    for (let j = 0; j < 14; j++) {
-      const t = j / 14, q = 1 - t;
-
-      points.push({
-        x: q*q*q*x + 3*q*q*t*x1 +
-           3*q*t*t*x2 + t*t*t*x3,
-        y: q*q*q*y + 3*q*q*t*y1 +
-           3*q*t*t*y2 + t*t*t*y3
-      });
-    }
-
-    x = x3;
-    y = y3;
-  }
-
-  points.push({x,y});
-  return points;
-}
-
+/* Read original SVG curves */
 const waveLayers = waveSpecs.map(spec => {
   const el = waves.querySelector(spec.selector);
+  if (!el) return null;
 
-  return el ? {
-    ...spec,
-    el,
-    points: sampleWaveEdge(el.getAttribute('d'))
-  } : null;
+  const original = (
+    el.getAttribute('d')
+      .match(/[-+]?\d*\.?\d+/g) || []
+  ).map(Number);
+
+  // M + 3 Bezier curves + 2 closing lines
+  if (original.length !== 24) return null;
+
+  return { ...spec, el, original };
 }).filter(Boolean);
-
-/* Rebuild smooth Bezier curves */
-function smoothWavePath(points) {
-  const fmt = n => n.toFixed(2);
-
-  let d = `M${fmt(points[0].x)} ${fmt(points[0].y)}`;
-
-  for (let i = 0; i < points.length - 1; i++) {
-    const a = points[Math.max(0,i-1)];
-    const b = points[i];
-    const c = points[i+1];
-    const e = points[Math.min(points.length-1,i+2)];
-
-    d += ` C${fmt(b.x+(c.x-a.x)/6)} ${fmt(b.y+(c.y-a.y)/6)}` +
-         ` ${fmt(c.x-(e.x-b.x)/6)} ${fmt(c.y-(e.y-b.y)/6)}` +
-         ` ${fmt(c.x)} ${fmt(c.y)}`;
-  }
-
-  return d + ' L1710 360 L-110 360 Z';
-}
 
 let lastWaveAt = -1000;
 
-function animateWaves(now,p) {
+function animateWaves(now, p) {
   if (
     reduce ||
     document.hidden ||
-    p >= .54 ||
+    p >= 0.54 ||
     now - lastWaveAt < 33
   ) return;
 
   lastWaveAt = now;
 
-  const time = now / 1000;
-  const cycle = 2*Math.PI*time/wavePeriod;
+  const cycle =
+    (2 * Math.PI * now) / (wavePeriod * 1000);
+
+  const fmt = x => Number(x.toFixed(2));
 
   for (const layer of waveLayers) {
-    if (layer.points.length < 3) continue;
+    const v = [...layer.original];
 
-    const moved = layer.points.map(pt => {
-      const u = clamp((pt.x+110)/1820);
+    // Animate original Bezier control points
+    for (let j = 3; j <= 19; j += 2) {
+      const u = clamp(
+        (v[j - 1] + 110) / 1820
+      );
 
       const focus = layer.blue
-        ? sstep(.13,.93,u)
-        : 1-sstep(.08,.84,u);
+        ? (0.60 + 0.40 * u)
+        : (1 - 0.40 * u);
 
-      const envelope = .30+.70*focus;
+      const theta =
+        cycle - 2.4 * u + layer.phase;
 
-      const theta = cycle-u*3.5+layer.phase;
+      v[j] += layer.amp * focus * (
+        Math.sin(theta) +
+        0.12 * Math.sin(2 * theta)
+      );
+    }
 
-      const offset =
-        layer.amp*envelope*(
-          .83*Math.sin(theta) +
-          .17*Math.sin(2*theta-.55)
-        );
+    // Preserve the 3 original Bezier segments
+    let d = `M${fmt(v[0])} ${fmt(v[1])}`;
 
-      return {
-        x: pt.x,
-        y: pt.y+offset
-      };
-    });
+    for (let j = 2; j < 20; j += 6) {
+      d += ' C' +
+        v.slice(j, j + 6).map(fmt).join(' ');
+    }
 
-    layer.el.setAttribute(
-      'd',
-      smoothWavePath(moved)
-    );
+    d += ` L${fmt(v[20])} ${fmt(v[21])}`;
+    d += ` L${fmt(v[22])} ${fmt(v[23])} Z`;
+
+    layer.el.setAttribute('d', d);
   }
 }
+
 
 let ready=false, base={x:0,y:0,w:0,h:0},dest={x:50,y:16,w:104,h:35};
 let scrollTarget=0,progress=0,latest=0,lastShape=-1,lastTime=0,frame=0;
