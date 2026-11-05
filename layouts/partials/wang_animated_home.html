@@ -7,7 +7,7 @@
   --wwl-ink: #101c43;
   --wwl-purple: #6629f0;
   --wwl-blue: #086df5;
-  --wwl-wave-speed: 8s; /* smaller = faster wave motion */
+  --wwl-wave-speed: 6s; /* smaller = faster wave motion */
   position: relative;
   color: var(--wwl-ink);
   font-family: inherit;
@@ -287,6 +287,88 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
  <canvas class="wwl-twist" id="wwl-twist-canvas" aria-hidden="true"></canvas>
  <canvas class="wwl-particles" id="wwl-particle-canvas" aria-hidden="true"></canvas>
 </div>
+<!-- SVG wave animator runs separately from logo loading and WebGL. -->
+<script>
+(function () {
+  'use strict';
+  const root = document.getElementById('wwl-home');
+  const waveField = document.getElementById('wwl-wave-field');
+  if (!root || !waveField) return;
+
+  const waveSpecs = [
+    { selector: '.wwl-wave-path--purple-back',  amplitude: 42, phase: 0.00 },
+    { selector: '.wwl-wave-path--purple-front', amplitude: 34, phase: 0.90 },
+    { selector: '.wwl-wave-path--blue-back',    amplitude: 54, phase: 2.20 },
+    { selector: '.wwl-wave-path--blue-front',   amplitude: 42, phase: 3.10 }
+  ];
+  const layers = waveSpecs.map(spec => {
+    const element = waveField.querySelector(spec.selector);
+    if (!element) return null;
+    const original = (element.getAttribute('d').match(/[-+]?\d*\.?\d+/g) || []).map(Number);
+    // M (2 values) + three C curves (18 values) + two L (4 values).
+    if (original.length !== 24) return null;
+    return { element, original, amplitude: spec.amplitude, phase: spec.phase };
+  }).filter(Boolean);
+  if (!layers.length) {
+    console.warn('WWL waves: no valid SVG wave paths found');
+    return;
+  }
+
+  // Mark JS operation for easy testing in the browser console.
+  root.dataset.waveAnimation = 'running';
+  const speed = parseFloat(getComputedStyle(root).getPropertyValue('--wwl-wave-speed'));
+  const periodMs = Math.max(4, Number.isFinite(speed) ? speed : 6) * 1000;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const samples = 24;
+  let lastDrawn = -Infinity;
+  const fmt = x => x.toFixed(1);
+
+  function drawWaves(now) {
+    // Schedule the next wave frame regardless of logo state or scroll position.
+    requestAnimationFrame(drawWaves);
+    if (document.hidden || reducedMotion.matches || now - lastDrawn < 24) return;
+    lastDrawn = now;
+    const timePhase = 2 * Math.PI * now / periodMs;
+
+    for (const layer of layers) {
+      const a = layer.original;
+      let startX = a[0], startY = a[1];
+      let path = '';
+
+      for (let segment = 0; segment < 3; segment++) {
+        const j = 2 + segment * 6;
+        const x1 = a[j], y1 = a[j + 1];
+        const x2 = a[j + 2], y2 = a[j + 3];
+        const x3 = a[j + 4], y3 = a[j + 5];
+
+        for (let i = 0; i <= samples; i++) {
+          if (segment && i === 0) continue;
+          const t = i / samples;
+          const q = 1 - t;
+          const x = q*q*q*startX + 3*q*q*t*x1 + 3*q*t*t*x2 + t*t*t*x3;
+          const y = q*q*q*startY + 3*q*q*t*y1 + 3*q*t*t*y2 + t*t*t*y3;
+
+          // A single continuous wave travels across all three Bezier sections.
+          const u = Math.max(0, Math.min(1, (x + 110) / 1820));
+          const theta = 2 * Math.PI * 1.15 * u - timePhase + layer.phase;
+          const envelope = 0.75 + 0.25 * Math.sin(Math.PI * u);
+          const amplitude = Math.min(layer.amplitude, Math.max(0, y - 16));
+          const shiftedY = y + amplitude * envelope * Math.sin(theta);
+          path += (path ? ' L' : 'M') + fmt(x) + ' ' + fmt(shiftedY);
+        }
+        startX = x3;
+        startY = y3;
+      }
+
+      // Reuse the original closing lines so the colored fill stays continuous.
+      path += ` L${fmt(a[20])} ${fmt(a[21])}`;
+      path += ` L${fmt(a[22])} ${fmt(a[23])} Z`;
+      layer.element.setAttribute('d', path);
+    }
+  }
+  requestAnimationFrame(drawWaves);
+})();
+</script>
 <script>
 /* Wang Group homepage — seamless GPU logo deformation with Canvas 2D fallback. */
 (function () {
@@ -318,147 +400,6 @@ const mix=(a,b,t)=>a+(b-a)*t;
 const rand=(i)=>{const x=Math.sin(i*127.1+42.3)*43758.5453;return x-Math.floor(x)};
 const easeOut=t=>1-Math.pow(1-clamp(t),3);
   
-
-/* ===== Smooth four-layer wave motion ===== */
-
-const wavePeriod = Math.max(
-  5,
-  parseFloat(
-    getComputedStyle(root)
-      .getPropertyValue('--wwl-wave-speed')
-  ) || 13
-);
-
-
-const waveSpecs = [
-  {
-    selector: '.wwl-wave-path--purple-back',
-    amp: 32, phase: 0.00, blue: false
-  },
-  {
-    selector: '.wwl-wave-path--purple-front',
-    amp: 24, phase: 1.10, blue: false
-  },
-  {
-    selector: '.wwl-wave-path--blue-back',
-    amp: 38, phase: 2.20, blue: true
-  },
-  {
-    selector: '.wwl-wave-path--blue-front',
-    amp: 30, phase: 3.00, blue: true
-  }
-];
-
-/* Read original SVG curves */
-const waveLayers = waveSpecs.map(spec => {
-  const el = waves.querySelector(spec.selector);
-  if (!el) return null;
-
-  const original = (
-    el.getAttribute('d')
-      .match(/[-+]?\d*\.?\d+/g) || []
-  ).map(Number);
-
-  // M + 3 Bezier curves + 2 closing lines
-  if (original.length !== 24) return null;
-
-  return { ...spec, el, original };
-}).filter(Boolean);
-
-
-/* ===== Smooth Traveling Waves ===== */
-
-let lastWaveAt = -1000;
-
-function animateWaves(now, p) {
-  if (
-    reduce ||
-    document.hidden ||
-    p >= 0.54 ||
-    now - lastWaveAt < 30
-  ) return;
-
-  lastWaveAt = now;
-
-  const cycle =
-    2 * Math.PI * now / (wavePeriod * 1000);
-
-  const samples = 24;
-  const fmt = n => n.toFixed(1);
-
-  for (const layer of waveLayers) {
-    const a = layer.original;
-    let x0 = a[0];
-    let y0 = a[1];
-    let d = '';
-
-    // Sample all three Bezier curves.
-    for (let s = 0; s < 3; s++) {
-      const j = 2 + s * 6;
-
-      const x1 = a[j];
-      const y1 = a[j + 1];
-      const x2 = a[j + 2];
-      const y2 = a[j + 3];
-      const x3 = a[j + 4];
-      const y3 = a[j + 5];
-
-      for (let i = 0; i <= samples; i++) {
-        if (s > 0 && i === 0) continue;
-
-        const t = i / samples;
-        const q = 1 - t;
-
-        const x =
-          q*q*q*x0 +
-          3*q*q*t*x1 +
-          3*q*t*t*x2 +
-          t*t*t*x3;
-
-        const y =
-          q*q*q*y0 +
-          3*q*q*t*y1 +
-          3*q*t*t*y2 +
-          t*t*t*y3;
-
-        const u = Math.max(
-          0,
-          Math.min(1, (x + 110) / 1820)
-        );
-
-        // A continuous traveling wave.
-        const theta =
-          2 * Math.PI * 1.15 * u -
-          cycle + layer.phase;
-
-        const motion =
-          Math.sin(theta) +
-          0.18 * Math.sin(2 * theta - 0.4 * cycle);
-
-        // Noticeable movement without raising the
-        // entire wave field or excessively clipping peaks.
-        const amplitude = Math.min(
-          layer.amp * 2.3,
-          Math.max(12, (y - 8) * 0.72)
-        );
-
-        const newY = y + amplitude * motion;
-
-        d += (d ? ' L' : 'M') +
-          fmt(x) + ' ' + fmt(newY);
-      }
-
-      x0 = x3;
-      y0 = y3;
-    }
-
-    // Close the colored wave at the bottom.
-    d += ` L${fmt(a[20])} ${fmt(a[21])}`;
-    d += ` L${fmt(a[22])} ${fmt(a[23])} Z`;
-
-    layer.el.setAttribute('d', d);
-  }
-}
 
 let ready=false, base={x:0,y:0,w:0,h:0},dest={x:50,y:16,w:104,h:35};
 let scrollTarget=0,progress=0,latest=0,lastShape=-1,lastTime=0,frame=0;
@@ -688,7 +629,6 @@ function tick(now){
  progress=mix(progress,scrollTarget,1-Math.exp(-dt*10));
  if(Math.abs(progress-scrollTarget)<.00018)progress=scrollTarget;
  setProgress(progress,now);
- animateWaves(now,progress);
  drawLogoFrame(progress,introProgress,!doneIntro);
  if(doneIntro)drawParticles(now,progress);
  frame=requestAnimationFrame(tick);
