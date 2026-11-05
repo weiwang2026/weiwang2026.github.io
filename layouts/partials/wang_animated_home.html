@@ -7,7 +7,7 @@
   --wwl-ink: #101c43;
   --wwl-purple: #6629f0;
   --wwl-blue: #086df5;
-  --wwl-wave-speed: 13s; /* smaller = faster wave motion */
+  --wwl-wave-speed: 8s; /* smaller = faster wave motion */
   position: relative;
   color: var(--wwl-ink);
   font-family: inherit;
@@ -329,22 +329,23 @@ const wavePeriod = Math.max(
   ) || 13
 );
 
+
 const waveSpecs = [
   {
     selector: '.wwl-wave-path--purple-back',
-    amp: 10, phase: 0.00, blue: false
+    amp: 28, phase: 0.00, blue: false
   },
   {
     selector: '.wwl-wave-path--purple-front',
-    amp: 7, phase: 0.45, blue: false
+    amp: 22, phase: 0.45, blue: false
   },
   {
     selector: '.wwl-wave-path--blue-back',
-    amp: 16, phase: 0.23, blue: true
+    amp: 36, phase: 0.23, blue: true
   },
   {
     selector: '.wwl-wave-path--blue-front',
-    amp: 12, phase: 0.70, blue: true
+    amp: 28, phase: 0.70, blue: true
   }
 ];
 
@@ -395,7 +396,7 @@ function animateWaves(now, p) {
         : (1 - 0.40 * u);
 
       const theta =
-        cycle - 2.4 * u + layer.phase;
+        cycle - 4.0 * u + layer.phase;
 
       v[j] += layer.amp * focus * (
         Math.sin(theta) +
