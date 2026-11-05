@@ -333,19 +333,19 @@ const wavePeriod = Math.max(
 const waveSpecs = [
   {
     selector: '.wwl-wave-path--purple-back',
-    amp: 28, phase: 0.00, blue: false
+    amp: 32, phase: 0.00, blue: false
   },
   {
     selector: '.wwl-wave-path--purple-front',
-    amp: 22, phase: 0.45, blue: false
+    amp: 24, phase: 1.10, blue: false
   },
   {
     selector: '.wwl-wave-path--blue-back',
-    amp: 36, phase: 0.23, blue: true
+    amp: 38, phase: 2.20, blue: true
   },
   {
     selector: '.wwl-wave-path--blue-front',
-    amp: 28, phase: 0.70, blue: true
+    amp: 30, phase: 3.00, blue: true
   }
 ];
 
@@ -365,6 +365,9 @@ const waveLayers = waveSpecs.map(spec => {
   return { ...spec, el, original };
 }).filter(Boolean);
 
+
+/* ===== Smooth Traveling Waves ===== */
+
 let lastWaveAt = -1000;
 
 function animateWaves(now, p) {
@@ -372,37 +375,90 @@ function animateWaves(now, p) {
     reduce ||
     document.hidden ||
     p >= 0.54 ||
-    now - lastWaveAt < 33
+    now - lastWaveAt < 30
   ) return;
 
   lastWaveAt = now;
 
   const cycle =
-    (2 * Math.PI * now) / (wavePeriod * 1000);
+    2 * Math.PI * now / (wavePeriod * 1000);
 
-  const fmt = x => Number(x.toFixed(2));
+  const samples = 24;
+  const fmt = n => n.toFixed(1);
 
   for (const layer of waveLayers) {
-    const v = [...layer.original];
+    const a = layer.original;
+    let x0 = a[0];
+    let y0 = a[1];
+    let d = '';
 
-    // Animate original Bezier control points
-    for (let j = 3; j <= 19; j += 2) {
-      const u = clamp(
-        (v[j - 1] + 110) / 1820
-      );
+    // Sample all three Bezier curves.
+    for (let s = 0; s < 3; s++) {
+      const j = 2 + s * 6;
 
-      const focus = layer.blue
-        ? (0.60 + 0.40 * u)
-        : (1 - 0.40 * u);
+      const x1 = a[j];
+      const y1 = a[j + 1];
+      const x2 = a[j + 2];
+      const y2 = a[j + 3];
+      const x3 = a[j + 4];
+      const y3 = a[j + 5];
 
-      const theta =
-        cycle - 4.0 * u + layer.phase;
+      for (let i = 0; i <= samples; i++) {
+        if (s > 0 && i === 0) continue;
 
-      v[j] += layer.amp * focus * (
-        Math.sin(theta) +
-        0.12 * Math.sin(2 * theta)
-      );
+        const t = i / samples;
+        const q = 1 - t;
+
+        const x =
+          q*q*q*x0 +
+          3*q*q*t*x1 +
+          3*q*t*t*x2 +
+          t*t*t*x3;
+
+        const y =
+          q*q*q*y0 +
+          3*q*q*t*y1 +
+          3*q*t*t*y2 +
+          t*t*t*y3;
+
+        const u = Math.max(
+          0,
+          Math.min(1, (x + 110) / 1820)
+        );
+
+        // A continuous traveling wave.
+        const theta =
+          2 * Math.PI * 1.15 * u -
+          cycle + layer.phase;
+
+        const motion =
+          Math.sin(theta) +
+          0.18 * Math.sin(2 * theta - 0.4 * cycle);
+
+        // Noticeable movement without raising the
+        // entire wave field or excessively clipping peaks.
+        const amplitude = Math.min(
+          layer.amp * 2.3,
+          Math.max(12, (y - 8) * 0.72)
+        );
+
+        const newY = y + amplitude * motion;
+
+        d += (d ? ' L' : 'M') +
+          fmt(x) + ' ' + fmt(newY);
+      }
+
+      x0 = x3;
+      y0 = y3;
     }
+
+    // Close the colored wave at the bottom.
+    d += ` L${fmt(a[20])} ${fmt(a[21])}`;
+    d += ` L${fmt(a[22])} ${fmt(a[23])} Z`;
+
+    layer.el.setAttribute('d', d);
+  }
+}
 
     // Preserve the 3 original Bezier segments
     let d = `M${fmt(v[0])} ${fmt(v[1])}`;
