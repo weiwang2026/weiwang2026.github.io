@@ -460,22 +460,6 @@ function animateWaves(now, p) {
   }
 }
 
-    // Preserve the 3 original Bezier segments
-    let d = `M${fmt(v[0])} ${fmt(v[1])}`;
-
-    for (let j = 2; j < 20; j += 6) {
-      d += ' C' +
-        v.slice(j, j + 6).map(fmt).join(' ');
-    }
-
-    d += ` L${fmt(v[20])} ${fmt(v[21])}`;
-    d += ` L${fmt(v[22])} ${fmt(v[23])} Z`;
-
-    layer.el.setAttribute('d', d);
-  }
-}
-
-
 let ready=false, base={x:0,y:0,w:0,h:0},dest={x:50,y:16,w:104,h:35};
 let scrollTarget=0,progress=0,latest=0,lastShape=-1,lastTime=0,frame=0;
 let start=performance.now(),duration=reduce||!firstVisit?0:3500,doneIntro=duration===0;
