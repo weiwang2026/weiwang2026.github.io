@@ -898,3 +898,89 @@ body:not(.wwl-has-home) .page-header,
 body:not(.wwl-has-home) .home-section {
   background: transparent !important;
 }
+
+/* =============================================================
+   Wang Group | Global navigation styles
+   Add this block at the END of assets/scss/custom.scss.
+   Applies to HOME and all inner pages.
+   Does NOT change the home-only scroll/docking JavaScript.
+   ============================================================= */
+
+:root {
+  --wang-navbar-bg: #0B1530;
+  --wang-navbar-text: #E9EEFF;
+  --wang-navbar-accent: #9CCBFF;
+}
+
+/* Shared header appearance on every page. */
+#navbar-main {
+  background: var(--wang-navbar-bg) !important;
+  box-shadow: 0 3px 20px rgba(8, 20, 48, .12);
+}
+
+/* Logo and Wang Group title are vertically aligned. */
+#navbar-main .navbar-brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .55rem;
+  color: #FFFFFF !important;
+  white-space: nowrap;
+}
+#navbar-main .navbar-brand img {
+  display: block;
+  object-fit: contain;
+}
+#navbar-main .navbar-brand span {
+  color: #FFFFFF !important;
+}
+
+/* Match the exact nav-link typography used by the animated home. */
+#navbar-main .navbar-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit !important;
+  font-size: clamp(14px, .98vw, 15px) !important;
+  font-weight: 550 !important;
+  letter-spacing: -.012em !important;
+  color: var(--wang-navbar-text) !important;
+  white-space: nowrap;
+}
+#navbar-main .navbar-nav .nav-link:hover,
+#navbar-main .navbar-nav .nav-link:focus-visible,
+#navbar-main .navbar-nav .nav-link.active {
+  color: var(--wang-navbar-accent) !important;
+}
+
+@media (min-width: 992px) {
+  #navbar-main .container,
+  #navbar-main .container-fluid,
+  #navbar-main .navbar-collapse,
+  #navbar-main .navbar-nav {
+    align-items: center !important;
+  }
+  #navbar-main .navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Mobile: keep the original collapsible navbar usable. */
+@media (max-width: 991.98px) {
+  #navbar-main .navbar-nav {
+    align-items: stretch;
+  }
+  #navbar-main .navbar-nav .nav-link {
+    display: flex;
+    padding: .6rem .35rem;
+  }
+  #navbar-main .navbar-toggler {
+    color: var(--wang-navbar-text) !important;
+    border-color: rgba(233, 238, 255, .35);
+  }
+  #navbar-main .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+  }
+}
+
+/* Important: Do NOT globally add wwl-has-home, wwl-nav-hidden,
+   or wwl-docked to non-home pages. They control the home intro. */
