@@ -330,12 +330,12 @@ members:
     
 
 
-  - name: Jia Shiqi
+  - name: Shiqi Jia
     team_group: researchers
     avatar: "images/members/jia-shi-qi.webp"
     position: Research Assistant
 
-  - name: Ding Guyu
+  - name: Guyu Ding
     team_group: interns
     avatar: "images/members/ding-gu-yu.webp"
     position: Undergraduate Student
