@@ -1402,3 +1402,39 @@ body.wwl-has-home .page-footer {
     transition: none;
   }
 }
+
+
+/* WWL: sitewide lining figures (Georgia text + aligned digits) */
+/* Georgia uses old-style figures on some devices, so the 0-9 glyphs
+   can rise and drop relative to the baseline. This local-only face
+   replaces digits with lining figures; letters keep the original fonts.
+   No external font download or JavaScript text rewriting is needed. */
+@font-face {
+  font-family: "WWL Lining Figures";
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  unicode-range: U+0030-0039;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "WWL Lining Figures";
+  src: local("Arial Bold"), local("Helvetica Bold"), local("Liberation Sans Bold");
+  unicode-range: U+0030-0039;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* Apply the digit-aware family to normal site typography. The virtual
+   face has no letters, so the rest still renders in Georgia as before.
+   Do not target icon elements, SVG text, code, or branded graphics. */
+body,
+body :where(
+  div, section, article, header, footer, nav,
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, small, strong, b, em, time,
+  ul, ol, li, dl, dt, dd,
+  blockquote, figcaption, table, th, td, label
+) {
+  font-family: "WWL Lining Figures", Georgia, "Times New Roman", Times, serif;
+  font-variant-numeric: lining-nums;
+}
