@@ -4,12 +4,9 @@
   <h1 id="wwl-news-title" class="wwl-news__heading">News</h1>
   <div class="wwl-news__list">
     {{ range .RegularPages.ByDate.Reverse }}
-    <a class="wwl-news__link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}">
-      <time class="wwl-news__date" datetime="{{ .Date.Format "2006-01" }}">{{ .Params.display_date | default (.Date.Format "January 2006") }}</time>
-      <div class="wwl-news__copy">
-        <h2 class="wwl-news__title">{{ .Title }}</h2>
-        {{ with .Params.excerpt }}<p class="wwl-news__excerpt">{{ . }}</p>{{ end }}
-      </div>
+    <a class="wwl-news__link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}" title="{{ .Title }}">
+      <time class="wwl-news__date" datetime="{{ .Date.Format "2006-01" }}">{{ .Date.Format "Jan 2006" }}</time>
+      <h2 class="wwl-news__title">{{ .Title }}</h2>
       <span class="wwl-news__arrow" aria-hidden="true">↗</span>
     </a>
     {{ end }}
