@@ -3,7 +3,7 @@
 <main class="wwl-news">
   <article class="wwl-news__article">
     <a class="wwl-news__back" href="{{ "/news/" | relLangURL }}">← Back to News</a>
-    <p class="wwl-news__article-date"><time datetime="{{ .Date.Format "2006-01" }}">{{ .Params.display_date | default (.Date.Format "January 2006") }}</time></p>
+    <p class="wwl-news__article-date"><time datetime="{{ .Date.Format "2006-01" }}">{{ .Date.Format "Jan 2006" }}</time></p>
     <h1 class="wwl-news__article-title">{{ .Title }}</h1>
     <div class="wwl-news__article-body">{{ .Content }}</div>
   </article>
