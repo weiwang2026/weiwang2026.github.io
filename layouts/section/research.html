@@ -1,6 +1,7 @@
 {{- define "main" -}}
 
-{{ partial "page_header.html" . }}
+{{/* Keep an accessible page heading without a duplicate visible title. */}}
+<h1 class="sr-only">{{ .Title }}</h1>
 
 <div class="universal-wrapper  page-research ">
   {{ with .Content }}
