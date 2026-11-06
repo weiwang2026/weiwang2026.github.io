@@ -1188,6 +1188,11 @@ body:not(.wwl-has-home) .home-section {
   line-height: 1.85;
   letter-spacing: -.009em;
   font-weight: 400;
+  /* Fill each line evenly so the photo-and-biography composition
+     feels centered instead of visually weighted to the left. */
+  text-align: justify;
+  text-justify: inter-word;
+  text-wrap: pretty;
 }
 .wwl-team-gallery .wwl-pi__content > p:last-child {
   margin-bottom: 0 !important;
@@ -1205,6 +1210,7 @@ body:not(.wwl-has-home) .home-section {
   .wwl-team-gallery .wwl-pi__content > p:not(.wwl-pi__eyebrow):not(.wwl-pi__position) {
     font-size: .94rem;
     line-height: 1.75;
+    text-align: left; /* Natural spacing on narrow screens. */
   }
 }
 
