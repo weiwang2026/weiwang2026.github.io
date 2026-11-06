@@ -101,24 +101,16 @@
 #wwl-home .wwl-waves-svg {
   position: absolute; left: -6%; bottom: 0;
   width: 112%; height: 100%; display: block;
-}
-/* Only moving waves remain. During the Logo intro the sea is empty.
-   Each wave emerges gently from below, then keeps flowing without stopping. */
-#wwl-home .wwl-ocean-reveal {
+  /* Fade the entire four-layer sea as one composited unit.
+     No vertical group translation to interfere with the animated crests. */
   opacity: 0;
-  transform: translateY(100px);
+  transition: opacity 2.8s cubic-bezier(.42, 0, .2, 1);
 }
-#wwl-home.wwl-waves-active .wwl-ocean-reveal {
-  animation: wwl-ocean-arrive 2.6s linear both;
-  animation-delay: var(--wwl-rise-delay, 0s);
+#wwl-home.wwl-waves-active .wwl-waves-svg {
+  opacity: 1;
 }
-@keyframes wwl-ocean-arrive {
-  0%   { opacity: 0; transform: translateY(100px); }
-  35%  { opacity: .30; }
-  100% { opacity: 1; transform: translateY(0); }
-}
-/* Outer reveal handles vertical entrance; inner strip handles horizontal travel.
-   Independent transforms prevent jumps when the entrance completes. */
+/* Inner wave strips keep their independent constant-speed travel.
+   The outer layer groups remain at a fixed baseline throughout entry. */
 #wwl-home .wwl-ocean-strip {
   transform-box: view-box;
   transform-origin: 0 0;
@@ -133,10 +125,6 @@
 #wwl-home .wwl-ocean-blue-back { animation-duration: 17.5s; }
 #wwl-home .wwl-ocean-purple-front { animation-duration: 15.5s; }
 #wwl-home .wwl-ocean-blue-front { animation-duration: 14.5s; }
-#wwl-home .wwl-reveal-purple-back { --wwl-rise-delay: 0s; }
-#wwl-home .wwl-reveal-blue-back { --wwl-rise-delay: .16s; }
-#wwl-home .wwl-reveal-purple-front { --wwl-rise-delay: .31s; }
-#wwl-home .wwl-reveal-blue-front { --wwl-rise-delay: .46s; }
 @keyframes wwl-ocean-travel {
   from { transform: translateX(0%); }
   to   { transform: translateX(-100%); }
@@ -351,7 +339,7 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
  <canvas class="wwl-twist" id="wwl-twist-canvas" aria-hidden="true"></canvas>
  <canvas class="wwl-particles" id="wwl-particle-canvas" aria-hidden="true"></canvas>
 </div>
-<!-- Ocean waves use compositor-friendly CSS; Logo event only starts them. -->
+<!-- Waves and Logo begin together; a unified fade eliminates vertical entrance jumps. -->
 <script>
 (function () {
   'use strict';
@@ -362,6 +350,10 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
   function startWaves() {
     if (started) return;
     started = true;
+    // Commit the initial invisible style before starting the fade, including
+    // when a cached Logo initializes during the very first page paint.
+    const sea = root.querySelector('.wwl-waves-svg');
+    if (sea) void getComputedStyle(sea).opacity;
     root.classList.add('wwl-waves-active');
     root.dataset.waveAnimation = 'running';
     // Start the contour morph at the same moment as the continuous horizontal flow.
@@ -371,8 +363,10 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
       else anim.setAttribute('begin', '0s');
     });
   }
+  // Start at Logo frame zero instead of waiting for the Logo to finish.
+  root.addEventListener('wwl:logo-intro-start', startWaves, { once: true });
   root.addEventListener('wwl:logo-intro-complete', startWaves, { once: true });
-  if (root.dataset.logoIntroDone === 'true') startWaves();
+  if (root.dataset.logoIntroStarted === 'true') startWaves();
   // A missing Logo image should never leave the wave animation permanently idle.
   window.setTimeout(startWaves, 7500);
 })();
@@ -677,7 +671,11 @@ function init(){
    root.dataset.logoIntroDone='true';
    root.dispatchEvent(new Event('wwl:logo-intro-complete'));
  }
- start=performance.now();frame=requestAnimationFrame(tick);
+ start=performance.now();
+ // Same start time for the Logo entrance and four-layer wave fade.
+ root.dataset.logoIntroStarted='true';
+ root.dispatchEvent(new Event('wwl:logo-intro-start'));
+ frame=requestAnimationFrame(tick);
 }
 window.addEventListener('scroll',updateScroll,{passive:true});
 window.addEventListener('resize',()=>{if(!ready)return;geometry();updateScroll()},{passive:true});
