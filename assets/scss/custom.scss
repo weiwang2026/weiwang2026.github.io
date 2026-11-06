@@ -1133,9 +1133,9 @@ body:not(.wwl-has-home) .home-section {
   grid-template-columns: minmax(215px, 29%) minmax(0, 1fr);
   align-items: center;
   gap: clamp(30px, 5.5vw, 80px);
-  padding: clamp(20px, 3vw, 42px) 0 clamp(48px, 5vw, 76px);
-  margin-bottom: clamp(40px, 4.7vw, 70px);
-  border-bottom: 1px solid rgba(42, 65, 118, .14);
+  padding: clamp(20px, 3vw, 42px) 0 0;
+  margin-bottom: clamp(48px, 5.5vw, 76px);
+  border: 0;
 }
 .wwl-team-gallery .wwl-pi__photo {
   width: 100%;
@@ -1196,8 +1196,8 @@ body:not(.wwl-has-home) .home-section {
   .wwl-team-gallery .wwl-pi {
     grid-template-columns: 1fr;
     gap: 26px;
-    padding: 12px 0 42px;
-    margin-bottom: 38px;
+    padding: 12px 0 0;
+    margin-bottom: 46px;
     align-items: start;
   }
   .wwl-team-gallery .wwl-pi__photo { width: 100%; max-width: 285px; }
