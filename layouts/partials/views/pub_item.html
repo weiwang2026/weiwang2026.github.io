@@ -1,7 +1,8 @@
 {{- $item := .item -}}
 {{- $authors := split $item.authors_text ";" -}}
-{{- $leading := first 3 $authors -}}
-{{- $remaining := after 3 $authors -}}
+{{- $firstCount := $item.first_author_count | default 1 | int -}}
+{{- $leading := first $firstCount $authors -}}
+{{- $remaining := after $firstCount $authors -}}
 {{- $corresponding := slice -}}
 {{- range $author := $remaining -}}
   {{- if in $author "<sup>*</sup>" -}}
@@ -9,6 +10,19 @@
   {{- end -}}
 {{- end -}}
 {{- $omitted := sub (len $remaining) (len $corresponding) -}}
+{{- $leadingHTML := slice -}}
+{{- range $leading -}}
+  {{- $leadingHTML = $leadingHTML | append ((trim . " ") | markdownify) -}}
+{{- end -}}
+{{- $correspondingHTML := slice -}}
+{{- range $corresponding -}}
+  {{- $correspondingHTML = $correspondingHTML | append ((trim . " ") | markdownify) -}}
+{{- end -}}
+{{- $allHTML := slice -}}
+{{- range $authors -}}
+  {{- $allHTML = $allHTML | append ((trim . " ") | markdownify) -}}
+{{- end -}}
+{{- $fullId := printf "wwl-authors-%s" (md5 $item.title) -}}
 
 <article class="wwl-publications__paper">
   <h3 class="wwl-publications__paper-title">
@@ -18,14 +32,33 @@
       <span>{{ $item.title | markdownify }}</span>
     {{- end }}
   </h3>
-  <p class="wwl-publications__paper-authors">
-    {{- range $index, $author := $leading -}}
-      {{- if gt $index 0 }}; {{ end -}}
-      {{- (trim $author " ") | markdownify -}}
-    {{- end -}}
-    {{- if gt $omitted 0 }}; <span class="wwl-publications__ellipsis" aria-label="additional authors">&hellip;</span>{{ end -}}
-    {{- range $author := $corresponding }}; {{ (trim $author " ") | markdownify }}{{ end }}
-  </p>
+  <div class="wwl-publications__paper-authors">
+    <span class="wwl-publications__authors-compact">
+      {{- delimit $leadingHTML ", " | safeHTML -}}
+      {{- if gt $omitted 0 -}}
+        , <button type="button"
+                  class="wwl-publications__author-toggle wwl-publications__author-toggle--expand"
+                  aria-label="Show all authors"
+                  aria-controls="{{ $fullId }}"
+                  aria-expanded="false"
+                  title="Show all authors">&hellip;</button>
+      {{- end -}}
+      {{- if gt (len $correspondingHTML) 0 -}}
+        , {{ delimit $correspondingHTML ", " | safeHTML }}
+      {{- end -}}
+    </span>
+    {{- if gt $omitted 0 }}
+    <span class="wwl-publications__authors-full" id="{{ $fullId }}" hidden>
+      {{- delimit $allHTML ", " | safeHTML -}}
+      <button type="button"
+              class="wwl-publications__author-toggle wwl-publications__author-toggle--collapse"
+              aria-label="Collapse author list"
+              aria-controls="{{ $fullId }}"
+              aria-expanded="true"
+              title="Collapse author list">−</button>
+    </span>
+    {{- end }}
+  </div>
   <p class="wwl-publications__paper-meta">
     <cite>{{ $item.journal | markdownify }}</cite>
   </p>
