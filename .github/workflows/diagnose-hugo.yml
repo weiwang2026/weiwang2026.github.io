@@ -1,0 +1,35 @@
+name: Temporary Hugo build diagnosis
+on:
+  push:
+    branches: ["diagnose-news-hugo-20261107"]
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Hugo matching production
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.135.0'
+          extended: true
+      - name: Capture full production-style build output
+        shell: bash
+        run: |
+          set +e
+          GITHUB_PAGES=true HUGO_ENVIRONMENT=production hugo --minify --baseURL 'https://weiwang2026.github.io/' > HUGO_BUILD_DIAGNOSIS.txt 2>&1
+          status=$?
+          printf '\nHUGO_EXIT_CODE=%s\n' "$status" >> HUGO_BUILD_DIAGNOSIS.txt
+          exit 0
+      - name: Store report on this temporary branch only
+        shell: bash
+        run: |
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git add HUGO_BUILD_DIAGNOSIS.txt
+          git commit -m 'Record Hugo diagnostic result [skip ci]'
+          git push origin HEAD:diagnose-news-hugo-20261107
