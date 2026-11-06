@@ -51,6 +51,12 @@ jobs:
         run: |
           echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
           hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Verify News pages and photo
+        run: |
+          test -s public/news/index.html
+          test -s public/news/professor-wei-wang-birthday-2026/index.html
+          test -s public/images/news/wei-wang-birthday-2026.webp
+          echo "News index, birthday article and photo verified."
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
