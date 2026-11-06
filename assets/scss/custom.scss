@@ -1455,3 +1455,39 @@ body :where(
   font-family: "WWL Lining Figures", Georgia, "Times New Roman", Times, serif;
   font-variant-numeric: lining-nums;
 }
+
+
+/* Publications: minimal inline author disclosure. */
+.wwl-publications__paper-authors [hidden] {
+  display: none !important;
+}
+.wwl-publications__author-toggle {
+  display: inline;
+  padding: 0 .18em;
+  margin: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #6629f0;
+  font: inherit;
+  font-weight: 650;
+  line-height: inherit;
+  cursor: pointer;
+  vertical-align: baseline;
+  transition: color .18s ease, background-color .18s ease;
+}
+.wwl-publications__author-toggle:hover,
+.wwl-publications__author-toggle:focus-visible {
+  color: #4217a8;
+  background-color: rgba(102, 41, 240, .085);
+}
+.wwl-publications__author-toggle:focus-visible {
+  outline: 2px solid #6629f0;
+  outline-offset: 2px;
+}
+.wwl-publications__author-toggle--collapse {
+  margin-left: .3em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wwl-publications__author-toggle { transition: none; }
+}
