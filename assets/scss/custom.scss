@@ -1302,9 +1302,9 @@ body.wwl-has-home .page-footer {
   margin: 0;
   padding-top: 3px;
   color: #16264e;
-  /* Georgia's old-style numerals have uneven baselines.
-     Use lining numerals for years only, keeping the original weight. */
-  font-family: Arial, Helvetica, sans-serif;
+  /* Match the sitewide Times New Roman lining figures for years.
+     Keep the existing year size, weight, tracking and line height. */
+  font-family: "WWL Lining Figures", Georgia, "Times New Roman", Times, serif;
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1, "tnum" 1;
   font-size: clamp(1.35rem, 2vw, 1.75rem);
@@ -1404,21 +1404,20 @@ body.wwl-has-home .page-footer {
 }
 
 
-/* WWL: sitewide lining figures (Georgia text + aligned digits) */
-/* Georgia uses old-style figures on some devices, so the 0-9 glyphs
-   can rise and drop relative to the baseline. This local-only face
-   replaces digits with lining figures; letters keep the original fonts.
-   No external font download or JavaScript text rewriting is needed. */
+/* WWL: sitewide lining figures (Georgia text + Times New Roman digits) */
+/* Keep the existing Georgia letters and typography. Replace only U+0030–0039
+   with classic Times New Roman lining digits (or metrically similar local serif
+   fallbacks). These have a consistent numeral baseline across the website. */
 @font-face {
   font-family: "WWL Lining Figures";
-  src: local("Arial"), local("Helvetica"), local("Liberation Sans");
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Liberation Serif"), local("Nimbus Roman");
   unicode-range: U+0030-0039;
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: "WWL Lining Figures";
-  src: local("Arial Bold"), local("Helvetica Bold"), local("Liberation Sans Bold");
+  src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT"), local("Liberation Serif Bold"), local("Nimbus Roman Bold");
   unicode-range: U+0030-0039;
   font-style: normal;
   font-weight: 700;
