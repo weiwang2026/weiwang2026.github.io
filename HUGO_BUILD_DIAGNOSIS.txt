@@ -1,0 +1,19 @@
+hugo: downloading modules …
+hugo: collected modules in 6402 ms
+Start building sites … 
+hugo v0.135.0-f30603c47f5205e30ef83c70419f57d7eb7175ab+extended linux/amd64 BuildDate=2024-09-27T13:17:08Z VendorInfo=gohugoio
+
+
+                   | EN | ZH  
+-------------------+----+-----
+  Pages            | 43 | 35  
+  Paginator pages  |  0 |  0  
+  Non-page files   |  0 |  0  
+  Static files     | 52 | 52  
+  Processed images |  4 |  0  
+  Aliases          |  5 |  4  
+  Cleaned          |  0 |  0  
+
+Total in 7123 ms
+
+HUGO_EXIT_CODE=0
