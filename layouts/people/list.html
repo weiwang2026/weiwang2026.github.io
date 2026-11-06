@@ -18,7 +18,7 @@
 <div class="universal-wrapper wwl-team-gallery">
   <section class="wwl-pi" aria-labelledby="wwl-pi-name">
     <div class="wwl-pi__photo"><img src="{{ "images/members/wang-wei.jpg" | relURL }}" alt="{{ if $isChinese }}王卫教授{{ else }}Professor Wei Wang{{ end }}" width="320" height="400" decoding="async" fetchpriority="high"></div>
-    <div class="wwl-pi__content">
+    <div class="wwl-pi__content" lang="{{ if $isChinese }}zh{{ else }}en{{ end }}">
       <h2 class="wwl-pi__name" id="wwl-pi-name">{{ if $isChinese }}王卫{{ else }}Wei Wang{{ end }}</h2>
       <p class="wwl-pi__position">{{ if $isChinese }}讲席教授兼化学与化学生物学学院院长{{ else }}Chair Professor and Dean, School of Chemistry and Chemical Biology{{ end }}</p>
       {{ if $isChinese }}
