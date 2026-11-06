@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ partial "wwl_news_styles.html" . }}
 <main class="wwl-news" aria-labelledby="wwl-news-title">
-  <h1 id="wwl-news-title" class="wwl-news__heading">News</h1>
+  <h1 id="wwl-news-title" class="wwl-news__heading">News &amp; Milestones</h1>
   <div class="wwl-news__list">
     {{ range .RegularPages.ByDate.Reverse }}
     <a class="wwl-news__link" href="{{ .RelPermalink }}" aria-label="Read {{ .Title }}" title="{{ .Title }}">
