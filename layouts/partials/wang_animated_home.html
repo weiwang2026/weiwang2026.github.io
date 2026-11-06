@@ -375,6 +375,7 @@ const brandImg=brand?.querySelector('img');
 const cPts=pts.getContext('2d',{alpha:true});
 let cTrace=null, cTw=null, warpGPU=null;
 let logoDpr=1, lastRenderP=-1, lastRenderIntro=-1;
+let introWasRendered=false;
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const params=new URLSearchParams(location.search);
 const replay=params.get('replay')==='1';
@@ -457,6 +458,11 @@ function createWarpGPU(){
         opacity=1.0-ss(f-0.075,f+0.022,x);
         amp=exp(-pow((x-(f-0.045))/0.19,2.0))*ribbon*0.78;
         phase=14.0*x-11.0*u_intro;
+        // Fully settle the ribbon before the intro->idle renderer transition.
+        // The original intro shader still had residual twist at u_intro=1.
+        float settle=ss(0.92,0.9985,u_intro);
+        amp*=1.0-settle;
+        opacity=mix(opacity,1.0,settle);
       }else{
         float front=0.04+0.94*ss(0.03,0.87,p);
         float envelope=exp(-pow((x-front)/0.275,2.0));
@@ -541,7 +547,11 @@ function drawTwistFallback(p){
 }
 function drawLogoFrame(p,introProgress,introMode){
   if(!ready)return;
-  const active=introMode || (!reduce && p>.008 && p<.995);
+  if(introMode)introWasRendered=true;
+  // After an entrance, keep the same WebGL canvas for the settled Logo.
+  // Swapping the canvas for the IMG on the last intro frame caused a flash.
+  const active=introMode || (warpGPU && introWasRendered && p<.995)
+    || (!reduce && p>.008 && p<.995);
   if(!active){
     img.style.opacity='1';tw.style.opacity='0';trace.style.opacity='0';
     return;
