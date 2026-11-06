@@ -33,4 +33,23 @@
     {{ end }}
   </div>
 </div>
+
+<script>
+document.addEventListener('click', function (event) {
+  const button = event.target.closest('.wwl-publications__author-toggle');
+  if (!button) return;
+  const container = button.closest('.wwl-publications__paper-authors');
+  if (!container) return;
+  const compact = container.querySelector('.wwl-publications__authors-compact');
+  const full = container.querySelector('.wwl-publications__authors-full');
+  if (!compact || !full) return;
+  const expand = button.classList.contains('wwl-publications__author-toggle--expand');
+  compact.hidden = expand;
+  full.hidden = !expand;
+  const next = expand
+    ? full.querySelector('.wwl-publications__author-toggle--collapse')
+    : compact.querySelector('.wwl-publications__author-toggle--expand');
+  if (next) next.focus({ preventScroll: true });
+});
+</script>
 {{- end -}}
