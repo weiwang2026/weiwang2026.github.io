@@ -588,7 +588,7 @@ body {
 
 .page-contact-us {
   .contact-card-wrap {
-    margin: 3rem 0.2rem;
+    margin: 3rem 0;
   }
 
   /* Contact Info Card */
@@ -1509,7 +1509,7 @@ body :where(
   font-weight: 760;
   line-height: 1.18;
   letter-spacing: -.047em;
-  text-align: center;
+  text-align: left;
   background: linear-gradient(95deg, #31268a 1%, #6e26e9 43%, #315df5 76%, #0899ed 100%);
   color: transparent;
   -webkit-background-clip: text;
