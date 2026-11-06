@@ -1302,11 +1302,15 @@ body.wwl-has-home .page-footer {
   margin: 0;
   padding-top: 3px;
   color: #16264e;
-  font-family: inherit;
-  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
-  line-height: 1.35;
-  font-weight: 400;
-  letter-spacing: normal;
+  /* Georgia's old-style numerals have uneven baselines.
+     Use lining numerals for years only, keeping the original weight. */
+  font-family: Arial, Helvetica, sans-serif;
+  font-variant-numeric: lining-nums tabular-nums;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.25;
+  font-weight: 620;
+  letter-spacing: -.055em;
 }
 .wwl-publications__entries {
   min-width: 0;
