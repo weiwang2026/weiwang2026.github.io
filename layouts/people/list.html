@@ -16,9 +16,8 @@
 {{ $isChinese := eq .Site.Language.Lang "zh" }}
 
 <div class="universal-wrapper wwl-team-gallery">
-  <header class="wwl-team-gallery__header">
-    <h1 class="list-page-h1-heading">{{ .Title }}</h1>
-  </header>
+  {{/* Preserve the page title for screen readers without repeating it above the member groups. */}}
+  <h1 class="sr-only">{{ .Title }}</h1>
 
   {{ range $groups }}
     {{ $group := . }}
