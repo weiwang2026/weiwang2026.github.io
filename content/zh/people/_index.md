@@ -43,6 +43,7 @@ members_key_titles:
 
 members:
   - name: 常梦阳
+    team_group: researchers
     avatar: "images/members/chang-meng-yang.jpg"
     position: 副研究员
     join_date: 2026年5月
@@ -61,6 +62,7 @@ members:
     email: mchang1010@163.com
 
   - name: 常静洁
+    team_group: postdocs
     avatar: "images/members/chang-jing-jie.jpg"
     position: 博士后
     join_date: 2026年9月
@@ -90,6 +92,7 @@ members:
         period: 2011年9月 — 2015年6月
     email: jchang@eitech.edu.cn
   - name: 徐梅芹
+    team_group: postdocs
     avatar: "images/members/xu-mei-qin.jpg"
     position: 博士后
     join_date: 2026年3月
@@ -111,6 +114,7 @@ members:
     email: mqxu@eitech.edu.cn
 
   - name: 张凯雪
+    team_group: postdocs
     avatar: "images/members/zhang-kai-xue.jpg"
     position: 博士后
     join_date: 2026年1月
@@ -135,6 +139,7 @@ members:
     email: kaixuezhang@eitech.edu.cn
 
   - name: 仲悦
+    team_group: postdocs
     avatar: "images/members/zhong-yue.jpg"
     position: 博士后
     join_date: 2026年1月
@@ -159,6 +164,7 @@ members:
     email: yuezhong@eitech.edu.cn
 
   - name: 戴望烜
+    team_group: researchers
     avatar: "images/members/dai-wang-heng.png"
     position: 科研助理
     join_date: 2026年1月
@@ -173,6 +179,7 @@ members:
         period: 2017年9月 — 2021年6月
     email: wxdai@eitech.edu.cn
   - name: 黄莹
+    team_group: phd
     avatar: "images/members/huang-ying.png"
     position: 博士生
     join_date: 2026年7月
@@ -184,6 +191,7 @@ members:
         period: 2020年9月 — 2024年6月
     email: huang_ying@mail.ustc.edu.cn
   - name: 姜棋轩
+    team_group: phd
     avatar: "images/members/jiang-qi-xuan.png"
     position: 博士生
     join_date: 2026年7月
@@ -199,6 +207,7 @@ members:
     email: qxjiang@eitech.edu.cn
 
   - name: 李鸿渊
+    team_group: phd
     avatar: "images/members/li-hong-yuan.jpg"
     position: 博士生
     join_date: 2026年2月
@@ -213,6 +222,7 @@ members:
         period: 2018年9月 — 2022年6月
     email: hyli@eitech.edu.cn
   - name: 马利洁
+    team_group: phd
     avatar: "images/members/ma-li-jie.jpg"
     position: 博士生
     join_date: 2026年6月
@@ -224,6 +234,7 @@ members:
         period: 2020年9月 — 2024年6月
     email: mlj1101@mail.ustc.edu.cn
   - name: 任俊欣
+    team_group: phd
     avatar: "images/members/ren-jun-xin.jpg"
     position: 博士生
     join_date: 2026年7月
@@ -238,6 +249,7 @@ members:
         period: 2019年9月 — 2023年6月
     email: jxren@eitech.edu.cn
   - name: 孙耀宗
+    team_group: researchers
     avatar: "images/members/sun-yao-zong.jpg"
     position: 科研助理
     join_date: 2026年3月
@@ -253,6 +265,7 @@ members:
     email: yzsun@eitech.edu.cn
 
   - name: 王迎澳
+    team_group: phd
     avatar: "images/members/wang-ying-ao.jpg"
     position: 博士生
     join_date: 2026年1月
@@ -268,6 +281,7 @@ members:
     email: yawang@eitech.edu.cn
     
   - name: 吴浩云
+    team_group: interns
     avatar: "images/members/wu-hao-yun.jpg"
     position: 本科生
     join_date: 2026年7月
@@ -281,6 +295,7 @@ members:
 
     
   - name: 崔立伟
+    team_group: interns
     avatar: "images/members/cui-li-wei.jpg"
     position: 本科生
     join_date: 2026年11月
@@ -294,8 +309,9 @@ members:
 
 
   - name: 易海怡
+    team_group: interns
     avatar: "images/members/yi-hai-yi.jpg"
-    position: 科研助理
+    position: 实习生
     join_date: 2026年10月
     research: 生物学
     work_experience: null

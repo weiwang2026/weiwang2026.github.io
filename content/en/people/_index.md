@@ -43,6 +43,7 @@ members_key_titles:
 
 members:
   - name: Mengyang Chang
+    team_group: researchers
     avatar: "images/members/chang-meng-yang.jpg"
     position: Associate Researcher
     join_date: May 2026
@@ -61,6 +62,7 @@ members:
     email: mchang1010@163.com
 
   - name: Jingjie Chang
+    team_group: postdocs
     avatar: "images/members/chang-jing-jie.jpg"
     position: Postdoctoral Fellow
     join_date: September 2026
@@ -91,6 +93,7 @@ members:
     email: jchang@eitech.edu.cn
 
   - name: Meiqin Xu
+    team_group: postdocs
     avatar: "images/members/xu-mei-qin.jpg"
     position: Postdoctoral Fellow
     join_date: March 2026
@@ -112,6 +115,7 @@ members:
     email: mqxu@eitech.edu.cn
     
   - name: Kaixue Zhang
+    team_group: postdocs
     avatar: "images/members/zhang-kai-xue.jpg"
     position: Postdoctoral Fellow
     join_date: January, 2026
@@ -136,6 +140,7 @@ members:
     email: kaixuezhang@eitech.edu.cn
 
   - name: Yue Zhong
+    team_group: postdocs
     avatar: "images/members/zhong-yue.jpg"
     position: Postdoctoral Fellow
     join_date: January 2026
@@ -161,6 +166,7 @@ members:
  
     
   - name: Wangxuan Dai
+    team_group: researchers
     avatar: "images/members/dai-wang-heng.png"
     position: Research Assistant
     join_date: January, 2026
@@ -175,6 +181,7 @@ members:
         period: Sep 2017 – Jun 2021
     email: wxdai@eitech.edu.cn    
   - name: Ying Huang
+    team_group: phd
     avatar: "images/members/huang-ying.png"
     position: PhD Student
     join_date: July 2026
@@ -186,6 +193,7 @@ members:
         period: Sep 2020 – Jun 2024
     email: huang_ying@mail.ustc.edu.cn
   - name: Qixuan Jiang
+    team_group: phd
     avatar: "images/members/jiang-qi-xuan.png"
     position: PhD Student
     join_date: July 2026
@@ -201,6 +209,7 @@ members:
     email: qxjiang@eitech.edu.cn
 
   - name: Hongyuan Li
+    team_group: phd
     avatar: "images/members/li-hong-yuan.jpg"
     position: PhD Student
     join_date: February, 2026
@@ -215,6 +224,7 @@ members:
         period: Sep 2018 – Jun 2022
     email: hyli@eitech.edu.cn
   - name: Lijie Ma
+    team_group: phd
     avatar: "images/members/ma-li-jie.jpg"
     position: PhD Student
     join_date: June 2026
@@ -226,6 +236,7 @@ members:
         period: Sep 2020 – Jun 2024
     email: mlj1101@mail.ustc.edu.cn
   - name: Junxin Ren
+    team_group: phd
     avatar: "images/members/ren-jun-xin.jpg"
     position: PhD Student
     join_date: July 2026
@@ -240,6 +251,7 @@ members:
         period: Sep 2019 – Jun 2023
     email: jxren@eitech.edu.cn
   - name: Yaozong Sun
+    team_group: researchers
     avatar: "images/members/sun-yao-zong.jpg"
     position: Research Assistant
     join_date: March, 2026
@@ -255,6 +267,7 @@ members:
     email: yzsun@eitech.edu.cn
 
   - name: Yingao Wang
+    team_group: phd
     avatar: "images/members/wang-ying-ao.jpg"
     position: PhD Student
     join_date: January 2026
@@ -270,6 +283,7 @@ members:
     email: yawang@eitech.edu.cn
   
   - name: Haoyun Wu
+    team_group: interns
     avatar: "images/members/wu-hao-yun.jpg"
     position: Undergraduate Student
     join_date: July 2026
@@ -282,6 +296,7 @@ members:
     email: wuhaoyun@mail.ustc.edu.cn
 
   - name: Liwei Cui
+    team_group: interns
     avatar: "images/members/cui-li-wei.jpg"
     position: Undergraduate Student
     join_date: November 2026
@@ -295,8 +310,9 @@ members:
 
   
   - name: Haiyi Yi
+    team_group: interns
     avatar: "images/members/yi-hai-yi.jpg"
-    position: Research Assistant
+    position: Intern
     join_date: October 2026
     research: Biology
     work_experience: null

@@ -984,3 +984,144 @@ body:not(.wwl-has-home) .home-section {
 
 /* Important: Do NOT globally add wwl-has-home, wwl-nav-hidden,
    or wwl-docked to non-home pages. They control the home intro. */
+
+
+/* ==========================================================
+   Wang Group | Members: Apple-inspired minimal gallery (A)
+   Scoped to /people/; preserves existing page background.
+   ========================================================== */
+.wwl-team-gallery {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 38px clamp(20px, 3.8vw, 52px) 108px;
+}
+.wwl-team-gallery__header {
+  margin: 0 0 52px;
+}
+.wwl-team-gallery__header .list-page-h1-heading {
+  margin: 0;
+  color: #101c43;
+  letter-spacing: -.035em;
+}
+.wwl-team-gallery__section + .wwl-team-gallery__section {
+  margin-top: 78px;
+}
+.wwl-team-gallery__section-heading {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+.wwl-team-gallery__section-heading h2 {
+  flex: none;
+  margin: 0;
+  color: #172954;
+  font-size: clamp(1.25rem, 2vw, 1.8rem);
+  font-weight: 650;
+  letter-spacing: -.025em;
+  line-height: 1.3;
+}
+.wwl-team-gallery__rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(42, 65, 118, .14);
+}
+.wwl-team-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: clamp(16px, 2.6vw, 32px);
+  row-gap: 42px;
+}
+.wwl-team-gallery__member {
+  min-width: 0;
+  text-align: center;
+}
+.wwl-team-gallery__portrait {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 13px;
+  background: #e8edf7;
+  box-shadow: 0 1px 4px rgba(11, 21, 48, .04);
+}
+.wwl-team-gallery__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform .48s cubic-bezier(.2, .7, .25, 1);
+  will-change: transform;
+}
+.wwl-team-gallery__name {
+  margin: 16px 0 0;
+  color: #172954;
+  font-size: clamp(.98rem, 1.25vw, 1.13rem);
+  font-weight: 600;
+  letter-spacing: -.012em;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  transition: color .28s ease;
+}
+.wwl-team-gallery__role {
+  margin: 5px 0 0;
+  color: #70809b;
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+@media (hover: hover) {
+  .wwl-team-gallery__member:hover .wwl-team-gallery__portrait img {
+    transform: scale(1.045);
+  }
+  .wwl-team-gallery__member:hover .wwl-team-gallery__name {
+    color: #6629f0;
+  }
+}
+@media (max-width: 820px) {
+  .wwl-team-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 34px;
+  }
+  .wwl-team-gallery__section + .wwl-team-gallery__section {
+    margin-top: 66px;
+  }
+}
+@media (max-width: 480px) {
+  .wwl-team-gallery {
+    padding: 28px 18px 76px;
+  }
+  .wwl-team-gallery__header {
+    margin-bottom: 38px;
+  }
+  .wwl-team-gallery__section-heading {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .wwl-team-gallery__section-heading h2 {
+    font-size: 1.12rem;
+  }
+  .wwl-team-gallery__grid {
+    column-gap: 14px;
+    row-gap: 28px;
+  }
+  .wwl-team-gallery__portrait {
+    border-radius: 10px;
+  }
+  .wwl-team-gallery__name {
+    font-size: .96rem;
+    margin-top: 11px;
+  }
+  .wwl-team-gallery__role {
+    font-size: .78rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wwl-team-gallery__portrait img,
+  .wwl-team-gallery__name {
+    transition: none;
+    will-change: auto;
+  }
+}
