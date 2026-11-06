@@ -1,43 +1,36 @@
 {{- define "main" -}}
+{{- $papers := sort site.Data.publications "year" "desc" -}}
+{{- $years := slice -}}
+{{- range $papers -}}
+  {{- if not (in $years .year) -}}
+    {{- $years = $years | append .year -}}
+  {{- end -}}
+{{- end -}}
 
-
-{{/* Query */}}
-{{- $query := site.Data.publications -}}
-{{- $query = sort $query "year" "desc" -}}
-
-{{/* Keep an accessible page heading without a duplicate visible title. */}}
 <h1 class="sr-only">{{ .Title }}</h1>
+<div class="universal-wrapper page-publication-list">
+  {{ with .Content }}
+    <div class="article-style wwl-publications__intro">{{ . }}</div>
+  {{ end }}
 
-<div class="universal-wrapper pt-3 page-publication-list">
-  <div class="row">
-    <div class="col-12">
+  <p class="wwl-publications__scholar">
+    {{ .Params.more_pubs | default "Full list in" }}
+    <a href="https://scholar.google.com/citations?user=5YvuMwQAAAAJ"
+       target="_blank" rel="noopener noreferrer">Google Scholar</a>.
+  </p>
 
-      {{ with .Content }}
-      <div class="article-style">{{ . }}</div>
-      {{ end }}
-
-
-      <div style="padding: 2rem 0; ">
-        {{.Params.more_pubs | default "Full list in"}}
-        <a target="_blank" href="https://scholar.google.com/citations?user=5YvuMwQAAAAJ">Google Scholar</a>.
-      </div>
-      <div id="container-publications">
-        {{ range $index, $item := $query }}
-
-
-        <div class="grid-sizer col-lg-12 isotope-item pubtype-pub year-{{ $item.year | time.Format "2006" }}">
-          {{ partial "views/pub_item.html" (dict
-              "page" .
-              "index" $index
-              "item" $item
-          )}}
+  <div class="wwl-publications__timeline" aria-label="Selected publications">
+    {{ range $year := $years }}
+      <section class="wwl-publications__year-group"
+               aria-labelledby="wwl-pub-year-{{ $year }}">
+        <h2 class="wwl-publications__year" id="wwl-pub-year-{{ $year }}">{{ $year }}</h2>
+        <div class="wwl-publications__entries">
+          {{ range where $papers "year" $year }}
+            {{ partial "views/pub_item.html" (dict "item" .) }}
+          {{ end }}
         </div>
-
-        {{ end }}
-      </div>
-
-    </div>
+      </section>
+    {{ end }}
   </div>
 </div>
-
 {{- end -}}

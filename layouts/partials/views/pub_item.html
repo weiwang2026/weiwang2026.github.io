@@ -1,30 +1,30 @@
-{{ $item := .item }}
-{{ $item_index := add .index 1 }}
+{{- $item := .item -}}
+{{- $authors := split $item.authors_text ";" -}}
+{{- $leading := first 3 $authors -}}
+{{- $remaining := after 3 $authors -}}
+{{- $corresponding := slice -}}
+{{- range $author := $remaining -}}
+  {{- if in $author "<sup>*</sup>" -}}
+    {{- $corresponding = $corresponding | append $author -}}
+  {{- end -}}
+{{- end -}}
+{{- $omitted := sub (len $remaining) (len $corresponding) -}}
 
-<div class="paper-item row view-citation" style="">
-
-
-  <div class="col-12 col-md-3">
-    <div class="pub-journal">
-      <a href="{{$item.link}}" target="_blank" >
-      <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
-      {{ $item.journal | markdownify | safeHTML}} ({{$item.year}})
-      </a>
-    </div>
-  </div>
-  <div class="col-12 col-md-9">
-    <div class="pub-title">{{/* $item_index */}} {{ $item.title | markdownify | safeHTML}}</div>
-    <div class="pub-author">{{ $item.authors_text | markdownify | safeHTML}}</div>
-    <div class="pub-pages">
-      <span class="j-name"> {{ $item.journal | markdownify | safeHTML}}</span>
-      <span class="j-year"> {{ $item.year | markdownify | safeHTML}}</span>,
-      <span class="j-page"> {{ $item.pages_info | markdownify | safeHTML}}</span>.
-    </div>
-    {{if $item.notes}}
-    <div class="pub-notes">{{ $item.notes | markdownify | safeHTML}}</div>
-    {{end}}
-
-  </div>
-
-
-</div>
+<article class="wwl-publications__paper">
+  <h3 class="wwl-publications__paper-title">
+    <a href="{{ $item.link | safeURL }}" target="_blank" rel="noopener noreferrer">
+      {{ $item.title | markdownify }}
+    </a>
+  </h3>
+  <p class="wwl-publications__paper-authors">
+    {{- range $index, $author := $leading -}}
+      {{- if gt $index 0 }}; {{ end -}}
+      {{- $author | strings.TrimSpace | markdownify -}}
+    {{- end -}}
+    {{- if gt $omitted 0 }}; <span class="wwl-publications__ellipsis" aria-label="additional authors">&hellip;</span>{{ end -}}
+    {{- range $author := $corresponding }}; {{ $author | strings.TrimSpace | markdownify }}{{ end }}
+  </p>
+  <p class="wwl-publications__paper-meta">
+    <cite>{{ $item.journal | markdownify }}</cite>{{ with $item.pages_info }}<span class="wwl-publications__paper-detail"> · {{ . | markdownify }}</span>{{ end }}
+  </p>
+</article>
