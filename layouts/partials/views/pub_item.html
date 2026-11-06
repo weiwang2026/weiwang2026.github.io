@@ -19,10 +19,10 @@
   <p class="wwl-publications__paper-authors">
     {{- range $index, $author := $leading -}}
       {{- if gt $index 0 }}; {{ end -}}
-      {{- $author | strings.TrimSpace | markdownify -}}
+      {{- (trim $author " ") | markdownify -}}
     {{- end -}}
     {{- if gt $omitted 0 }}; <span class="wwl-publications__ellipsis" aria-label="additional authors">&hellip;</span>{{ end -}}
-    {{- range $author := $corresponding }}; {{ $author | strings.TrimSpace | markdownify }}{{ end }}
+    {{- range $author := $corresponding }}; {{ (trim $author " ") | markdownify }}{{ end }}
   </p>
   <p class="wwl-publications__paper-meta">
     <cite>{{ $item.journal | markdownify }}</cite>{{ with $item.pages_info }}<span class="wwl-publications__paper-detail"> · {{ . | markdownify }}</span>{{ end }}
