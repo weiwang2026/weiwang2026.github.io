@@ -1,16 +1,16 @@
-- authors_text: Chang, M.; Dai, Z.; Wang, J.; Yang, M.; Wang, R.; Dai, P.; Deng, X.; Liu, X.; Zhong, Y.; Zhang, K.; __Wang, W.<sup>*</sup>__; Dai, J.<sup>*</sup>; Liu, Q.<sup>*</sup>
+- authors_text: M. Chang; Z. Dai; J. Wang; M. Yang; R. Wang; P. Dai; X. Deng; X. Liu; Y. Zhong; K. Zhang; __W. Wang<sup>*</sup>__; J. Dai<sup>*</sup>; Q. Liu<sup>*</sup>
   title: "Antibody–Drug Conjugates as Targeted Degraders for Antitumor Therapy: MRG003 Induces Lysosomal EGFR Degradation to Overcome Resistance in NSCLC"
   journal: Genes & Diseases
   year: 2026
   status: accepted
 
-- authors_text: Chang, M.; Zhang, K.; Wang, J.; Bi, F.; Dai, Z.; Yang, M.; Liu, M.; Peng, H.; Zhang, F.; Guo, Y.<sup>*</sup>; Dai, J.<sup>*</sup>; Liu, Q.<sup>*</sup>; __Wang, W.<sup>*</sup>__
+- authors_text: M. Chang; K. Zhang; J. Wang; F. Bi; Z. Dai; M. Yang; M. Liu; H. Peng; F. Zhang; Y. Guo<sup>*</sup>; J. Dai<sup>*</sup>; Q. Liu<sup>*</sup>; __W. Wang<sup>*</sup>__
   title: "Orthogonal Light- and Enzyme-Triggered AND-Gate Prodrugs for Senolytic Therapy"
   journal: Advanced Science
   year: 2026
   link: https://doi.org/10.1002/advs.78139
 
-- authors_text: Chang, M.; Xu, H.; Dong, Y.; Gnawali, G.; Bi, F.; __Wang, W.<sup>*</sup>__
+- authors_text: M. Chang; H. Xu; Y. Dong; G. Gnawali; F. Bi; __W. Wang<sup>*</sup>__
   title: "Dual-Performing Vinyltetrazine for Rapid, Selective Bioconjugation and Functionalization of Cysteine Proteins"
   journal: ACS Chemical Biology
   pages_info: 20, 153-161
@@ -18,7 +18,7 @@
   notes:
   link: https://pubmed.ncbi.nlm.nih.gov/39707969/
 
-- authors_text: Chang, M.; Dong, Y.; Xu, H.; Cruickshank-Taylor, A. B.; Kozora, J. S.; Behpour, B.; __Wang, W.<sup>*</sup>__
+- authors_text: M. Chang; Y. Dong; H. Xu; A. B. Cruickshank-Taylor; J. S. Kozora; B. Behpour; __W. Wang<sup>*</sup>__
   title: "Senolysis Enabled by Senescent Cell-Sensitive Bioorthogonal Tetrazine Ligation"
   journal: Angewandte Chemie International Edition
   pages_info: 63, e20231542
@@ -26,7 +26,7 @@
   notes:
   link: https://pubmed.ncbi.nlm.nih.gov/38233359/
 
-- authors_text: Chang, M.; Gao, F.; Gnawali, G.; Xu, H.; Dong, Y.; Meng, X.; Li, W.; Wang, Z.; Lopez, B.; Carew, J. S.; Nawrocki, S. T.; Lu. J.; Zhang, Q.-Y.; __Wang, W.<sup>*</sup>__
+- authors_text: M. Chang; F. Gao; G. Gnawali; H. Xu; Y. Dong; X. Meng; W. Li; Z. Wang; B. Lopez; J. S. Carew; S. T. Nawrocki; J. Lu; Q.-Y. Zhang; __W. Wang<sup>*</sup>__
   title: "Selective Elimination of Senescent Cancer Cells by Galacto-Modified PROTACs"
   journal: Journal of Medicinal Chemistry
   pages_info: 67, 7301-7311
@@ -34,7 +34,8 @@
   notes:
   link: https://pubmed.ncbi.nlm.nih.gov/38635879/
 
-- authors_text: Lou, F.; Li, C.; Peng, J.; Zhou, Y.; Gui, J.; Chen, L.; Yin, Y.; Zhang, X.; Hu, Y.; Chen, X.; Liu, X.; Chen, X.; Z.-X, Yu; __Wang, W.<sup>*</sup>__; S.-L. Zhang
+- authors_text: F. Luo; C. Li; J. Peng; Y. Zhou; J. Gui; L. Chen; Y. Yin; X. Zhang; Y. Hu; X. Chen; X. Liu; X. Chen; Z.-X. Yu<sup>*</sup>; __W. Wang<sup>*</sup>__; S.-L. Zhang<sup>*</sup>
+  first_author_count: 2
   title: "Direct Insertion into the C–C Bond of Unactivated Ketones with NaH-mediated Aryne Chemistry"
   journal: Chem
   pages_info: 9, 2620-2636
@@ -42,7 +43,7 @@
   notes:
   link: https://www.sciencedirect.com/science/article/pii/S2451929423002644
 
-- authors_text: Lian, Z.; Wu, F.; Zi, J.; Li, G.; __Wang, W.<sup>*</sup>__; Li, H.
+- authors_text: Z. Lian<sup>*</sup>; F. Wu; J. Zi; G. Li<sup>*</sup>; __W. Wang<sup>*</sup>__; H. Li<sup>*</sup>
   title: "Infrared Light-induced Anomalous Defect-mediated Plasmonic Hot Electron Transfer for Enhanced Photocatalytic Hydrogen Evolution"
   journal: Journal of the American Chemical Society
   pages_info: 145, 15482–15487
@@ -50,7 +51,7 @@
   notes:
   link: https://pubmed.ncbi.nlm.nih.gov/37418381/
 
-- authors_text: Chang, M.; Chen, J.; Pontigon, D.; Gnawali, G.; Xu, H.; __Wang, W.<sup>*</sup>__
+- authors_text: M. Chang; F. Gao; D. Pontigon; G. Gnawali; H. Xu; __W. Wang<sup>*</sup>__
   title: "Bioorthogonal PROTAC Prodrugs Enabled by On-Target Activation"
   journal: Journal of the American Chemical Society
   pages_info: 145, 14155–14163
@@ -58,7 +59,8 @@
   notes: Highlighted in Nature Chemical Biology "Research Highlights"
   link: https://pubmed.ncbi.nlm.nih.gov/37327395/
 
-- authors_text: Chen, J.; Ji, P.; Gnawali, G.; Chang, M.; Gao, F.; Xu, H.; __Wang, W.<sup>*</sup>__
+- authors_text: J. Chen; P. Ji; G. Gnawali; M. Chang; F. Gao; H. Xu; __W. Wang<sup>*</sup>__
+  first_author_count: 2
   title: "Building Bioorthogonal Click-release Capable Artificial Receptors on Cancer Cell Surface for Imaging, Drug Targeting and Delivery"
   journal: Acta Pharmaceutica Sinica B
   pages_info: 13, 2736-2746
@@ -66,7 +68,7 @@
   notes:
   link: https://pubmed.ncbi.nlm.nih.gov/37425049/
 
-- authors_text: Ji, P.; Davies, C. C.; Gao, F.; Chen, J.; Meng, X.; Houk, K. N.; Chen, S.; __Wang, W.<sup>*</sup>__
+- authors_text: P. Ji; C. C. Davies; F. Gao; J. Chen; X. Meng; K. N. Houk<sup>*</sup>; S. Chen<sup>*</sup>; __W. Wang<sup>*</sup>__
   title: "Selective Skeletal Editing of Polycyclic Arenes Using Organophotoredox Dearomative Functionalization"
   journal: Nature Communications
   pages_info: "13, Article number: 4565"
@@ -74,7 +76,8 @@
   notes:
   link: https://pubmed.ncbi.nlm.nih.gov/35931700/
 
-- authors_text: He, S.; Dong, G.; Li, Y.; Wu, S.; __Wang, W.<sup>*</sup>__; Sheng, C.
+- authors_text: S. He; G. Dong; Y. Li; S. Wu; __W. Wang<sup>*</sup>__; C. Sheng<sup>*</sup>
+  first_author_count: 2
   title: "Potent Dual BET/HDAC Inhibitors for Efficient Treatment of Pancreatic Cancer"
   journal: Angewandte Chemie International Edition
   pages_info: 59, 3028-3032
@@ -82,7 +85,8 @@
   notes: "Selected as 'hot' paper and journal cover"
   link: https://pubmed.ncbi.nlm.nih.gov/31943585/
 
-- authors_text: Geng, H.; Chen, X.; Gui, J.; Zhang, Y.; Shen, Z.; Qian, P.; Chen, J.; Zhang, S.; __Wang, W.<sup>*</sup>__
+- authors_text: H. Geng; X. Chen; J. Gui; Y. Zhang; Z. Shen; P. Qian; J. Chen; S. Zhang; __W. Wang<sup>*</sup>__
+  first_author_count: 2
   title: "Practical Synthesis of C-1 Deuterated Aldehydes Enabled by NHC Catalysis"
   journal: Nature Catalysis
   _journal: Nature Catal.
