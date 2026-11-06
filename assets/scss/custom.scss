@@ -1468,7 +1468,7 @@ body :where(
   border: 0;
   border-radius: 4px;
   background: transparent;
-  color: #6629f0;
+  color: inherit;
   font: inherit;
   font-weight: 650;
   line-height: inherit;
@@ -1478,11 +1478,11 @@ body :where(
 }
 .wwl-publications__author-toggle:hover,
 .wwl-publications__author-toggle:focus-visible {
-  color: #4217a8;
-  background-color: rgba(102, 41, 240, .085);
+  color: inherit;
+  background-color: rgba(88, 105, 129, .08);
 }
 .wwl-publications__author-toggle:focus-visible {
-  outline: 2px solid #6629f0;
+  outline: 2px solid #586981;
   outline-offset: 2px;
 }
 .wwl-publications__author-toggle--collapse {
