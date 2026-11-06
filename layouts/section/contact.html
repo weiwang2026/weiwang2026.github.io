@@ -8,9 +8,12 @@
 {{/* Keep an accessible page heading without a duplicate visible title. */}}
 <h1 class="sr-only">{{ .Title }}</h1>
 
-<div class="universal-wrapper  pt-3 page-contact-us">
+<div class="universal-wrapper pt-3 page-contact-us">
+  {{ with .Params.headline }}
+    <h2 class="wwl-contact__headline">{{ . }}</h2>
+  {{ end }}
   {{ with .Content }}
-    <div class="article-style">{{ . }}</div>
+    <div class="article-style wwl-contact__intro">{{ . }}</div>
   {{ end }}
 
 
