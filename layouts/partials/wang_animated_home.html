@@ -7,7 +7,7 @@
   --wwl-ink: #101c43;
   --wwl-purple: #6629f0;
   --wwl-blue: #086df5;
-  --wwl-wave-speed: 4.6s; /* wave cycle; starts after the Logo intro */
+  --wwl-wave-speed: 8s; /* natural ocean swell: lower speed means faster travel */
   position: relative;
   color: var(--wwl-ink);
   font-family: inherit;
@@ -101,16 +101,7 @@
 #wwl-home .wwl-waves-svg {
   position: absolute; left: -6%; bottom: 0;
   width: 112%; height: 100%; display: block;
-  transform: translateX(0);
-}
-/* Horizontal drift starts only when the Logo intro has finished. */
-#wwl-home.wwl-waves-active .wwl-waves-svg {
-  animation: wwl-wave-sway 5.6s ease-in-out infinite;
-  will-change: transform;
-}
-@keyframes wwl-wave-sway {
-  0%, 100% { transform: translateX(-3.4%); }
-  50% { transform: translateX(3.4%); }
+  /* A steady traveling wave is drawn inside the SVG; no reversing CSS sway. */
 }
 /* Four-layer coordinated wave animation */
 #wwl-home .wwl-wave-path {
@@ -189,8 +180,7 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
   #wwl-home .wwl-hero-divider { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  #wwl-home .wwl-scroll-note span, #wwl-home .wwl-wave-path,
-  #wwl-home.wwl-waves-active .wwl-waves-svg { animation: none !important; }
+  #wwl-home .wwl-scroll-note span, #wwl-home .wwl-wave-path { animation: none !important; }
   #wwl-home .wwl-tile { transition: none !important; }
 }
 </style>
@@ -298,97 +288,97 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
  <canvas class="wwl-twist" id="wwl-twist-canvas" aria-hidden="true"></canvas>
  <canvas class="wwl-particles" id="wwl-particle-canvas" aria-hidden="true"></canvas>
 </div>
-<!-- SVG waves: start on the Logo-intro-complete event. -->
+<!-- Ocean-like traveling swells begin after the WWL logo entrance. -->
 <script>
 (function () {
   'use strict';
   const root = document.getElementById('wwl-home');
-  const waveField = document.getElementById('wwl-wave-field');
-  if (!root || !waveField) return;
+  const field = document.getElementById('wwl-wave-field');
+  if (!root || !field) return;
 
-  const waveSpecs = [
-    { selector: '.wwl-wave-path--purple-back',  amplitude: 88, phase: 0.00 },
-    { selector: '.wwl-wave-path--purple-front', amplitude: 76, phase: 0.80 },
-    { selector: '.wwl-wave-path--blue-back',    amplitude: 98, phase: 2.00 },
-    { selector: '.wwl-wave-path--blue-front',   amplitude: 85, phase: 3.05 }
+  const TAU = Math.PI * 2;
+  const specs = [
+    { selector: '.wwl-wave-path--purple-back',  amplitude: 46, phase: 0.00, speed: 0.92 },
+    { selector: '.wwl-wave-path--blue-back',    amplitude: 55, phase: 2.10, speed: 1.12 },
+    { selector: '.wwl-wave-path--purple-front', amplitude: 34, phase: 0.80, speed: 1.02 },
+    { selector: '.wwl-wave-path--blue-front',   amplitude: 41, phase: 2.87, speed: 1.06 }
   ];
-  const layers = waveSpecs.map(spec => {
-    const element = waveField.querySelector(spec.selector);
-    if (!element) return null;
-    const original = (element.getAttribute('d').match(/[-+]?\d*\.?\d+/g) || []).map(Number);
-    // M (2 values) + three C curves (18 values) + two L (4 values).
-    if (original.length !== 24) return null;
-    return { element, original, amplitude: spec.amplitude, phase: spec.phase };
-  }).filter(Boolean);
-  if (!layers.length) {
-    console.warn('WWL waves: SVG morphology unavailable; CSS drift will still animate');
-  }
 
-  // Distinct status values make it easy to verify the entrance timing.
-  let started = false;
-  root.dataset.waveAnimation = 'waiting-for-logo';
-  const speed = parseFloat(getComputedStyle(root).getPropertyValue('--wwl-wave-speed'));
-  const periodMs = Math.max(4, Number.isFinite(speed) ? speed : 6) * 1000;
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const samples = 24;
-  let lastDrawn = -Infinity;
-  const fmt = x => x.toFixed(1);
-
-  function drawWaves(now) {
-    // The RAF loop is independent once the intro signals completion.
-    requestAnimationFrame(drawWaves);
-    if (document.hidden || reducedMotion.matches || now - lastDrawn < 24) return;
-    lastDrawn = now;
-    const timePhase = 2 * Math.PI * now / periodMs;
-
-    for (const layer of layers) {
-      const a = layer.original;
-      let startX = a[0], startY = a[1];
-      let path = '';
-
-      for (let segment = 0; segment < 3; segment++) {
-        const j = 2 + segment * 6;
-        const x1 = a[j], y1 = a[j + 1];
-        const x2 = a[j + 2], y2 = a[j + 3];
-        const x3 = a[j + 4], y3 = a[j + 5];
-
-        for (let i = 0; i <= samples; i++) {
-          if (segment && i === 0) continue;
-          const t = i / samples;
-          const q = 1 - t;
-          const x = q*q*q*startX + 3*q*q*t*x1 + 3*q*t*t*x2 + t*t*t*x3;
-          const y = q*q*q*startY + 3*q*q*t*y1 + 3*q*t*t*y2 + t*t*t*y3;
-
-          // A single continuous wave travels across all three Bezier sections.
-          const u = Math.max(0, Math.min(1, (x + 110) / 1820));
-          const theta = 2 * Math.PI * 1.9 * u - timePhase + layer.phase;
-          const envelope = 0.78 + 0.22 * Math.sin(Math.PI * u);
-          const amplitude = Math.min(layer.amplitude, Math.max(0, y - 16));
-          const shiftedY = y + amplitude * envelope * Math.sin(theta);
-          path += (path ? ' L' : 'M') + fmt(x) + ' ' + fmt(shiftedY);
-        }
-        startX = x3;
-        startY = y3;
+  // Sample the existing Bezier artwork only once. Its geometry and gradients stay intact.
+  const layers = specs.map(spec => {
+    const el = field.querySelector(spec.selector);
+    if (!el) return null;
+    const a = (el.getAttribute('d').match(/[-+]?\d*\.?\d+/g) || []).map(Number);
+    if (a.length !== 24) return null;
+    const points = [];
+    let x0 = a[0], y0 = a[1];
+    for (let segment = 0; segment < 3; segment++) {
+      const j = 2 + segment * 6;
+      const [x1,y1,x2,y2,x3,y3] = a.slice(j, j+6);
+      for (let i = 0; i <= 32; i++) {
+        if (segment > 0 && i === 0) continue;
+        const t = i / 32, q = 1 - t;
+        const x = q*q*q*x0 + 3*q*q*t*x1 + 3*q*t*t*x2 + t*t*t*x3;
+        const y = q*q*q*y0 + 3*q*q*t*y1 + 3*q*t*t*y2 + t*t*t*y3;
+        const u = Math.max(0, Math.min(1, (x+110)/1820));
+        // Keep the surface gentle near the bottom edge, and avoid clipped crests.
+        const depth = Math.max(0, Math.min(1, (355-y)/75));
+        const taper = .22 + .78 * depth * depth * (3-2*depth);
+        const baseAmp = spec.amplitude * (.85+.15*Math.sin(Math.PI*u)) * taper;
+        const amp = Math.min(baseAmp, Math.max(0, (y-11)/1.28));
+        points.push({ x: x.toFixed(2), y, u, amp });
       }
+      x0=x3; y0=y3;
+    }
+    const closing = ` L${a[20]} ${a[21]} L${a[22]} ${a[23]} Z`;
+    return { el, points, closing, phase:spec.phase, speed:spec.speed };
+  }).filter(Boolean);
 
-      // Reuse the original closing lines so the colored fill stays continuous.
-      path += ` L${fmt(a[20])} ${fmt(a[21])}`;
-      path += ` L${fmt(a[22])} ${fmt(a[23])} Z`;
-      layer.element.setAttribute('d', path);
+  let started = false;
+  let startAt = 0;
+  root.dataset.waveAnimation = 'waiting-for-logo';
+  if (layers.length !== 4) console.warn('WWL: incomplete SVG waves', layers.length);
+
+  const cssPeriod = parseFloat(getComputedStyle(root).getPropertyValue('--wwl-wave-speed'));
+  const period = Math.max(5, Number.isFinite(cssPeriod) ? cssPeriod : 8);
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  function draw(now) {
+    requestAnimationFrame(draw);
+    if (document.hidden || reducedMotion.matches) return;
+    const seconds = (now - startAt) / 1000;
+    // Smoothly hand off from the original still artwork, without a one-frame jump.
+    // No time-based ease-in/out afterwards: the swells always travel at steady speed.
+    const t = Math.max(0, Math.min(1, seconds / .65));
+    const entrance = t*t*(3-2*t);
+    for (const layer of layers) {
+      const time = seconds / (period * layer.speed);
+      let d = '';
+      for (const point of layer.points) {
+        const phase = TAU*(1.12*point.u-time) + layer.phase;
+        // A coherent main swell, its gentle overtone, and slower long-period water motion.
+        const swell = Math.sin(phase)
+          + .16*Math.sin(2*phase-.55)
+          + .12*Math.sin(TAU*(.61*point.u-time*.53)+layer.phase*.60);
+        const y = (point.y + entrance*point.amp*swell).toFixed(2);
+        d += (d ? ' L' : 'M') + point.x + ' ' + y;
+      }
+      layer.el.setAttribute('d',d+layer.closing);
     }
   }
+
   function startWaves() {
     if (started) return;
     started = true;
+    startAt = performance.now();
     root.dataset.waveAnimation = 'running';
     root.classList.add('wwl-waves-active');
-    requestAnimationFrame(drawWaves);
+    if (!reducedMotion.matches && layers.length) requestAnimationFrame(draw);
   }
-  root.addEventListener('wwl:logo-intro-complete', startWaves, { once: true });
-  // Handles an intro already skipped or completed before this listener.
+  root.addEventListener('wwl:logo-intro-complete',startWaves,{once:true});
   if (root.dataset.logoIntroDone === 'true') startWaves();
-  // Fail-safe for a missing image/WebGL initialization: do not remain static forever.
-  setTimeout(startWaves, 12000);
+  // Only used if an image never loads. Normal starts are tied to the Logo event.
+  setTimeout(startWaves,12000);
 })();
 </script>
 <script>
