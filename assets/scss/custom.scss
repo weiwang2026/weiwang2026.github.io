@@ -1200,7 +1200,7 @@ body:not(.wwl-has-home) .home-section {
     margin-bottom: 38px;
     align-items: start;
   }
-  .wwl-team-gallery .wwl-pi__photo { width: min(100%, 285px); }
+  .wwl-team-gallery .wwl-pi__photo { width: 100%; max-width: 285px; }
   .wwl-team-gallery .wwl-pi__position { margin-bottom: 19px; }
   .wwl-team-gallery .wwl-pi__content > p:not(.wwl-pi__eyebrow):not(.wwl-pi__position) {
     font-size: .94rem;
