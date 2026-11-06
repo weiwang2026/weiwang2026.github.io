@@ -5,6 +5,12 @@
     <a class="wwl-news__back" href="{{ "/news/" | relLangURL }}">← Back to News</a>
     <p class="wwl-news__article-date"><time datetime="{{ .Date.Format "2006-01" }}">{{ .Date.Format "Jan 2006" }}</time></p>
     <h1 class="wwl-news__article-title">{{ .Title }}</h1>
+    {{ with .Params.lead_image }}
+    <figure class="wwl-news__hero">
+      <img src="{{ . | relURL }}" alt="{{ $.Params.image_alt | default $.Title }}" width="1100" height="825" decoding="async">
+      {{ with $.Params.image_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+    {{ end }}
     <div class="wwl-news__article-body">{{ .Content }}</div>
   </article>
 </main>
