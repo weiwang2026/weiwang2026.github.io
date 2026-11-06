@@ -57,6 +57,63 @@ jobs:
           test -s public/news/professor-wei-wang-birthday-2026/index.html
           test -s public/images/news/wei-wang-birthday-2026.webp
           echo "News index, birthday article and photo verified."
+      # Optimize copies in the generated site, never the original source photos.
+      # This lowers Pages sync traffic without changing image URLs or animation code.
+      - name: Set up image optimizer
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Reduce Pages image payload
+        shell: bash
+        run: |
+          python -m pip install --disable-pip-version-check --quiet Pillow==11.3.0
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          import os
+
+          site = Path("public")
+          before = sum(p.stat().st_size for p in site.rglob("*") if p.is_file())
+          saved = 0
+          optimized = 0
+
+          for src in site.rglob("*"):
+              if not src.is_file() or src.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
+                  continue
+              original = src.stat().st_size
+              if original < 700_000:
+                  continue
+              dest = src.with_name(src.name + ".optimized" + src.suffix)
+              try:
+                  with Image.open(src) as raw:
+                      image = ImageOps.exif_transpose(raw)
+                      # Retain up to 2200 pixels of detail; never upscale.
+                      image.thumbnail((2200, 2200), Image.Resampling.LANCZOS)
+                      if src.suffix.lower() in {".jpg", ".jpeg"}:
+                          if image.mode not in {"RGB", "L"}:
+                              image = image.convert("RGB")
+                          image.save(dest, "JPEG", quality=83, optimize=True,
+                                     progressive=True)
+                      else:
+                          # Keep PNG alpha, format and URL unchanged.
+                          image.save(dest, "PNG", optimize=True, compress_level=9)
+                  after = dest.stat().st_size
+                  if after < original * 0.98:
+                      os.replace(dest, src)
+                      saved += original - after
+                      optimized += 1
+                  else:
+                      dest.unlink()
+              except Exception as exc:
+                  if dest.exists():
+                      dest.unlink()
+                  print(f"Image optimizer skipped {src}: {exc}")
+
+          after = sum(p.stat().st_size for p in site.rglob("*") if p.is_file())
+          print(f"Pages files: {before / 1048576:.1f} MiB -> "
+                f"{after / 1048576:.1f} MiB; "
+                f"optimized {optimized} images; saved {saved / 1048576:.1f} MiB.")
+          PY
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
