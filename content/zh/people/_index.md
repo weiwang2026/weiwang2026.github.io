@@ -325,4 +325,15 @@ members:
     email: y318450089@outlook.com
 
 
+
+  - name: 贾诗淇
+    team_group: researchers
+    avatar: "images/members/jia-shi-qi.webp"
+    position: 科研助理
+
+  - name: 丁谷雨
+    team_group: interns
+    avatar: "images/members/ding-gu-yu.webp"
+    position: 本科生
+
 ---
