@@ -17,70 +17,50 @@
   {{ end }}
 
 
-  <div class="contact-card-wrap row contact-info-card" >
+  <div class="contact-card-wrap row contact-info-card wwl-contact-card">
+    <div class="col-12 col-md-6 wwl-contact-card__visual">
+      <img class="wwl-contact-card__image"
+           src="{{ "images/contact/c1.png" | relURL }}"
+           alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="col-12 col-md-6 wwl-contact-card__panel">
+      <div class="wwl-contact-card__content">
+        <h3 class="wwl-contact-card__title">{{ $titles.contact_info | markdownify }}</h3>
 
-      <div class="col-12 col-md-6" style="padding-left: 0; padding-right: 0;">
-        <img src="{{"images/contact/c1.png" | relURL }}" alt="" style="height: 100%" />
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="contact-info-card-wrap1">
-          <div class="card-title">
-            <i class="fas fa-circle-info"></i>
-            {{$titles.contact_info | markdownify}}
-          </div>
-
-          <!-- Email -->
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <div class="contact-label">{{$titles.email | markdownify}}</div>
-              <div class="contact-value">
-                {{$values.email | markdownify}}
-              </div>
-            </div>
-          </div>
-
-          <!-- Address -->
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-details">
-              <div class="contact-label">{{$titles.address | markdownify}}</div>
-              <div class="contact-value" id="addressText">
-                {{$values.address | markdownify}}
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Additional info: website hint -->
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-globe"></i>
-            </div>
-            <div class="contact-details">
-              <div class="contact-label">{{$titles.university_site | markdownify}}</div>
-              <div class="contact-value">
-                {{$values.university_site | markdownify}}
-
-                <span style="font-size: 0.75rem; color: #8aaec9; margin-left: 0.5rem;">
-                              <i class="fas fa-external-link-alt"></i>
-                          </span>
-              </div>
-              <div style="  font-size: 0.75rem;  margin-top: 0.3rem;">
-                {{$values.site_info | markdownify}}
-              </div>
+        <div class="contact-item">
+          <span class="contact-icon" aria-hidden="true"><i class="fas fa-envelope"></i></span>
+          <div class="contact-details">
+            <div class="contact-label">{{ $titles.email | markdownify }}</div>
+            <div class="contact-value">
+              <a href="mailto:{{ $values.email }}">{{ $values.email }}</a>
             </div>
           </div>
         </div>
+
+        <div class="contact-item">
+          <span class="contact-icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></span>
+          <div class="contact-details">
+            <div class="contact-label">{{ $titles.address | markdownify }}</div>
+            <div class="contact-value" id="addressText">{{ $values.address | markdownify }}</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="contact-icon" aria-hidden="true"><i class="fas fa-globe"></i></span>
+          <div class="contact-details">
+            <div class="contact-label">{{ $titles.university_site | markdownify }}</div>
+            <div class="contact-value">
+              <a href="{{ $values.university_site | safeURL }}" target="_blank" rel="noopener noreferrer">
+                {{- $values.university_site -}}
+                <i class="fas fa-external-link-alt wwl-contact-card__external" aria-hidden="true"></i>
+              </a>
+            </div>
+            <p class="wwl-contact-card__note">{{ $values.site_info | markdownify }}</p>
+          </div>
+        </div>
       </div>
-
-
+    </div>
   </div>
-
 </div>
 
 {{- end -}}

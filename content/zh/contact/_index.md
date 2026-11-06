@@ -10,7 +10,7 @@ content_titles:
 
 content_values:
   email: weiwang@eitech.edu.cn
-  address: 宁波东方理工大学，浙江宁波，中国
+  address: 宁波东方理工大学，中国
   university_site: https://www.eitech.edu.cn
   site_info: 更多信息请访问 学校官网
 
