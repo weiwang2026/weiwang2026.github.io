@@ -1248,18 +1248,18 @@ body.wwl-has-home .page-footer {
   padding-left: 0;
   padding-bottom: 64px;
   color: #172954;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  /* Inherit the same font family as the rest of the website. */
 }
 .page-publication-list .wwl-publications__intro {
-  max-width: 1010px;
+  max-width: 100%;
   margin: 0;
   color: #354460;
   font-size: clamp(1rem, 1.3vw, 1.13rem);
   font-weight: 400;
   line-height: 1.83;
   letter-spacing: -.012em;
-  text-wrap: pretty;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .page-publication-list .wwl-publications__intro p {
   margin: 0;
@@ -1272,12 +1272,12 @@ body.wwl-has-home .page-footer {
 .page-publication-list .wwl-publications__scholar {
   margin: 17px 0 48px;
   color: #68758f;
-  font-size: .92rem;
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.3vw, 1.13rem);
+  line-height: 1.83;
 }
 .page-publication-list .wwl-publications__scholar a {
   color: #6328d7;
-  font-weight: 550;
+  font-weight: 700;
   text-decoration: none;
   transition: color .2s ease;
 }
@@ -1372,6 +1372,7 @@ body.wwl-has-home .page-footer {
   }
   .page-publication-list .wwl-publications__intro {
     line-height: 1.72;
+    text-align: left;
   }
   .page-publication-list .wwl-publications__scholar {
     margin: 15px 0 34px;

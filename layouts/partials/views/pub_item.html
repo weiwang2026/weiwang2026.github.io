@@ -25,6 +25,6 @@
     {{- range $author := $corresponding }}; {{ (trim $author " ") | markdownify }}{{ end }}
   </p>
   <p class="wwl-publications__paper-meta">
-    <cite>{{ $item.journal | markdownify }}</cite>{{ with $item.pages_info }}<span class="wwl-publications__paper-detail"> · {{ . | markdownify }}</span>{{ end }}
+    <cite>{{ $item.journal | markdownify }}</cite>
   </p>
 </article>
