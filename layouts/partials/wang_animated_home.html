@@ -7,7 +7,7 @@
   --wwl-ink: #101c43;
   --wwl-purple: #6629f0;
   --wwl-blue: #086df5;
-  --wwl-wave-speed: 6s; /* smaller = faster wave motion */
+  --wwl-wave-speed: 4.5s; /* visible but smooth traveling waves */
   position: relative;
   color: var(--wwl-ink);
   font-family: inherit;
@@ -296,10 +296,10 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
   if (!root || !waveField) return;
 
   const waveSpecs = [
-    { selector: '.wwl-wave-path--purple-back',  amplitude: 42, phase: 0.00 },
-    { selector: '.wwl-wave-path--purple-front', amplitude: 34, phase: 0.90 },
-    { selector: '.wwl-wave-path--blue-back',    amplitude: 54, phase: 2.20 },
-    { selector: '.wwl-wave-path--blue-front',   amplitude: 42, phase: 3.10 }
+    { selector: '.wwl-wave-path--purple-back',  amplitude: 88, phase: 0.00 },
+    { selector: '.wwl-wave-path--purple-front', amplitude: 76, phase: 0.80 },
+    { selector: '.wwl-wave-path--blue-back',    amplitude: 98, phase: 2.00 },
+    { selector: '.wwl-wave-path--blue-front',   amplitude: 85, phase: 3.05 }
   ];
   const layers = waveSpecs.map(spec => {
     const element = waveField.querySelector(spec.selector);
@@ -350,8 +350,8 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
 
           // A single continuous wave travels across all three Bezier sections.
           const u = Math.max(0, Math.min(1, (x + 110) / 1820));
-          const theta = 2 * Math.PI * 1.15 * u - timePhase + layer.phase;
-          const envelope = 0.75 + 0.25 * Math.sin(Math.PI * u);
+          const theta = 2 * Math.PI * 1.9 * u - timePhase + layer.phase;
+          const envelope = 0.78 + 0.22 * Math.sin(Math.PI * u);
           const amplitude = Math.min(layer.amplitude, Math.max(0, y - 16));
           const shiftedY = y + amplitude * envelope * Math.sin(theta);
           path += (path ? ' L' : 'M') + fmt(x) + ' ' + fmt(shiftedY);
