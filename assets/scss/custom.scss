@@ -1491,3 +1491,64 @@ body :where(
 @media (prefers-reduced-motion: reduce) {
   .wwl-publications__author-toggle { transition: none; }
 }
+
+
+/* Contact invitation: echo the home Science Without Boundaries heading. */
+.page-contact-us {
+  width: calc(100% - 40px);
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.page-contact-us .wwl-contact__headline {
+  margin: 0 0 clamp(26px, 3.4vw, 42px);
+  font-family: inherit;
+  font-size: clamp(1.5rem, 2.45vw, 2.2rem);
+  font-weight: 760;
+  line-height: 1.18;
+  letter-spacing: -.047em;
+  text-align: center;
+  background: linear-gradient(95deg, #31268a 1%, #6e26e9 43%, #315df5 76%, #0899ed 100%);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.page-contact-us .wwl-contact__intro {
+  max-width: 100%;
+  color: #354460;
+  font-size: clamp(1rem, 1.3vw, 1.13rem);
+  font-weight: 400;
+  line-height: 1.83;
+  letter-spacing: -.012em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.page-contact-us .wwl-contact__intro p {
+  margin: 0 0 22px;
+  line-height: inherit;
+}
+.page-contact-us .wwl-contact__intro p:last-child {
+  margin-bottom: 0;
+}
+.page-contact-us .wwl-contact__intro strong {
+  color: #172954;
+  font-weight: 600;
+}
+@media (min-width: 900px) {
+  .page-contact-us .wwl-contact__headline { white-space: nowrap; }
+}
+@media (max-width: 899px) {
+  .page-contact-us .wwl-contact__headline {
+    font-size: clamp(1.65rem, 4.7vw, 2.35rem);
+    line-height: 1.23;
+  }
+}
+@media (max-width: 767px) {
+  .page-contact-us { width: calc(100% - 36px); }
+  .page-contact-us .wwl-contact__intro {
+    text-align: left;
+    line-height: 1.72;
+  }
+}
