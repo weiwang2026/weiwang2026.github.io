@@ -309,9 +309,9 @@ members:
 
 
   - name: 易海怡
-    team_group: interns
+    team_group: researchers
     avatar: "images/members/yi-hai-yi.jpg"
-    position: 实习生
+    position: 科研助理
     join_date: 2026年10月
     research: 生物学
     work_experience: null

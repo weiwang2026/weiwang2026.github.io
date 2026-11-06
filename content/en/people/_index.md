@@ -310,9 +310,9 @@ members:
 
   
   - name: Haiyi Yi
-    team_group: interns
+    team_group: researchers
     avatar: "images/members/yi-hai-yi.jpg"
-    position: Intern
+    position: Research Assistant
     join_date: October 2026
     research: Biology
     work_experience: null
