@@ -12,9 +12,11 @@
 
 <article class="wwl-publications__paper">
   <h3 class="wwl-publications__paper-title">
-    <a href="{{ $item.link | safeURL }}" target="_blank" rel="noopener noreferrer">
-      {{ $item.title | markdownify }}
-    </a>
+    {{- with $item.link }}
+      <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer">{{ $item.title | markdownify }}</a>
+    {{- else }}
+      <span>{{ $item.title | markdownify }}</span>
+    {{- end }}
   </h3>
   <p class="wwl-publications__paper-authors">
     {{- range $index, $author := $leading -}}
