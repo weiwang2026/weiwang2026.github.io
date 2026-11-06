@@ -1207,3 +1207,19 @@ body:not(.wwl-has-home) .home-section {
     line-height: 1.75;
   }
 }
+
+
+/* Wang Group | Seamless homepage footer background */
+/* Match the final stop of the Science without boundaries gradient. */
+body.wwl-has-home,
+body.wwl-has-home #content,
+body.wwl-has-home .page-body,
+body.wwl-has-home .page-footer,
+body.wwl-has-home .nav-footer {
+  background: #eef3ff !important;
+}
+
+/* Keep the footer understated without a white band or dividing rule. */
+body.wwl-has-home .page-footer {
+  border-top: 0;
+}
