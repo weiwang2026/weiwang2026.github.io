@@ -1240,7 +1240,7 @@ body.wwl-has-home .page-footer {
   padding-top: clamp(52px, 6vw, 78px) !important;
 }
 .page-publication-list {
-  width: min(1100px, calc(100% - 40px));
+  width: calc(100% - 40px);
   max-width: 1100px;
   margin-right: auto;
   margin-left: auto;
