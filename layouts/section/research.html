@@ -1,26 +1,24 @@
 {{- define "main" -}}
 <main class="wwl-research" aria-labelledby="wwl-research-heading">
+  <h1 class="sr-only" id="wwl-research-heading">{{ .Title }}</h1>
   <header class="wwl-research__header">
-    <h1 id="wwl-research-heading">{{ .Title }}</h1>
     {{ with .Params.research_intro }}<p class="wwl-research__intro">{{ . }}</p>{{ end }}
   </header>
-
   <div class="wwl-research__list">
     {{ range $index, $item := .Params.research_areas }}
     <section class="wwl-research__feature" id="{{ $item.id }}" aria-labelledby="wwl-research-section-{{ $index }}">
-      <div class="wwl-research__feature-header">
-        <span class="wwl-research__number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
-        <div class="wwl-research__feature-title">
+      <div class="wwl-research__feature-main">
+        <div class="wwl-research__feature-copy">
           <h2 id="wwl-research-section-{{ $index }}">{{ $item.title }}</h2>
           {{ with $item.subtitle }}<span class="wwl-research__subtitle">{{ . }}</span>{{ end }}
+          {{ with $item.overview }}<p class="wwl-research__overview">{{ . }}</p>{{ end }}
         </div>
+        {{ with $item.image }}
+        <figure class="wwl-research__figure">
+          <img src="{{ . | relURL }}" alt="{{ $item.image_alt }}" width="1672" height="941" loading="lazy" decoding="async">
+        </figure>
+        {{ end }}
       </div>
-      {{ with $item.overview }}<p class="wwl-research__overview">{{ . }}</p>{{ end }}
-      {{ with $item.image }}
-      <figure class="wwl-research__figure">
-        <img src="{{ . | relURL }}" alt="{{ $item.image_alt }}" width="1000" height="563" loading="lazy" decoding="async">
-      </figure>
-      {{ end }}
       <div class="wwl-research__focus-grid">
         {{ range $item.focuses }}
         <div class="wwl-research__focus">
