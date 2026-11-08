@@ -156,7 +156,9 @@
 #wwl-home .wwl-after { position: relative; min-height: 95vh; margin-top: -55vh; z-index: 4; padding: clamp(80px,9vw,140px) 6vw 100px; background: linear-gradient(175deg,#fbfcff 0%,#eef3ff 100%); }
 #wwl-home .wwl-inner { max-width: 1130px; margin: auto; }
 #wwl-home .wwl-after h2 { margin: 0 0 25px; font-family: inherit; font-size: clamp(39px,5.15vw,72px); font-weight: 760; line-height: 1.12; letter-spacing: -.047em; background: linear-gradient(95deg,#31268a 1%,#6e26e9 43%,#315df5 76%,#0899ed 100%); color: transparent; -webkit-background-clip: text; background-clip: text; display: inline-block; }
-#wwl-home .wwl-introline { max-width: 760px; color: #667491; font-size: clamp(16px,1.3vw,19px); font-weight: 400; line-height: 1.8; font-family: inherit; margin: 0 0 46px; }
+#wwl-home .wwl-introline { max-width: 100%; color: #667491; font-size: clamp(16px,1.3vw,19px); font-weight: 400; line-height: 1.8; font-family: inherit; margin: 0 0 46px; }
+#wwl-home .wwl-intro-last { white-space: nowrap; }
+@media (max-width: 800px) { #wwl-home .wwl-intro-last { white-space: normal; } }
 #wwl-home .wwl-fields { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
 #wwl-home .wwl-tile { display: block; background: #fff; border: 1px solid #dfe7fb; border-radius: 20px; padding: 32px 30px; min-height: 226px; color: #21305c; text-decoration: none; box-shadow: 0 20px 46px #3652b80b; transition: transform .25s ease,box-shadow .25s ease; }
 #wwl-home .wwl-tile:hover, #wwl-home .wwl-tile:focus-visible { transform: translateY(-5px); box-shadow: 0 20px 42px #3652b822; text-decoration: none; }
@@ -324,7 +326,7 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
   <section class="wwl-after" aria-label="Science without boundaries">
     <div class="wwl-inner">
       <h2>Science without boundaries.</h2>
-      <p class="wwl-introline">Connecting disciplines. Understanding life. Transforming molecular discoveries into therapeutic possibilities.</p>
+      <p class="wwl-introline">Connecting disciplines. Understanding life. <span class="wwl-intro-last">Transforming molecular discoveries into therapeutic possibilities.</span></p>
       <div class="wwl-fields">
         <a class="wwl-tile" href="{{ "research/" | relLangURL }}#synthetic-chemistry" aria-label="Explore synthetic chemistry research"><strong>Chemistry</strong><span>Designing molecules. Expanding chemical possibilities.</span></a>
         <a class="wwl-tile" href="{{ "research/" | relLangURL }}#chemical-biology" aria-label="Explore chemical biology research"><strong>Biology</strong><span>Understanding life through the power of chemistry.</span></a>
