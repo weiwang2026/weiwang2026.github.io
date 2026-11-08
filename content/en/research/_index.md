@@ -8,7 +8,7 @@ research_intro: >-
 research_areas:
   - id: "synthetic-chemistry"
     title: "Synthetic Chemistry"
-    image: "images/research/synthetic-chemistry-20261108.webp"
+    image: "images/research/synthetic-chemistry-20261108-v2.webp"
     image_fallback: "images/research/synthetic-chemistry-20261108.webp"
     image_alt: "Scientific illustration of asymmetric catalysis, photocatalysis, and medicinal chemistry"
     overview: >-
@@ -62,7 +62,7 @@ research_areas:
 
   - id: "drug-discovery"
     title: "Drug Discovery"
-    image: "images/research/drug-discovery-20261108.webp"
+    image: "images/research/drug-discovery-20261108-v2.webp"
     image_fallback: "images/research/drug-discovery-20261108.webp"
     image_alt: "Scientific illustration of targeted protein degradation, precision therapeutics, and AI-assisted drug discovery"
     overview: >-
