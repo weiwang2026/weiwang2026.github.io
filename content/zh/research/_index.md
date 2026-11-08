@@ -8,7 +8,7 @@ research_areas:
   - id: "synthetic-chemistry"
     title: "合成化学"
     subtitle: "Synthetic Chemistry"
-    image: "images/research/synthetic-chemistry-20261108.png"
+    image: "images/research/synthetic-chemistry.svg"
     image_fallback: "images/research/synthetic-chemistry.svg"
     image_alt: "不对称催化、光催化和药物化学研究示意图"
     overview: >-
@@ -31,7 +31,7 @@ research_areas:
   - id: "chemical-biology"
     title: "化学生物学"
     subtitle: "Chemical Biology"
-    image: "images/research/chemical-biology-20261108.png"
+    image: "images/research/chemical-biology.svg"
     image_fallback: "images/research/chemical-biology.svg"
     image_alt: "生物正交标记、邻近化学和生物大分子工程研究示意图"
     overview: >-
@@ -57,7 +57,7 @@ research_areas:
   - id: "drug-discovery"
     title: "药物发现"
     subtitle: "Drug Discovery"
-    image: "images/research/drug-discovery-20261108.png"
+    image: "images/research/drug-discovery.svg"
     image_fallback: "images/research/drug-discovery.svg"
     image_alt: "靶向蛋白降解、精准治疗和人工智能辅助药物发现研究示意图"
     overview: >-
