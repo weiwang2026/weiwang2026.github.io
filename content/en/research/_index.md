@@ -8,7 +8,7 @@ research_intro: >-
 research_areas:
   - id: "synthetic-chemistry"
     title: "Synthetic Chemistry"
-    image: "images/research/synthetic-chemistry-20261108.png"
+    image: "images/research/synthetic-chemistry.svg"
     image_fallback: "images/research/synthetic-chemistry.svg"
     image_alt: "Scientific illustration of asymmetric catalysis, photocatalysis, and medicinal chemistry"
     overview: >-
@@ -35,7 +35,7 @@ research_areas:
 
   - id: "chemical-biology"
     title: "Chemical Biology"
-    image: "images/research/chemical-biology-20261108.png"
+    image: "images/research/chemical-biology.svg"
     image_fallback: "images/research/chemical-biology.svg"
     image_alt: "Scientific illustration of bioorthogonal labeling, proximity chemistry, and biomolecular engineering"
     overview: >-
@@ -62,7 +62,7 @@ research_areas:
 
   - id: "drug-discovery"
     title: "Drug Discovery"
-    image: "images/research/drug-discovery-20261108.png"
+    image: "images/research/drug-discovery.svg"
     image_fallback: "images/research/drug-discovery.svg"
     image_alt: "Scientific illustration of targeted protein degradation, precision therapeutics, and AI-assisted drug discovery"
     overview: >-
