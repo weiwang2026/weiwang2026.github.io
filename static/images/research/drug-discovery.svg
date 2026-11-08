@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="545" viewBox="0 130 1200 545" role="img">
  <defs>
  <radialGradient id="a"><stop offset="0" stop-color="#d9eaf8" stop-opacity=".68"/><stop offset="1" stop-color="#eaf3fb" stop-opacity=".19"/></radialGradient>
  <radialGradient id="b"><stop offset="0" stop-color="#e9e1fa" stop-opacity=".62"/><stop offset="1" stop-color="#f6f2fc" stop-opacity=".16"/></radialGradient>
  <radialGradient id="c"><stop offset="0" stop-color="#e0f2ef" stop-opacity=".6"/><stop offset="1" stop-color="#f4faf8" stop-opacity=".15"/></radialGradient>
  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#8395b8" stroke-width="1.5"/></marker>
  </defs><rect width="1200" height="675" fill="#ffffff"/>
- <text x="600" y="92" font-family="Helvetica,Arial,sans-serif" font-size="57" font-weight="700" fill="#172954" text-anchor="middle" letter-spacing="-.025em">Drug Discovery</text><line x1="549" y1="120" x2="651" y2="120" stroke="#b9c5e7" stroke-width="4" stroke-linecap="round" />
+ 
  <circle cx="202" cy="356" r="188" fill="url(#a)" stroke="none" stroke-width="0"/><circle cx="602" cy="356" r="188" fill="url(#b)" stroke="none" stroke-width="0"/><circle cx="1002" cy="356" r="188" fill="url(#c)" stroke="none" stroke-width="0"/>
  <text x="202" y="190" font-family="Helvetica,Arial,sans-serif" font-size="25" font-weight="640" fill="#172954" text-anchor="middle" letter-spacing="-.025em">Targeted Protein</text>
  <text x="202" y="223" font-family="Helvetica,Arial,sans-serif" font-size="25" font-weight="640" fill="#172954" text-anchor="middle" letter-spacing="-.025em">Degradation</text>
