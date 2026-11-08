@@ -13,7 +13,14 @@
           {{ with $item.subtitle }}<span class="wwl-research__subtitle">{{ . }}</span>{{ end }}
           {{ with $item.overview }}<p class="wwl-research__overview">{{ . }}</p>{{ end }}
         </div>
-        {{ with $item.image }}
+        {{/* Keep the current SVG visible until the uploaded PNG exists in static/. */}}
+        {{ $figureImage := $item.image }}
+        {{ with $item.image_fallback }}
+          {{ if not (fileExists (printf "static/%s" $figureImage)) }}
+            {{ $figureImage = . }}
+          {{ end }}
+        {{ end }}
+        {{ with $figureImage }}
         <figure class="wwl-research__figure">
           <img src="{{ . | relURL }}" alt="{{ $item.image_alt }}" width="1672" height="941" loading="lazy" decoding="async">
         </figure>
