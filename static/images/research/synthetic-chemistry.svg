@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img">
+ <defs>
+ <radialGradient id="a"><stop offset="0" stop-color="#d9eaf8" stop-opacity=".68"/><stop offset="1" stop-color="#eaf3fb" stop-opacity=".19"/></radialGradient>
+ <radialGradient id="b"><stop offset="0" stop-color="#e9e1fa" stop-opacity=".62"/><stop offset="1" stop-color="#f6f2fc" stop-opacity=".16"/></radialGradient>
+ <radialGradient id="c"><stop offset="0" stop-color="#e0f2ef" stop-opacity=".6"/><stop offset="1" stop-color="#f4faf8" stop-opacity=".15"/></radialGradient>
+ <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#8395b8" stroke-width="1.5"/></marker>
+ </defs><rect width="1200" height="675" fill="#ffffff"/>
+ <circle cx="235" cy="215" r="179" fill="url(#a)" stroke="none" stroke-width="0"/><circle cx="968" cy="215" r="185" fill="url(#a)" stroke="none" stroke-width="0"/><circle cx="612" cy="494" r="185" fill="url(#b)" stroke="none" stroke-width="0"/>
+ <path d="M392 184 C495 137 723 139 805 185" fill="none" stroke="#a2bddc" stroke-width="1.6" opacity=".7"/>
+ <path d="M402 400 C390 470 455 518 504 550" fill="none" stroke="#b6c9e4" stroke-width="1.5" opacity=".6"/>
+ <path d="M792 411 C779 479 742 526 709 543" fill="none" stroke="#b6c9e4" stroke-width="1.5" opacity=".6"/>
+ <text x="610" y="304" font-family="Helvetica,Arial,sans-serif" font-size="53" font-weight="700" fill="#172954" text-anchor="middle" letter-spacing="-.025em">Synthetic</text>
+ <text x="610" y="359" font-family="Helvetica,Arial,sans-serif" font-size="53" font-weight="700" fill="#172954" text-anchor="middle" letter-spacing="-.025em">Chemistry</text>
+ <text x="94" y="105" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="650" fill="#172954" text-anchor="start" letter-spacing="-.025em">Asymmetric Catalysis</text>
+ <polygon points="209.0,236.0 191.0,267.2 155.0,267.2 137.0,236.0 155.0,204.8 191.0,204.8" fill="none" stroke="#263a61" stroke-width="3" stroke-linejoin="round"/><circle cx="173" cy="236" r="18.72" fill="none" stroke="#263a61" stroke-width="2"/><line x1="209" y1="236" x2="248" y2="236" stroke="#3974c7" stroke-width="3" stroke-linecap="round" />
+ <path d="M258 225 L258 247 M251 230 L267 242" fill="none" stroke="#7862b3" stroke-width="2"/>
+ <text x="258" y="210" font-family="Helvetica,Arial,sans-serif" font-size="22" font-weight="650" fill="#7862b3" text-anchor="middle" letter-spacing="-.025em">*</text>
+ <line x1="282" y1="235" x2="357" y2="235" stroke="#3974c7" stroke-width="2.1" stroke-linecap="round" /><text x="319" y="221" font-family="Helvetica,Arial,sans-serif" font-size="15" font-weight="600" fill="#7862b3" text-anchor="middle" letter-spacing="-.025em">cat.</text>
+ <polygon points="365.0,284.0 352.0,306.5 326.0,306.5 313.0,284.0 326.0,261.5 352.0,261.5" fill="none" stroke="#3974c7" stroke-width="3" stroke-linejoin="round"/><circle cx="339" cy="284" r="13.52" fill="none" stroke="#3974c7" stroke-width="2"/><text x="213" y="337" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#66758f" text-anchor="middle" letter-spacing="-.025em">Stereoselective synthesis</text>
+ <text x="843" y="105" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="650" fill="#172954" text-anchor="start" letter-spacing="-.025em">Photocatalysis</text>
+ <polygon points="900.0,245.0 881.5,277.0 844.5,277.0 826.0,245.0 844.5,213.0 881.5,213.0" fill="none" stroke="#3974c7" stroke-width="3" stroke-linejoin="round"/><circle cx="863" cy="245" r="19.240000000000002" fill="none" stroke="#3974c7" stroke-width="2"/><line x1="900" y1="245" x2="942" y2="245" stroke="#3974c7" stroke-width="2" stroke-linecap="round" />
+ <path d="M945 245 L1010 245" stroke="#7862b3" stroke-width="2.5" marker-end="url(#arrow)"/>
+ <polygon points="1094.0,245.0 1075.5,277.0 1038.5,277.0 1020.0,245.0 1038.5,213.0 1075.5,213.0" fill="none" stroke="#3974c7" stroke-width="3" stroke-linejoin="round"/><circle cx="1057" cy="245" r="19.240000000000002" fill="none" stroke="#3974c7" stroke-width="2"/><line x1="1076" y1="219" x2="1117" y2="195" stroke="#54a9a5" stroke-width="3" stroke-linecap="round" />
+ <text x="973" y="212" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="550" fill="#7862b3" text-anchor="middle" letter-spacing="-.025em">hν</text>
+ <text x="955" y="337" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#66758f" text-anchor="middle" letter-spacing="-.025em">Light-driven transformation</text>
+ <text x="530" y="489" font-family="Helvetica,Arial,sans-serif" font-size="26" font-weight="650" fill="#172954" text-anchor="middle" letter-spacing="-.025em">Medicinal Chemistry</text>
+ <polygon points="662.0,532.0 643.5,564.0 606.5,564.0 588.0,532.0 606.5,500.0 643.5,500.0" fill="none" stroke="#263a61" stroke-width="3" stroke-linejoin="round"/><circle cx="625" cy="532" r="19.240000000000002" fill="none" stroke="#263a61" stroke-width="2"/><line x1="663" y1="532" x2="708" y2="532" stroke="#7862b3" stroke-width="2" stroke-linecap="round" /><circle cx="714" cy="532" r="8" fill="#54a9a5" stroke="none" stroke-width="0"/>
+ <text x="615" y="606" font-family="Helvetica,Arial,sans-serif" font-size="18" font-weight="450" fill="#66758f" text-anchor="middle" letter-spacing="-.025em">Molecular design and optimization</text>
+
+ </svg>

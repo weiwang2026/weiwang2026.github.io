@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img">
+ <defs>
+ <radialGradient id="a"><stop offset="0" stop-color="#d9eaf8" stop-opacity=".68"/><stop offset="1" stop-color="#eaf3fb" stop-opacity=".19"/></radialGradient>
+ <radialGradient id="b"><stop offset="0" stop-color="#e9e1fa" stop-opacity=".62"/><stop offset="1" stop-color="#f6f2fc" stop-opacity=".16"/></radialGradient>
+ <radialGradient id="c"><stop offset="0" stop-color="#e0f2ef" stop-opacity=".6"/><stop offset="1" stop-color="#f4faf8" stop-opacity=".15"/></radialGradient>
+ <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0 L8 3 L0 6" fill="none" stroke="#8395b8" stroke-width="1.5"/></marker>
+ </defs><rect width="1200" height="675" fill="#ffffff"/>
+ <text x="74" y="95" font-family="Helvetica,Arial,sans-serif" font-size="55" font-weight="700" fill="#172954" text-anchor="start" letter-spacing="-.025em">Chemical Biology</text>
+ <line x1="76" y1="124" x2="143" y2="124" stroke="#7862b3" stroke-width="4" stroke-linecap="round" />
+ <path d="M406 228 C460 167 556 174 617 205 C685 172 773 217 811 284 C848 354 810 467 743 477 C655 537 553 492 481 501 C385 492 342 437 340 344 C340 296 372 250 406 228 Z" fill="#f9fcff" stroke="#b4cbe2" stroke-width="3"/>
+ <path d="M435 222 C501 193 566 215 616 228 C703 201 779 275 797 339" fill="none" stroke="#d9e6f5" stroke-width="1.5"/>
+ <g transform="translate(480,348) scale(0.62)"><path d="M-81,-14 C-93,-42 -70,-64 -43,-57 C-29,-77 -2,-74 16,-60 C37,-81 64,-65 58,-43 C88,-43 93,-11 70,6 C90,35 63,57 37,46 C24,77 -7,75 -18,51 C-51,70 -74,51 -72,28 C-95,13 -91,-3 -81,-14 Z" fill="#3974c7" fill-opacity=".12" stroke="#3974c7" stroke-width="2.2"/><path d="M-48,-25 Q-13,-50 8,-25 T43,-12 M-50,16 Q-10,47 39,18" fill="none" stroke="#3974c7" stroke-opacity=".37" stroke-width="1.6" stroke-linecap="round"/></g>
+ <g transform="translate(665,345) scale(0.61)"><path d="M-81,-14 C-93,-42 -70,-64 -43,-57 C-29,-77 -2,-74 16,-60 C37,-81 64,-65 58,-43 C88,-43 93,-11 70,6 C90,35 63,57 37,46 C24,77 -7,75 -18,51 C-51,70 -74,51 -72,28 C-95,13 -91,-3 -81,-14 Z" fill="#54a9a5" fill-opacity=".12" stroke="#54a9a5" stroke-width="2.2"/><path d="M-48,-25 Q-13,-50 8,-25 T43,-12 M-50,16 Q-10,47 39,18" fill="none" stroke="#54a9a5" stroke-opacity=".37" stroke-width="1.6" stroke-linecap="round"/></g>
+ <line x1="519" y1="345" x2="627" y2="345" stroke="#7862b3" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 7"/>
+ <circle cx="569" cy="345" r="9" fill="#ebe5fb" stroke="#7862b3" stroke-width="2"/>
+ <text x="571" y="323" font-family="Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#7862b3" text-anchor="middle" letter-spacing="-.025em">Proximity</text>
+ <circle cx="492" cy="304" r="10" fill="#dff1eb" stroke="#54a9a5" stroke-width="2"/>
+ <circle cx="664" cy="299" r="10" fill="#e7e0fb" stroke="#7862b3" stroke-width="2"/>
+ <rect x="487" y="322" width="11" height="11" rx="5" fill="#67a9b7" stroke="none"/>
+ <path d="M378 355 C312 353 289 342 245 326" fill="none" stroke="#8aa1c3" stroke-width="2" marker-end="url(#arrow)"/>
+ <circle cx="232" cy="316" r="17" fill="#e9effc" stroke="#3974c7" stroke-width="2"/><circle cx="204" cy="295" r="8" fill="#e8dffa" stroke="#7862b3" stroke-width="1.8"/>
+ <line x1="215" y1="301" x2="226" y2="309" stroke="#7862b3" stroke-width="2.8" stroke-linecap="round" />
+ <text x="75" y="195" font-family="Helvetica,Arial,sans-serif" font-size="28" font-weight="650" fill="#172954" text-anchor="start" letter-spacing="-.025em">Bioorthogonal</text>
+ <text x="75" y="229" font-family="Helvetica,Arial,sans-serif" font-size="28" font-weight="650" fill="#172954" text-anchor="start" letter-spacing="-.025em">Chemistry</text>
+ <text x="76" y="272" font-family="Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#66758f" text-anchor="start" letter-spacing="-.025em">Selective labeling</text>
+ <text x="76" y="298" font-family="Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#66758f" text-anchor="start" letter-spacing="-.025em">in living systems</text>
+ <path d="M740 358 C829 359 860 323 912 307" fill="none" stroke="#8aa1c3" stroke-width="2" marker-end="url(#arrow)"/>
+ <g transform="translate(984,291) scale(0.53)"><path d="M-81,-14 C-93,-42 -70,-64 -43,-57 C-29,-77 -2,-74 16,-60 C37,-81 64,-65 58,-43 C88,-43 93,-11 70,6 C90,35 63,57 37,46 C24,77 -7,75 -18,51 C-51,70 -74,51 -72,28 C-95,13 -91,-3 -81,-14 Z" fill="#3974c7" fill-opacity=".12" stroke="#3974c7" stroke-width="2.2"/><path d="M-48,-25 Q-13,-50 8,-25 T43,-12 M-50,16 Q-10,47 39,18" fill="none" stroke="#3974c7" stroke-opacity=".37" stroke-width="1.6" stroke-linecap="round"/></g>
+ <circle cx="1006" cy="252" r="9" fill="#e1f3ea" stroke="#54a9a5" stroke-width="2"/>
+ <line x1="1006" y1="265" x2="1006" y2="279" stroke="#54a9a5" stroke-width="2" stroke-linecap="round" />
+ <text x="900" y="190" font-family="Helvetica,Arial,sans-serif" font-size="28" font-weight="650" fill="#172954" text-anchor="start" letter-spacing="-.025em">Biomolecular</text>
+ <text x="900" y="224" font-family="Helvetica,Arial,sans-serif" font-size="28" font-weight="650" fill="#172954" text-anchor="start" letter-spacing="-.025em">Engineering</text>
+ <text x="902" y="392" font-family="Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#66758f" text-anchor="start" letter-spacing="-.025em">Site-selective</text>
+ <text x="902" y="418" font-family="Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#66758f" text-anchor="start" letter-spacing="-.025em">modification</text>
+ <circle cx="596" cy="478" r="5" fill="#dfe9f4" stroke="none" stroke-width="0"/><circle cx="616" cy="485" r="5" fill="#dfe9f4" stroke="none" stroke-width="0"/><circle cx="636" cy="478" r="5" fill="#dfe9f4" stroke="none" stroke-width="0"/>
+ <path d="M620 491 V536" stroke="#8aa1c3" stroke-width="2" stroke-dasharray="6 6"/>
+ <text x="618" y="571" font-family="Helvetica,Arial,sans-serif" font-size="25" font-weight="650" fill="#172954" text-anchor="middle" letter-spacing="-.025em">Proximity Chemistry</text>
+ <text x="618" y="599" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#66758f" text-anchor="middle" letter-spacing="-.025em">Protein interactions and functional regulation</text>
+
+ </svg>

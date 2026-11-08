@@ -1,39 +1,36 @@
 {{- define "main" -}}
+<main class="wwl-research" aria-labelledby="wwl-research-heading">
+  <header class="wwl-research__header">
+    <h1 id="wwl-research-heading">{{ .Title }}</h1>
+    {{ with .Params.research_intro }}<p class="wwl-research__intro">{{ . }}</p>{{ end }}
+  </header>
 
-{{/* Keep an accessible page heading without a duplicate visible title. */}}
-<h1 class="sr-only">{{ .Title }}</h1>
-
-<div class="universal-wrapper  page-research ">
-  {{ with .Content }}
-    <div class="article-style">{{ . }}</div>
-  {{ end }}
-
-
-
-  <div class="research-list-wrap">
+  <div class="wwl-research__list">
     {{ range $index, $item := .Params.research_areas }}
-
-      <div class="research-item r-index{{$index}} row  ">
-
-        <div class="col-12 col-md-6 r-img">
-          <div class=" r-img-wrap ">
-            <img alt="" src="{{ $item.image | relURL }}" />
-          </div>
+    <section class="wwl-research__feature" id="{{ $item.id }}" aria-labelledby="wwl-research-section-{{ $index }}">
+      <div class="wwl-research__feature-header">
+        <span class="wwl-research__number" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+        <div class="wwl-research__feature-title">
+          <h2 id="wwl-research-section-{{ $index }}">{{ $item.title }}</h2>
+          {{ with $item.subtitle }}<span class="wwl-research__subtitle">{{ . }}</span>{{ end }}
         </div>
-
-        <div class="col-12 col-md-6   rc-wrap">
-          <div class="r-title">{{$item.title | markdownify}}</div>
-          <div class="r-content">{{$item.desc | markdownify}}</div>
-        </div>
-
-
       </div>
-
+      {{ with $item.overview }}<p class="wwl-research__overview">{{ . }}</p>{{ end }}
+      {{ with $item.image }}
+      <figure class="wwl-research__figure">
+        <img src="{{ . | relURL }}" alt="{{ $item.image_alt }}" width="1000" height="563" loading="lazy" decoding="async">
+      </figure>
+      {{ end }}
+      <div class="wwl-research__focus-grid">
+        {{ range $item.focuses }}
+        <div class="wwl-research__focus">
+          <h3>{{ .title }}</h3>
+          <p>{{ .desc }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </section>
     {{ end }}
   </div>
-
-
-
-</div>
-
+</main>
 {{- end -}}
