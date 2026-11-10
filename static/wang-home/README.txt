@@ -1,1 +1,1 @@
-Wang Group homepage images
+Wang Lab homepage images

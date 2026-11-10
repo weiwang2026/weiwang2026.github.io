@@ -793,7 +793,7 @@ body {
 
 
 /* =====================================
-   Wang Group Navigation Bar
+   Wang Lab Navigation Bar
    ===================================== */
 
 /* 导航栏深海军蓝背景 */
@@ -801,7 +801,7 @@ body {
   background-color: #0B1530 !important;
 }
 
-/* Logo 与 Wang Group 水平排列、垂直居中 */
+/* Logo 与 Wang Lab 水平排列、垂直居中 */
 #navbar-main .navbar-brand {
   display: inline-flex;
   align-items: center;
@@ -810,7 +810,7 @@ body {
   white-space: nowrap;
 }
 
-/* 在 Wang Group 文字前插入 Logo */
+/* 在 Wang Lab 文字前插入 Logo */
 #navbar-main .navbar-brand::before {
   content: "";
   display: block;
@@ -851,7 +851,7 @@ body {
 }
 
 
-/* Wang Group 文字向下微调 */
+/* Wang Lab 文字向下微调 */
 #navbar-main .navbar-brand {
   position: relative;
   top: 3px;
@@ -873,7 +873,7 @@ body {
 }
 
 /* ==========================================
-   Wang Group - Unified Page Background
+   Wang Lab - Unified Page Background
    与 Science without boundaries 背景统一
    ========================================== */
 
@@ -900,7 +900,7 @@ body:not(.wwl-has-home) .home-section {
 }
 
 /* =============================================================
-   Wang Group | Global navigation styles
+   Wang Lab | Global navigation styles
    Add this block at the END of assets/scss/custom.scss.
    Applies to HOME and all inner pages.
    Does NOT change the home-only scroll/docking JavaScript.
@@ -918,7 +918,7 @@ body:not(.wwl-has-home) .home-section {
   box-shadow: 0 3px 20px rgba(8, 20, 48, .12);
 }
 
-/* Logo and Wang Group title are vertically aligned. */
+/* Logo and Wang Lab title are vertically aligned. */
 #navbar-main .navbar-brand {
   display: inline-flex !important;
   align-items: center !important;
@@ -987,7 +987,7 @@ body:not(.wwl-has-home) .home-section {
 
 
 /* ==========================================================
-   Wang Group | Members: Apple-inspired minimal gallery (A)
+   Wang Lab | Members: Apple-inspired minimal gallery (A)
    Scoped to /people/; preserves existing page background.
    ========================================================== */
 .wwl-team-gallery {
@@ -1232,7 +1232,7 @@ body:not(.wwl-has-home) .home-section {
 }
 
 
-/* Wang Group | Seamless homepage footer background */
+/* Wang Lab | Seamless homepage footer background */
 /* Match the final stop of the Science without boundaries gradient. */
 body.wwl-has-home,
 body.wwl-has-home #content,
@@ -1699,7 +1699,7 @@ body :where(
 
 
 /* ================================================
-   Wang Group | Research editorial layout, v2
+   Wang Lab | Research editorial layout, v2
    ================================================ */
 .wwl-research {
   box-sizing: border-box;

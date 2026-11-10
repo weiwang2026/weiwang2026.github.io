@@ -19,6 +19,6 @@ content_values:
 
 ---
 
-At the intersection of chemistry, biology, and artificial intelligence, the Wang Group brings together passionate researchers to push scientific boundaries and pioneer new approaches to drug discovery. From precision molecular design to innovative chemical biology and AI-driven therapeutics, we foster a collaborative environment where creativity thrives, disciplines converge, and ambitious ideas become meaningful discoveries.
+At the intersection of chemistry, biology, and artificial intelligence, the Wang Lab brings together passionate researchers to push scientific boundaries and pioneer new approaches to drug discovery. From precision molecular design to innovative chemical biology and AI-driven therapeutics, we foster a collaborative environment where creativity thrives, disciplines converge, and ambitious ideas become meaningful discoveries.
 
 **Let's explore the unknown, challenge the possible, and make a difference together.**

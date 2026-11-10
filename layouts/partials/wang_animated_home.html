@@ -1,6 +1,6 @@
 <style>
 /* ===============================================================
-   Wang Group homepage. Fully editable HTML hero + animated SVG waves.
+   Wang Lab homepage. Fully editable HTML hero + animated SVG waves.
    Keeps the original floating logo and native Hugo navbar unchanged.
    =============================================================== */
 #wwl-home {
@@ -211,15 +211,15 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
   #wwl-home .wwl-tile { transition: none !important; }
 }
 </style>
-<div id="wwl-home" aria-label="Wang Group homepage">
+<div id="wwl-home" aria-label="Wang Lab homepage">
   <div class="wwl-track" id="wwl-scroll-track">
-    <section class="wwl-stage" id="wwl-hero" aria-label="Welcome to Wang Group">
+    <section class="wwl-stage" id="wwl-hero" aria-label="Welcome to Wang Lab">
       <!-- The full-page background is now CSS, rather than an uneditable PNG. -->
       <div class="wwl-scene" id="wwl-scene" aria-hidden="true"></div>
 
       <!-- EDITABLE: replace the heading, institution, and research labels here. -->
       <div class="wwl-hero-content" id="wwl-hero-content">
-        <h1 class="wwl-hero-heading">Welcome to <span class="wwl-brand-gradient">Wang Group</span></h1>
+        <h1 class="wwl-hero-heading">Welcome to <span class="wwl-brand-gradient">Wang Lab</span></h1>
         <p class="wwl-affiliation">Eastern Institute of Technology, Ningbo</p>
         <div class="wwl-hero-fields" aria-label="Research disciplines">
           <span class="wwl-hero-field">
@@ -335,7 +335,7 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
     </div>
   </section>
 </div>
-<div id="wwl-floating-logo" role="img" aria-label="Full WWL Wang Group logo with three molecular nodes">
+<div id="wwl-floating-logo" role="img" aria-label="Full WWL Wang Lab logo with three molecular nodes">
  <canvas class="wwl-trace" id="wwl-intro-canvas" aria-hidden="true"></canvas>
  <img class="wwl-original" id="wwl-logo-img" src="{{ "wang-home/wwl-logo-full.png" | relURL }}" alt="" draggable="false" />
  <canvas class="wwl-twist" id="wwl-twist-canvas" aria-hidden="true"></canvas>
@@ -374,7 +374,7 @@ body.wwl-has-home #navbar-main .navbar-brand img.wwl-brand-landing { object-fit:
 })();
 </script>
 <script>
-/* Wang Group homepage — seamless GPU logo deformation with Canvas 2D fallback. */
+/* Wang Lab homepage — seamless GPU logo deformation with Canvas 2D fallback. */
 (function () {
 'use strict';
 const root=document.getElementById('wwl-home');if(!root)return;
