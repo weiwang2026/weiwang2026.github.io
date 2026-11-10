@@ -51,6 +51,12 @@
   color: #101d55;
 }
 #wwl-home .wwl-hero-heading .wwl-brand-gradient {
+  /* Keep the last glyph fully painted: inline clipping and tight tracking
+     can trim the lower-left serif of the final "b" in Chromium. */
+  display: inline-block;
+  letter-spacing: -.025em;
+  padding-right: .08em;
+  margin-right: -.08em;
   background: linear-gradient(92deg, #5221ba 0%, #8832f2 48%, #0e50eb 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
