@@ -1,5 +1,5 @@
 ---
-title: Contact us
+title: Contact
 headline: Great science begins with bold ideas and curious minds.
  
  
